@@ -1,0 +1,23 @@
+const express = require("express");
+
+const healthRoutes = require("./health.routes");
+const authRoutes = require("../modules/auth/auth.routes");
+
+const userRoutes = require("./user.routes");
+
+const studentRoutes = require("./student.routes");
+
+const teacherRoutes = require("./teacher.routes");
+
+const examRoutes = require("../modules/exam/exam.routes");
+
+const router = express.Router();
+
+router.use("/", healthRoutes);
+router.use("/auth", authRoutes);
+router.use("/user", userRoutes);
+router.use("/student", studentRoutes);
+router.use("/teacher", teacherRoutes);
+router.use("/exams", examRoutes);
+
+module.exports = router;

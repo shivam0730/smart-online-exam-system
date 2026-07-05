@@ -1,13 +1,7 @@
-const express = require("express");
+const app = require("./app");
+const config = require("./config");
 
-const app = express();
-
-const PORT = 5000;
-
-app.get("/", (req, res) => {
-    res.send("Smart Online Examination Backend");
-});
-
-app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
+app.listen(config.PORT, () => {
+    console.log(
+    `🚀 ${config.APP_NAME} running on port ${config.PORT} in ${config.NODE_ENV} mode`);
 });
