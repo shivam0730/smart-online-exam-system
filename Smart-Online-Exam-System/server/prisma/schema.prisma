@@ -37,6 +37,9 @@ model User {
 
   exams Exam[]
 
+  attempts ExamAttempt[]
+  results  Result[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 }
@@ -60,10 +63,127 @@ model Exam {
   createdById String
   createdBy   User   @relation(fields: [createdById], references: [id])
 
+  questions Question[]
+
+  attempts ExamAttempt[]
+  results  Result[]
+
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
   @@index([createdById])
   @@index([status])
   @@index([startTime])
+}
+
+model Question {
+  id          String  @id @default(cuid())
+  question    String
+  marks       Int     @default(1)
+  explanation String?
+
+  order    Int
+  isActive Boolean @default(true)
+
+  examId String
+  exam   Exam   @relation(fields: [examId], references: [id], onDelete: Cascade)
+
+  options QuestionOption[]
+
+  answers StudentAnswer[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([examId])
+}
+
+model QuestionOption {
+  id        String  @id @default(cuid())
+  option    String
+  isCorrect Boolean @default(false)
+
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  answers StudentAnswer[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([questionId])
+}
+
+model ExamAttempt {
+  id String @id @default(cuid())
+
+  examId String
+  exam   Exam   @relation(fields: [examId], references: [id], onDelete: Cascade)
+
+  studentId String
+  student   User   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  startedAt   DateTime  @default(now())
+  submittedAt DateTime?
+
+  isSubmitted Boolean @default(false)
+
+  answers StudentAnswer[]
+
+  result Result?
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([examId, studentId])
+  @@index([studentId])
+  @@index([examId])
+}
+
+model StudentAnswer {
+  id String @id @default(cuid())
+
+  attemptId String
+  attempt   ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+
+  questionId String
+  question   Question @relation(fields: [questionId], references: [id], onDelete: Cascade)
+
+  selectedOptionId String
+  selectedOption   QuestionOption @relation(fields: [selectedOptionId], references: [id])
+
+  isCorrect Boolean
+
+  marksAwarded Int @default(0)
+
+  createdAt DateTime @default(now())
+
+  @@index([attemptId])
+  @@index([questionId])
+}
+
+model Result {
+  id String @id @default(cuid())
+
+  examId String
+  exam   Exam   @relation(fields: [examId], references: [id], onDelete: Cascade)
+
+  studentId String
+  student   User   @relation(fields: [studentId], references: [id], onDelete: Cascade)
+
+  attemptId String      @unique
+  attempt   ExamAttempt @relation(fields: [attemptId], references: [id], onDelete: Cascade)
+
+  score Int
+
+  totalMarks Int
+
+  percentage Float
+
+  isPassed Boolean
+
+  createdAt DateTime @default(now())
+
+  @@index([studentId])
+  @@index([examId])
 }
