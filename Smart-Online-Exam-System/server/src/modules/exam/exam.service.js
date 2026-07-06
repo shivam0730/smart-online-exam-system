@@ -30,6 +30,110 @@ const getExamById = async (id) => {
 };
 
 
+const updateExam = async (id, payload) => {
+    const exam = await examRepository.findExamById(id);
+
+    if (!exam) {
+        throw new ApiError(404, "Exam not found.");
+    }
+
+    if (exam.status === EXAM_STATUS.COMPLETED) {
+        throw new ApiError(
+            400,
+            "Completed exams cannot be updated."
+        );
+    }
+
+    if (payload.title) {
+        const existingExam =
+            await examRepository.findExamByTitleExcludingId(
+                payload.title,
+                id
+            );
+
+        if (existingExam) {
+            throw new ApiError(
+                409,
+                "Another exam with this title already exists."
+            );
+        }
+    }
+
+    return examRepository.updateExam(id, payload);
+};
+
+
+const deleteExam = async (id) => {
+    const exam = await examRepository.findExamById(id);
+
+    if (!exam) {
+        throw new ApiError(404, "Exam not found.");
+    }
+
+    if (exam.status === EXAM_STATUS.COMPLETED) {
+        throw new ApiError(
+            400,
+            "Completed exams cannot be deleted."
+        );
+    }
+
+    await examRepository.softDeleteExam(id);
+
+    return {
+        message: "Exam deleted successfully.",
+    };
+};
+
+
+const publishExam = async (id) => {
+    const exam = await examRepository.findExamById(id);
+
+    if (!exam) {
+        throw new ApiError(404, "Exam not found.");
+    }
+
+    if (exam.status === EXAM_STATUS.PUBLISHED) {
+        throw new ApiError(
+            400,
+            "Exam is already published."
+        );
+    }
+
+    if (exam.status === EXAM_STATUS.COMPLETED) {
+        throw new ApiError(
+            400,
+            "Completed exam cannot be published."
+        );
+    }
+
+    return examRepository.publishExam(id);
+};
+
+
+const unpublishExam = async (id) => {
+    const exam = await examRepository.findExamById(id);
+
+    if (!exam) {
+        throw new ApiError(404, "Exam not found.");
+    }
+
+    if (exam.status === EXAM_STATUS.DRAFT) {
+        throw new ApiError(
+            400,
+            "Exam is already in draft state."
+        );
+    }
+
+    if (exam.status === EXAM_STATUS.COMPLETED) {
+        throw new ApiError(
+            400,
+            "Completed exam cannot be unpublished."
+        );
+    }
+
+    return examRepository.unpublishExam(id);
+};
+
 
 const getAllExams = async (query) => {
     const page = Math.max(1, Number(query.page) || 1);
@@ -77,4 +181,8 @@ module.exports = {
     createExam,
     getExamById,
     getAllExams,
+    updateExam,
+    deleteExam,
+    publishExam,
+    unpublishExam,
 };

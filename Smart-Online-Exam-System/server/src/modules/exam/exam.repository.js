@@ -111,6 +111,18 @@ const updateExam = (id, data) => {
     });
 };
 
+const findExamByTitleExcludingId = (title, id) => {
+    return prisma.exam.findFirst({
+        where: {
+            title,
+            isDeleted: false,
+            NOT: {
+                id,
+            },
+        },
+    });
+};
+
 const softDeleteExam = (id) => {
     return prisma.exam.update({
         where: {
@@ -123,12 +135,38 @@ const softDeleteExam = (id) => {
     });
 };
 
+
+const publishExam = (id) => {
+    return prisma.exam.update({
+        where: {
+            id,
+        },
+        data: {
+            status: "PUBLISHED",
+        },
+    });
+};
+
+const unpublishExam = (id) => {
+    return prisma.exam.update({
+        where: {
+            id,
+        },
+        data: {
+            status: "DRAFT",
+        },
+    });
+};
+
 module.exports = {
     createExam,
     findExamById,
     findExamByTitle,
+    findExamByTitleExcludingId,
     getAllExams,
     countExams,
     updateExam,
     softDeleteExam,
+    publishExam,
+    unpublishExam,
 };

@@ -8,6 +8,7 @@ const validateMiddleware = require("../../middleware/validate.middleware");
 
 const {
     createExamSchema,
+    updateExamSchema,
 } = require("./exam.validation");
 
 const router = express.Router();
@@ -37,5 +38,53 @@ router.get(
     authMiddleware,
     examController.getExamById
 );
+
+router.patch(
+    "/:id",
+    authMiddleware,
+    roleMiddleware(
+        "SUPER_ADMIN",
+        "ADMIN",
+        "TEACHER"
+    ),
+    validateMiddleware(updateExamSchema),
+    examController.updateExam
+);
+
+router.delete(
+    "/:id",
+    authMiddleware,
+    roleMiddleware(
+        "SUPER_ADMIN",
+        "ADMIN",
+        "TEACHER"
+    ),
+    examController.deleteExam
+);
+
+
+router.patch(
+    "/:id/publish",
+    authMiddleware,
+    roleMiddleware(
+        "SUPER_ADMIN",
+        "ADMIN",
+        "TEACHER"
+    ),
+    examController.publishExam
+);
+
+
+router.patch(
+    "/:id/unpublish",
+    authMiddleware,
+    roleMiddleware(
+        "SUPER_ADMIN",
+        "ADMIN",
+        "TEACHER"
+    ),
+    examController.unpublishExam
+);
+
 
 module.exports = router;
