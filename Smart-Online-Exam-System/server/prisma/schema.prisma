@@ -158,6 +158,8 @@ model StudentAnswer {
 
   createdAt DateTime @default(now())
 
+  @@unique([attemptId, questionId])
+  
   @@index([attemptId])
   @@index([questionId])
 }
