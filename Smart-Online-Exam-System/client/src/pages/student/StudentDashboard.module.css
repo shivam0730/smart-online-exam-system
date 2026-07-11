@@ -1,0 +1,277 @@
+.dashboard {
+  min-height: 100vh;
+  color: #0f172a;
+  background: #f4f7fb;
+}
+
+.header {
+  min-height: 76px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #1d4ed8;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.userArea {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.userArea div {
+  display: grid;
+  text-align: right;
+}
+
+.userArea span {
+  margin-top: 3px;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.userArea button,
+.welcome button,
+.examCard button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  border: 0;
+  border-radius: 9px;
+  color: #ffffff;
+  background: #2563eb;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.userArea button {
+  padding: 11px 16px;
+}
+
+.main {
+  width: min(1180px, 88%);
+  margin: 0 auto;
+  padding: 54px 0 70px;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 38px;
+}
+
+.welcome span,
+.panelHeading span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1.8px;
+}
+
+.welcome h1 {
+  margin: 10px 0;
+  font-size: 40px;
+  letter-spacing: -1.5px;
+}
+
+.welcome p {
+  margin: 0;
+  color: #64748b;
+  font-size: 17px;
+}
+
+.welcome button {
+  padding: 14px 20px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 26px;
+}
+
+.statCard {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  padding: 25px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.iconBox {
+  width: 52px;
+  height: 52px;
+  display: grid;
+  place-items: center;
+  border-radius: 12px;
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.statCard div:last-child {
+  display: grid;
+  gap: 7px;
+}
+
+.statCard span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.statCard strong {
+  font-size: 28px;
+}
+
+.contentGrid {
+  display: grid;
+  grid-template-columns: 1.35fr 1fr;
+  gap: 24px;
+}
+
+.panel {
+  padding: 28px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.panelHeading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.panelHeading h2 {
+  margin: 8px 0 0;
+  font-size: 22px;
+}
+
+.panelHeading button {
+  border: 0;
+  color: #2563eb;
+  background: transparent;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.examCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px;
+  border-radius: 12px;
+  background: #f8fafc;
+}
+
+.examStatus {
+  color: #15803d;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+.examCard h3 {
+  margin: 9px 0 5px;
+}
+
+.examCard p {
+  margin: 0;
+  color: #64748b;
+}
+
+.examCard button {
+  min-width: 110px;
+  padding: 12px 16px;
+}
+
+.progress {
+  min-height: 150px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.progressCircle {
+  min-width: 105px;
+  height: 105px;
+  display: grid;
+  place-items: center;
+  border: 10px solid #dbeafe;
+  border-top-color: #2563eb;
+  border-radius: 50%;
+  color: #1d4ed8;
+  font-size: 25px;
+  font-weight: 800;
+}
+
+.progress h3 {
+  margin: 0 0 9px;
+}
+
+.progress p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.6;
+}
+
+@media (max-width: 850px) {
+  .statsGrid,
+  .contentGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .welcome {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .userArea div {
+    display: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .main {
+    width: calc(100% - 36px);
+    padding-top: 35px;
+  }
+
+  .welcome h1 {
+    font-size: 32px;
+  }
+
+  .examCard,
+  .progress {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}
+
+.errorMessage {
+  margin: 0 0 24px;
+  padding: 14px 18px;
+  border: 1px solid #fecaca;
+  border-radius: 10px;
+  color: #b91c1c;
+  background: #fef2f2;
+}

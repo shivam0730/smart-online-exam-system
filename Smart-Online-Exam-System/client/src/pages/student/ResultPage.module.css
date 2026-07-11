@@ -1,0 +1,296 @@
+.resultPage {
+  min-height: 100vh;
+  color: #0f172a;
+  background: #f4f7fb;
+}
+
+.header {
+  min-height: 74px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 6%;
+  border-bottom: 1px solid #e2e8f0;
+  background: #ffffff;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #2563eb;
+  font-size: 22px;
+  font-weight: 800;
+}
+
+.header a {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 11px 16px;
+  border-radius: 9px;
+  color: #2563eb;
+  background: #eff6ff;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.main {
+  width: min(1050px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 50px 0 75px;
+}
+
+.resultHero {
+  padding: 42px 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 18px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.passIcon,
+.failIcon {
+  width: 82px;
+  height: 82px;
+  display: grid;
+  place-items: center;
+  margin: 0 auto 22px;
+  border-radius: 50%;
+}
+
+.passIcon {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.failIcon {
+  color: #dc2626;
+  background: #fee2e2;
+}
+
+.resultHero > span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.resultHero h1 {
+  margin: 12px 0 17px;
+  font-size: 38px;
+  letter-spacing: -1px;
+}
+
+.passBadge,
+.failBadge {
+  width: fit-content;
+  margin: 0 auto 18px;
+  padding: 7px 15px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.passBadge {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.failBadge {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.resultHero p {
+  margin: 0;
+  color: #64748b;
+  font-size: 17px;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin: 25px 0;
+}
+
+.statCard {
+  display: grid;
+  gap: 10px;
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #ffffff;
+}
+
+.statCard svg {
+  color: #2563eb;
+}
+
+.statCard span {
+  color: #64748b;
+  font-size: 14px;
+}
+
+.statCard strong {
+  font-size: 27px;
+}
+
+.reviewSection {
+  padding: 30px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+}
+
+.sectionHeading {
+  margin-bottom: 25px;
+}
+
+.sectionHeading span {
+  color: #2563eb;
+  font-size: 12px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.sectionHeading h2 {
+  margin: 8px 0 0;
+  font-size: 27px;
+}
+
+.answerCard {
+  padding: 24px;
+  border: 1px solid #e2e8f0;
+  border-radius: 13px;
+  background: #f8fafc;
+}
+
+.answerCard + .answerCard {
+  margin-top: 18px;
+}
+
+.answerHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.answerHeader > span {
+  color: #64748b;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.correct,
+.incorrect {
+  padding: 6px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+}
+
+.correct {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.incorrect {
+  color: #b91c1c;
+  background: #fee2e2;
+}
+
+.answerCard h3 {
+  margin: 20px 0;
+  font-size: 20px;
+}
+
+.answerCard > p {
+  margin: 10px 0;
+  color: #475569;
+}
+
+.explanation {
+  margin-top: 20px;
+  padding: 17px;
+  border-left: 4px solid #2563eb;
+  border-radius: 8px;
+  background: #eff6ff;
+}
+
+.explanation strong {
+  color: #1d4ed8;
+}
+
+.explanation p {
+  margin: 7px 0 0;
+  color: #475569;
+  line-height: 1.6;
+}
+
+.statePage {
+  min-height: 100vh;
+  display: grid;
+  place-items: center;
+  padding: 25px;
+  background: #f4f7fb;
+}
+
+.errorCard {
+  width: min(430px, 100%);
+  padding: 42px;
+  border: 1px solid #e2e8f0;
+  border-radius: 16px;
+  background: #ffffff;
+  text-align: center;
+}
+
+.errorCard svg {
+  color: #2563eb;
+}
+
+.errorCard h1 {
+  margin: 20px 0 12px;
+}
+
+.errorCard p {
+  color: #64748b;
+}
+
+.errorCard a {
+  display: inline-block;
+  margin-top: 15px;
+  color: #2563eb;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+@media (max-width: 850px) {
+  .statsGrid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 560px) {
+  .header {
+    padding: 0 20px;
+  }
+
+  .main {
+    width: calc(100% - 30px);
+    padding-top: 30px;
+  }
+
+  .resultHero h1 {
+    font-size: 30px;
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .reviewSection {
+    padding: 20px;
+  }
+}
