@@ -11,6 +11,8 @@ const studentExamRoutes = require("./studentExam.routes");
 
 const resultRoutes = require("./result.routes");
 
+const teacherResultRoutes = require("./teacherResult.routes");
+
 const teacherRoutes = require("./teacher.routes");
 
 const questionRoutes = require("./question.routes");
@@ -25,6 +27,7 @@ router.use("/user", userRoutes);
 router.use("/student/exams", studentExamRoutes);
 router.use("/student/results", resultRoutes);
 router.use("/student", studentRoutes);
+router.use("/teacher",teacherResultRoutes);
 router.use("/teacher", teacherRoutes);
 router.use("/teacher", questionRoutes);
 router.use("/exams", examRoutes);
