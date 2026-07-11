@@ -1,0 +1,647 @@
+.page {
+  min-height: 100vh;
+  padding: 32px 20px 60px;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.12),
+      transparent 28%
+    ),
+    #f5f7fb;
+  color: #111827;
+}
+
+.container {
+  width: min(1180px, 100%);
+  margin: 0 auto;
+}
+
+/* Header */
+
+.header {
+  padding: 42px 48px;
+  margin-bottom: 32px;
+  border-radius: 30px;
+  text-align: center;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #111b33 0%,
+      #263d73 100%
+    );
+  box-shadow:
+    0 22px 50px
+    rgba(31, 49, 91, 0.18);
+}
+
+.header > button {
+  padding: 0;
+  margin-bottom: 30px;
+  border: none;
+  color: #ffffff;
+  background: transparent;
+  font: inherit;
+  font-size: 16px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.header > button:hover {
+  color: #c7d2fe;
+  transform: translateX(-4px);
+}
+
+.header > button:focus-visible {
+  outline: 3px solid
+    rgba(255, 255, 255, 0.5);
+  outline-offset: 6px;
+  border-radius: 6px;
+}
+
+.header > p {
+  margin: 0 0 18px;
+  color: #9caeff;
+  font-size: 15px;
+  font-weight: 900;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(
+    34px,
+    5vw,
+    54px
+  );
+  line-height: 1.1;
+}
+
+.header > span {
+  display: block;
+  max-width: 680px;
+  margin: 20px auto 0;
+  color: #e5e7eb;
+  font-size: 18px;
+  line-height: 1.7;
+}
+
+/* Main Form */
+
+.form {
+  display: grid;
+  gap: 28px;
+}
+
+.apiError {
+  padding: 18px 20px;
+  border: 1px solid #fecaca;
+  border-radius: 16px;
+  color: #b91c1c;
+  background: #fef2f2;
+  font-weight: 700;
+  text-align: center;
+}
+
+.formSection {
+  padding: 36px;
+  border: 1px solid #e1e7f0;
+  border-radius: 28px;
+  background: #ffffff;
+  box-shadow:
+    0 18px 45px
+    rgba(15, 23, 42, 0.07);
+}
+
+.sectionHeading {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-bottom: 26px;
+  margin-bottom: 30px;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.sectionHeading > span {
+  display: grid;
+  flex: 0 0 62px;
+  width: 62px;
+  height: 62px;
+  place-items: center;
+  border-radius: 18px;
+  color: #4f46e5;
+  background: #eef2ff;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.sectionHeading h2 {
+  margin: 0 0 7px;
+  color: #111827;
+  font-size: 26px;
+}
+
+.sectionHeading p {
+  margin: 0;
+  color: #7c879f;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+/* Form Fields */
+
+.field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 26px;
+}
+
+.field:last-child {
+  margin-bottom: 0;
+}
+
+.field label {
+  margin-bottom: 10px;
+  color: #17213a;
+  font-size: 15px;
+  font-weight: 800;
+}
+
+.field label > span {
+  margin-left: 4px;
+  color: #ef4444;
+}
+
+.field input,
+.field textarea {
+  width: 100%;
+  padding: 16px 18px;
+  border: 1px solid #d8deea;
+  border-radius: 14px;
+  outline: none;
+  color: #111827;
+  background: #fbfcff;
+  font: inherit;
+  font-size: 16px;
+  line-height: 1.6;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.field textarea {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.field input:hover,
+.field textarea:hover {
+  border-color: #a5b4fc;
+}
+
+.field input:focus,
+.field textarea:focus {
+  border-color: #4f46e5;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px
+    rgba(79, 70, 229, 0.12);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: #9ca3af;
+}
+
+.field > em {
+  align-self: flex-end;
+  margin-top: 7px;
+  color: #8b95aa;
+  font-size: 13px;
+  font-style: normal;
+}
+
+.field > small {
+  margin-top: 8px;
+  color: #dc2626;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+/* Options */
+
+.optionList {
+  display: grid;
+  gap: 18px;
+}
+
+.option,
+.correctOption {
+  display: grid;
+  grid-template-columns:
+    auto
+    48px
+    minmax(0, 1fr)
+    auto;
+  align-items: center;
+  gap: 15px;
+  padding: 18px;
+  border: 1px solid #dfe5ef;
+  border-radius: 20px;
+  background: #fafbfe;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease,
+    transform 0.2s ease;
+}
+
+.option:hover {
+  border-color: #a5b4fc;
+  transform: translateY(-2px);
+}
+
+.correctOption {
+  border-color: #86efac;
+  background: #f0fdf4;
+  box-shadow:
+    0 12px 30px
+    rgba(34, 197, 94, 0.1);
+}
+
+.option > label,
+.correctOption > label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #68738a;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.option > label input,
+.correctOption > label input {
+  width: 18px;
+  height: 18px;
+  margin: 0;
+  accent-color: #16a34a;
+  cursor: pointer;
+}
+
+.correctOption > label {
+  color: #15803d;
+}
+
+.option > strong,
+.correctOption > strong {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border-radius: 13px;
+  color: #4338ca;
+  background: #eef2ff;
+  font-size: 17px;
+}
+
+.correctOption > strong {
+  color: #15803d;
+  background: #dcfce7;
+}
+
+.option > input,
+.correctOption > input {
+  width: 100%;
+  min-width: 0;
+  padding: 14px 16px;
+  border: 1px solid #d8deea;
+  border-radius: 12px;
+  outline: none;
+  color: #111827;
+  background: #ffffff;
+  font: inherit;
+  font-size: 15px;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.option > input:focus,
+.correctOption > input:focus {
+  border-color: #4f46e5;
+  box-shadow:
+    0 0 0 4px
+    rgba(79, 70, 229, 0.1);
+}
+
+.correctOption > input {
+  border-color: #86efac;
+}
+
+.option > button,
+.correctOption > button {
+  padding: 11px 15px;
+  border: 1px solid #fecaca;
+  border-radius: 11px;
+  color: #dc2626;
+  background: #ffffff;
+  font: inherit;
+  font-size: 13px;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.option > button:hover:not(:disabled),
+.correctOption
+  > button:hover:not(:disabled) {
+  border-color: #ef4444;
+  color: #ffffff;
+  background: #ef4444;
+}
+
+.option > button:disabled,
+.correctOption > button:disabled {
+  border-color: #e5e7eb;
+  color: #9ca3af;
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.optionError {
+  display: block;
+  margin-top: 14px;
+  color: #dc2626;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.addOptionButton {
+  width: 100%;
+  padding: 16px;
+  margin-top: 24px;
+  border: 2px dashed #a5b4fc;
+  border-radius: 15px;
+  color: #4338ca;
+  background: #f7f7ff;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    border-color 0.2s ease,
+    color 0.2s ease,
+    background 0.2s ease;
+}
+
+.addOptionButton:hover:not(:disabled) {
+  border-color: #4f46e5;
+  color: #ffffff;
+  background: #4f46e5;
+}
+
+.addOptionButton:disabled {
+  border-color: #d1d5db;
+  color: #9ca3af;
+  background: #f3f4f6;
+  cursor: not-allowed;
+}
+
+.optionCount {
+  margin: 12px 0 0;
+  color: #7c879f;
+  font-size: 13px;
+  text-align: center;
+}
+
+/* Footer */
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 16px;
+  padding: 28px;
+  border: 1px solid #e1e7f0;
+  border-radius: 24px;
+  background: #ffffff;
+  box-shadow:
+    0 15px 35px
+    rgba(15, 23, 42, 0.06);
+}
+
+.cancelButton,
+.submitButton {
+  min-width: 190px;
+  padding: 16px 24px;
+  border-radius: 14px;
+  font: inherit;
+  font-size: 15px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cancelButton {
+  border: 1px solid #d5dcea;
+  color: #374151;
+  background: #ffffff;
+}
+
+.cancelButton:hover:not(:disabled) {
+  background: #f3f4f6;
+}
+
+.submitButton {
+  border: 1px solid #4f46e5;
+  color: #ffffff;
+  background:
+    linear-gradient(
+      135deg,
+      #5b4df5,
+      #4338ca
+    );
+  box-shadow:
+    0 12px 25px
+    rgba(79, 70, 229, 0.22);
+}
+
+.submitButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow:
+    0 16px 30px
+    rgba(79, 70, 229, 0.3);
+}
+
+.cancelButton:disabled,
+.submitButton:disabled {
+  opacity: 0.65;
+  cursor: not-allowed;
+  transform: none;
+}
+
+/* Tablet */
+
+@media (max-width: 850px) {
+  .page {
+    padding:
+      24px
+      16px
+      50px;
+  }
+
+  .header {
+    padding:
+      38px
+      28px;
+  }
+
+  .formSection {
+    padding: 28px;
+  }
+
+  .option,
+  .correctOption {
+    grid-template-columns:
+      auto
+      44px
+      minmax(0, 1fr);
+  }
+
+  .option > button,
+  .correctOption > button {
+    grid-column:
+      1 / -1;
+    width: 100%;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+  .page {
+    padding:
+      20px
+      12px
+      40px;
+  }
+
+  .header {
+    padding:
+      34px
+      20px;
+    border-radius: 24px;
+  }
+
+  .header > button {
+    margin-bottom: 25px;
+  }
+
+  .header > p {
+    font-size: 12px;
+    letter-spacing: 2px;
+  }
+
+  .header h1 {
+    font-size: 34px;
+  }
+
+  .header > span {
+    font-size: 16px;
+  }
+
+  .form {
+    gap: 22px;
+  }
+
+  .formSection {
+    padding:
+      25px
+      20px;
+    border-radius: 23px;
+  }
+
+  .sectionHeading {
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .sectionHeading > span {
+    flex-basis: 52px;
+    width: 52px;
+    height: 52px;
+    border-radius: 15px;
+    font-size: 15px;
+  }
+
+  .sectionHeading h2 {
+    font-size: 22px;
+  }
+
+  .sectionHeading p {
+    font-size: 14px;
+  }
+
+  .field input,
+  .field textarea {
+    padding:
+      15px
+      14px;
+  }
+
+  .option,
+  .correctOption {
+    grid-template-columns:
+      44px
+      minmax(0, 1fr);
+    padding: 16px;
+  }
+
+  .option > label,
+  .correctOption > label {
+    grid-column:
+      1 / -1;
+    justify-content:
+      flex-start;
+  }
+
+  .option > strong,
+  .correctOption > strong {
+    width: 42px;
+    height: 42px;
+  }
+
+  .option > button,
+  .correctOption > button {
+    grid-column:
+      1 / -1;
+  }
+
+  .formActions {
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  .cancelButton,
+  .submitButton {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .submitButton {
+    order: -1;
+  }
+}
