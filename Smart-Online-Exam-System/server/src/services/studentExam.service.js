@@ -1,6 +1,10 @@
 const prisma = require("../lib/prisma");
 
 const ApiError = require("../errors/ApiError");
+const {
+  getAttemptDeadline,
+  isAttemptExpired,
+} = require("../utils/examTimer");
 
 /**
  * Get all currently available exams for students
@@ -100,37 +104,58 @@ const startExam = async (examId, studentId) => {
                 },
             },
         });
-
     if (existingAttempt) {
-        throw new ApiError(
-            409,
+        if (
             existingAttempt.isSubmitted
-                ? "You have already submitted this exam."
-                : "You have already started this exam."
+        ) {
+            throw new ApiError(
+                409,
+                "You have already submitted this exam."
+            );
+        }
+
+        return getActiveAttempt(
+            examId,
+            studentId
         );
     }
 
-    // Create the exam attempt
-    const attempt = await prisma.examAttempt.create({
-        data: {
-            examId,
-            studentId,
-        },
-        include: {
-            exam: {
-                select: {
-                    id: true,
-                    title: true,
-                    duration: true,
-                    totalMarks: true,
-                    passingMarks: true,
-                    endTime: true,
+    try {
+        // Create a new exam attempt
+        const attempt =
+            await prisma.examAttempt.create({
+                data: {
+                    examId,
+                    studentId,
                 },
-            },
-        },
-    });
 
-    return attempt;
+                include: {
+                    exam: {
+                        select: {
+                            id: true,
+                            title: true,
+                            duration: true,
+                            totalMarks: true,
+                            passingMarks: true,
+                            endTime: true,
+                        },
+                    },
+                },
+            });
+
+        return attempt;
+    } catch (error) {
+        if (
+            error.code === "P2002"
+        ) {
+            return getActiveAttempt(
+                examId,
+                studentId
+            );
+        }
+
+        throw error;
+    }
 };
 
 
@@ -212,7 +237,24 @@ const getActiveAttempt = async (
         );
     }
 
-    return attempt;
+
+    const attemptDeadline = getAttemptDeadline(
+        attempt.startedAt,
+        attempt.exam.duration,
+        attempt.exam.endTime
+    );
+
+    const expired = isAttemptExpired(
+        attempt.startedAt,
+        attempt.exam.duration,
+        attempt.exam.endTime
+    );
+
+    return {
+        ...attempt,
+        attemptDeadline,
+        isExpired: expired,
+    };
 };
 
 /**
@@ -239,9 +281,11 @@ const saveAnswer = async (
             },
             select: {
                 id: true,
+                startedAt: true,
                 isSubmitted: true,
                 exam: {
                     select: {
+                        duration: true,
                         endTime: true,
                     },
                 },
@@ -262,10 +306,16 @@ const saveAnswer = async (
         );
     }
 
-    if (new Date() > attempt.exam.endTime) {
+    if (
+        isAttemptExpired(
+            attempt.startedAt,
+            attempt.exam.duration,
+            attempt.exam.endTime
+        )
+    ) {
         throw new ApiError(
             403,
-            "The exam time has expired."
+            "Your exam attempt time has expired."
         );
     }
 
@@ -459,3 +509,6 @@ module.exports = {
     saveAnswer,
     submitExam,
 };
+
+
+

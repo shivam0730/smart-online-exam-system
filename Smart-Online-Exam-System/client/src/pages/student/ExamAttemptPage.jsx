@@ -1,5 +1,6 @@
 import {
   useEffect,
+  useRef,
   useState,
 } from "react";
 
@@ -50,6 +51,14 @@ function ExamAttemptPage() {
     setIsSubmitting,
   ] = useState(false);
 
+  const [
+    remainingSeconds,
+    setRemainingSeconds,
+  ] = useState(null);
+
+  const hasAutoSubmitted =
+    useRef(false);
+
   useEffect(() => {
     const loadExam = async () => {
       try {
@@ -63,7 +72,18 @@ function ExamAttemptPage() {
             await getActiveAttempt(
               examId
             );
-        } catch {
+        } catch (
+        activeAttemptError
+        ) {
+          const status =
+            activeAttemptError
+              .response
+              ?.status;
+
+          if (status !== 404) {
+            throw activeAttemptError;
+          }
+
           attemptData =
             await startExam(
               examId
@@ -101,6 +121,104 @@ function ExamAttemptPage() {
 
     loadExam();
   }, [examId]);
+  useEffect(() => {
+    if (
+      !attempt?.attemptDeadline
+    ) {
+      return undefined;
+    }
+
+    const updateTimer = () => {
+      const deadline =
+        new Date(
+          attempt.attemptDeadline
+        ).getTime();
+
+      const secondsLeft =
+        Math.max(
+          0,
+          Math.ceil(
+            (
+              deadline -
+              Date.now()
+            ) / 1000
+          )
+        );
+
+      setRemainingSeconds(
+        secondsLeft
+      );
+    };
+
+    updateTimer();
+
+    const timerId =
+      window.setInterval(
+        updateTimer,
+        1000
+      );
+
+    return () => {
+      window.clearInterval(
+        timerId
+      );
+    };
+  }, [
+    attempt?.attemptDeadline,
+  ]);
+
+  useEffect(() => {
+    if (
+      remainingSeconds !== 0 ||
+      !attempt ||
+      hasAutoSubmitted.current
+    ) {
+      return;
+    }
+
+    hasAutoSubmitted.current =
+      true;
+
+    const autoSubmitExam =
+      async () => {
+        try {
+          setIsSubmitting(true);
+          setError(
+            "Time is over. Submitting your exam..."
+          );
+
+          await submitExam(
+            examId
+          );
+
+          navigate(
+            `/student/results/${examId}`,
+            {
+              replace: true,
+            }
+          );
+        } catch (
+        requestError
+        ) {
+          setError(
+            requestError.response
+              ?.data?.message ||
+            "Time expired, but the exam could not be submitted automatically."
+          );
+        } finally {
+          setIsSubmitting(
+            false
+          );
+        }
+      };
+
+    autoSubmitExam();
+  }, [
+    remainingSeconds,
+    attempt,
+    examId,
+    navigate,
+  ]);
 
   const handleSelectAnswer = async (
     questionId,
@@ -157,7 +275,7 @@ function ExamAttemptPage() {
         navigate(
           `/student/results/${examId}`
         );
-        
+
       } catch (requestError) {
         setError(
           requestError.response
@@ -224,6 +342,31 @@ function ExamAttemptPage() {
 
   const currentQuestion =
     questions[0];
+  const displaySeconds =
+    remainingSeconds ??
+    attempt.exam.duration *
+    60;
+
+  const timerMinutes =
+    Math.floor(
+      displaySeconds / 60
+    );
+
+  const timerSeconds =
+    displaySeconds % 60;
+
+  const formattedTime =
+    `${String(
+      timerMinutes
+    ).padStart(
+      2,
+      "0"
+    )}:${String(
+      timerSeconds
+    ).padStart(
+      2,
+      "0"
+    )}`;
 
   return (
     <div
@@ -257,11 +400,7 @@ function ExamAttemptPage() {
         >
           <Clock size={20} />
 
-          {
-            attempt?.exam
-              ?.duration
-          }{" "}
-          minutes
+          {formattedTime}
         </div>
       </header>
 
@@ -350,12 +489,12 @@ function ExamAttemptPage() {
                         isSubmitting
                       }
                       className={`${styles.option} ${selectedAnswers[
-                          currentQuestion
-                            .id
-                        ] ===
-                          option.id
-                          ? styles.selectedOption
-                          : ""
+                        currentQuestion
+                          .id
+                      ] ===
+                        option.id
+                        ? styles.selectedOption
+                        : ""
                         }`}
                       onClick={() =>
                         handleSelectAnswer(
@@ -427,3 +566,8 @@ function ExamAttemptPage() {
 }
 
 export default ExamAttemptPage;
+
+
+
+
+

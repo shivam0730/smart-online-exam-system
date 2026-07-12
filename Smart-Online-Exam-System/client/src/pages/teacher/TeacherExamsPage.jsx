@@ -551,6 +551,11 @@ const TeacherExamsPage = () => {
                   >
                     <button
                       type="button"
+                      onClick={() =>
+                        navigate(
+                          `/teacher/exams/${exam.id}/edit`
+                        )
+                      }
                     >
                       Edit
                     </button>

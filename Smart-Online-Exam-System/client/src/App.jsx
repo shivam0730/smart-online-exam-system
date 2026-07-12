@@ -19,6 +19,7 @@ import TeacherExamsPage from "./pages/teacher/TeacherExamsPage";
 import TeacherResultsPage from "./pages/teacher/TeacherResultsPage";
 import ExamResultsPage from "./pages/teacher/ExamResultsPage";
 import CreateExamPage from "./pages/teacher/CreateExamPage";
+import EditExamPage from "./pages/teacher/EditExamPage";
 import ManageQuestionsPage from "./pages/teacher/ManageQuestionsPage";
 import CreateQuestionPage from "./pages/teacher/CreateQuestionPage";
 import EditQuestionPage from "./pages/teacher/EditQuestionPage";
@@ -84,6 +85,11 @@ function App() {
         <Route
           path="/teacher/exams/create"
           element={<CreateExamPage />}
+        />
+
+        <Route
+          path="/teacher/exams/:examId/edit"
+          element={<EditExamPage />}
         />
 
         <Route
