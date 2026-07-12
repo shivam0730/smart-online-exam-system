@@ -17,6 +17,8 @@ const teacherRoutes = require("./teacher.routes");
 
 const questionRoutes = require("./question.routes");
 
+const adminRoutes = require("./admin.routes");
+
 const examRoutes = require("../modules/exam/exam.routes");
 
 const router = express.Router();
@@ -30,6 +32,7 @@ router.use("/student", studentRoutes);
 router.use("/teacher",teacherResultRoutes);
 router.use("/teacher", teacherRoutes);
 router.use("/teacher", questionRoutes);
+router.use("/admin", adminRoutes);
 router.use("/exams", examRoutes);
 
 

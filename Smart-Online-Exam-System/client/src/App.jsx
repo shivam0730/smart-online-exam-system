@@ -13,6 +13,7 @@ import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import StudentDashboard from "./pages/student/StudentDashboard";
 import TeacherDashboard from "./pages/teacher/TeacherDashboard";
+import AdminDashboard from "./pages/admin/AdminDashboard";
 import TeacherExamsPage from "./pages/teacher/TeacherExamsPage";
 import TeacherResultsPage from "./pages/teacher/TeacherResultsPage";
 import ExamResultsPage from "./pages/teacher/ExamResultsPage";
@@ -50,6 +51,11 @@ function App() {
         <Route
           path="/teacher/dashboard"
           element={<TeacherDashboard />}
+        />
+
+        <Route
+          path="/admin/dashboard"
+          element={<AdminDashboard />}
         />
 
         <Route
