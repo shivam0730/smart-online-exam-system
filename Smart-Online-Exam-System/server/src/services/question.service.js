@@ -3,16 +3,16 @@ const ApiError = require("../errors/ApiError");
 
 const createQuestion = async (examId, user, payload) => {
     // 1. Check if exam exists
-const exam = await prisma.exam.findUnique({
-    where: {
-        id: examId,
-    },
-    select: {
-        id: true,
-        createdById: true,
-        status: true,
-    },
-});
+    const exam = await prisma.exam.findUnique({
+        where: {
+            id: examId,
+        },
+        select: {
+            id: true,
+            createdById: true,
+            status: true,
+        },
+    });
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
@@ -52,41 +52,41 @@ const exam = await prisma.exam.findUnique({
         );
     }
 
-// 5. Get next question order
-const lastQuestion = await prisma.question.findFirst({
-    where: {
-        examId,
-    },
-    orderBy: {
-        order: "desc",
-    },
-    select: {
-        order: true,
-    },
-});
-
-const nextOrder = lastQuestion ? lastQuestion.order + 1 : 1;
-
-// 6. Create question with options
-const question = await prisma.question.create({
-    data: {
-        question: payload.question,
-        marks: payload.marks,
-        explanation: payload.explanation,
-        examId,
-        order: nextOrder,
-
-        options: {
-            create: payload.options,
+    // 5. Get next question order
+    const lastQuestion = await prisma.question.findFirst({
+        where: {
+            examId,
         },
-    },
+        orderBy: {
+            order: "desc",
+        },
+        select: {
+            order: true,
+        },
+    });
 
-    include: {
-        options: true,
-    },
-});
+    const nextOrder = lastQuestion ? lastQuestion.order + 1 : 1;
 
-return question;
+    // 6. Create question with options
+    const question = await prisma.question.create({
+        data: {
+            question: payload.question,
+            marks: payload.marks,
+            explanation: payload.explanation,
+            examId,
+            order: nextOrder,
+
+            options: {
+                create: payload.options,
+            },
+        },
+
+        include: {
+            options: true,
+        },
+    });
+
+    return question;
 
 };
 
@@ -120,7 +120,6 @@ const getAllQuestions = async (examId, user) => {
     return prisma.question.findMany({
         where: {
             examId,
-            isActive: true,
         },
 
         include: {
@@ -324,8 +323,8 @@ const updateQuestion = async (
 
                 options: payload.options
                     ? {
-                          create: payload.options,
-                      }
+                        create: payload.options,
+                    }
                     : undefined,
             },
 
@@ -383,7 +382,7 @@ const updateQuestionStatus = async (
     }
 
 
-    
+
 
 
     const updatedQuestion = await prisma.question.update({
