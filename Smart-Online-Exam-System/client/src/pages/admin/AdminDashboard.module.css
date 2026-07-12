@@ -422,3 +422,43 @@
     justify-content: space-between;
   }
 }
+
+
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.manageUsersButton {
+  min-height: 50px;
+  padding: 0 22px;
+  border: none;
+  border-radius: 14px;
+  background: #4f46e5;
+  color: #ffffff;
+  font-size: 0.95rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.manageUsersButton:hover {
+  background: #4338ca;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 640px) {
+  .headerActions {
+    width: 100%;
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .manageUsersButton,
+  .logoutButton {
+    width: 100%;
+  }
+}

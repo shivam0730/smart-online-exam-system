@@ -5,6 +5,8 @@ const authorize = require("../middleware/role.middleware");
 
 const {
   getDashboard,
+  getUsers,
+  updateUserStatus,
 } = require("../controllers/admin.controller");
 
 const router = express.Router();
@@ -27,6 +29,16 @@ router.use(authorize("ADMIN", "SUPER_ADMIN"));
 router.get(
   "/dashboard",
   getDashboard
+);
+
+router.get(
+  "/users",
+  getUsers
+);
+
+router.patch(
+  "/users/:userId/status",
+  updateUserStatus
 );
 
 module.exports = router;

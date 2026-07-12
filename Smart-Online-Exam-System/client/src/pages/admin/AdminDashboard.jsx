@@ -173,13 +173,25 @@ const AdminDashboard = () => {
           </p>
         </div>
 
-        <button
-          type="button"
-          className={styles.logoutButton}
-          onClick={handleLogout}
-        >
-          Logout
-        </button>
+        <div className={styles.headerActions}>
+            <button
+                type="button"
+                className={styles.manageUsersButton}
+                onClick={() =>
+                    navigate("/admin/users")
+                }
+            >
+                Manage Users
+            </button>
+
+            <button
+                type="button"
+                className={styles.logoutButton}
+                onClick={handleLogout}
+            >
+                Logout
+            </button>
+        </div>
       </header>
 
       <section
