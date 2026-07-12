@@ -85,6 +85,8 @@ const EditQuestionPage = () => {
           options:
             questionData.options.map(
               (option) => ({
+                id:
+                  option.id,
                 option:
                   option.option,
 
@@ -92,6 +94,9 @@ const EditQuestionPage = () => {
                   option.isCorrect,
               })
             ),
+
+
+
         });
       } catch (error) {
         const message =
@@ -396,6 +401,10 @@ const EditQuestionPage = () => {
         options:
           formData.options.map(
             (option) => ({
+              ...(option.id && {
+                id: option.id,
+              }),
+
               option:
                 option.option.trim(),
 
@@ -479,7 +488,7 @@ const EditQuestionPage = () => {
               )
             }
           >
-            Back to Questions
+            &larr;  Back to Questions
           </button>
         </div>
       </main>

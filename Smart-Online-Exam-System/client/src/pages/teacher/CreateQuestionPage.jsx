@@ -1,4 +1,4 @@
-import {
+﻿import {
   useState,
 } from "react";
 
@@ -103,9 +103,9 @@ const CreateQuestionPage = () => {
             ) =>
               optionIndex === index
                 ? {
-                    ...currentOption,
-                    option: value,
-                  }
+                  ...currentOption,
+                  option: value,
+                }
                 : currentOption
           ),
       })
@@ -407,7 +407,7 @@ const CreateQuestionPage = () => {
               )
             }
           >
-            ← Back to Questions
+            &larr; Back to Questions
           </button>
 
           <p>
@@ -668,8 +668,7 @@ const CreateQuestionPage = () => {
                         )
                       }
                       placeholder={
-                        `Enter option ${
-                          index + 1
+                        `Enter option ${index + 1
                         }`
                       }
                       maxLength="500"

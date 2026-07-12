@@ -561,7 +561,7 @@ const ManageQuestionsPage = () => {
                           styles.options
                         }
                       >
-                        {question.options.map(
+                        {question.options?.map(
                           (
                             option,
                             optionIndex

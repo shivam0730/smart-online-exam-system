@@ -53,6 +53,9 @@ const updateQuestionSchema = Joi.object({
     options: Joi.array()
         .items(
             Joi.object({
+                id: Joi.string()
+                    .optional(),
+
                 option: Joi.string()
                     .trim()
                     .min(1)

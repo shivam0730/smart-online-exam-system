@@ -293,11 +293,36 @@ const updateQuestion = async (
             );
         }
 
-        await prisma.questionOption.deleteMany({
-            where: {
-                questionId,
-            },
-        });
+        const existingOptionIds =
+            new Set(
+                question.options.map(
+                    (option) => option.id
+                )
+            );
+
+        const receivedOptionIds =
+            payload.options
+                .filter(
+                    (option) => option.id
+                )
+                .map(
+                    (option) => option.id
+                );
+
+        const hasInvalidOption =
+            receivedOptionIds.some(
+                (optionId) =>
+                    !existingOptionIds.has(
+                        optionId
+                    )
+            );
+
+        if (hasInvalidOption) {
+            throw new ApiError(
+                400,
+                "One or more options do not belong to this question."
+            );
+        }
     }
 
     const updatedQuestion =
@@ -323,7 +348,44 @@ const updateQuestion = async (
 
                 options: payload.options
                     ? {
-                        create: payload.options,
+                        update:
+                            payload.options
+                                .filter(
+                                    (option) =>
+                                        option.id
+                                )
+                                .map(
+                                    (option) => ({
+                                        where: {
+                                            id:
+                                                option.id,
+                                        },
+
+                                        data: {
+                                            option:
+                                                option.option,
+
+                                            isCorrect:
+                                                option.isCorrect,
+                                        },
+                                    })
+                                ),
+
+                        create:
+                            payload.options
+                                .filter(
+                                    (option) =>
+                                        !option.id
+                                )
+                                .map(
+                                    (option) => ({
+                                        option:
+                                            option.option,
+
+                                        isCorrect:
+                                            option.isCorrect,
+                                    })
+                                ),
                     }
                     : undefined,
             },
