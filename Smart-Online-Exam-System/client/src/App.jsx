@@ -12,6 +12,7 @@ import HomePage from "./pages/shared/HomePage";
 import LoginPage from "./pages/auth/LoginPage";
 import RegisterPage from "./pages/auth/RegisterPage";
 import StudentDashboard from "./pages/student/StudentDashboard";
+import StudentResultsPage from "./pages/student/StudentResultsPage";
 import TeacherDashboard from "./pages/teacher/TeacherDashboard";
 import AdminDashboard from "./pages/admin/AdminDashboard";
 import AdminUsersPage from "./pages/admin/AdminUsersPage";
@@ -48,6 +49,11 @@ function App() {
         <Route
           path="/student/dashboard"
           element={<StudentDashboard />}
+        />
+
+        <Route
+          path="/student/results"
+          element={<StudentResultsPage />}
         />
 
         <Route

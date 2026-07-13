@@ -254,7 +254,18 @@ function StudentDashboard() {
                                     Review your previous results and
                                     continue practicing.
                                 </p>
+
+                                <button
+                                    type="button"
+                                    className={styles.resultsButton}
+                                    onClick={() =>
+                                        navigate("/student/results")
+                                    }
+                                >
+                                    View Results
+                                </button>
                             </div>
+
                         </div>
                     </article>
                 </section>

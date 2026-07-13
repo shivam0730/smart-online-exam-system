@@ -275,3 +275,45 @@
   color: #b91c1c;
   background: #fef2f2;
 }
+
+
+.resultsButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 16px;
+  padding: 11px 22px;
+  border: 1px solid #2563eb;
+  border-radius: 10px;
+  background: #2563eb;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  box-shadow:
+    0 8px 18px
+    rgba(37, 99, 235, 0.2);
+  transition:
+    transform 0.2s ease,
+    background-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.resultsButton:hover {
+  transform: translateY(-2px);
+  background: #1d4ed8;
+  box-shadow:
+    0 11px 24px
+    rgba(37, 99, 235, 0.28);
+}
+
+.resultsButton:active {
+  transform: translateY(0);
+}
+
+.resultsButton:focus-visible {
+  outline: 3px solid
+    rgba(37, 99, 235, 0.25);
+  outline-offset: 3px;
+}

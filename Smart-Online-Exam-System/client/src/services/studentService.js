@@ -16,6 +16,14 @@ export const getPerformanceStatistics = async () => {
   return response.data.data;
 };
 
+export const getExamHistory = async () => {
+  const response = await api.get(
+    "/student/results/history"
+  );
+
+  return response.data.data;
+};
+
 export const startExam = async (examId) => {
   const response = await api.post(
     `/student/exams/${examId}/start`
