@@ -8,6 +8,18 @@ import {
 } from "react-router-dom";
 
 import {
+  Activity,
+  BookOpen,
+  ClipboardCheck,
+  FileText,
+  GraduationCap,
+  LogOut,
+  ShieldCheck,
+  UserCheck,
+  Users,
+} from "lucide-react";
+
+import {
   getAdminDashboard,
 } from "../../services/adminService";
 
@@ -54,6 +66,32 @@ const AdminDashboard = () => {
     localStorage.removeItem("user");
 
     navigate("/login");
+  };
+
+  const formatDate = (date) => {
+    if (!date) {
+      return "Not available";
+    }
+
+    return new Intl.DateTimeFormat(
+      "en-IN",
+      {
+        day: "2-digit",
+        month: "short",
+        year: "numeric",
+      }
+    ).format(new Date(date));
+  };
+
+  const formatName = (user) => {
+    const fullName = [
+      user?.firstName,
+      user?.lastName,
+    ]
+      .filter(Boolean)
+      .join(" ");
+
+    return fullName || "Unknown user";
   };
 
   if (loading) {
@@ -103,12 +141,16 @@ const AdminDashboard = () => {
     );
   }
 
+  if (!dashboardData) {
+    return null;
+  }
+
   const {
     userStatistics,
     examStatistics,
     activityStatistics,
-    recentUsers,
-    recentExams,
+    recentUsers = [],
+    recentExams = [],
   } = dashboardData;
 
   const statCards = [
@@ -116,38 +158,37 @@ const AdminDashboard = () => {
       title: "Total Users",
       value:
         userStatistics.totalUsers,
-      icon: "👥",
+      icon: Users,
     },
     {
       title: "Students",
       value:
         userStatistics.totalStudents,
-      icon: "🎓",
+      icon: GraduationCap,
     },
     {
       title: "Teachers",
       value:
         userStatistics.totalTeachers,
-      icon: "👨‍🏫",
+      icon: BookOpen,
     },
     {
       title: "Total Exams",
       value:
         examStatistics.totalExams,
-      icon: "📝",
+      icon: FileText,
     },
     {
-      title: "Published Exams",
+      title: "Exam Attempts",
       value:
-        examStatistics.publishedExams,
-      icon: "🚀",
+        activityStatistics.totalAttempts,
+      icon: Activity,
     },
     {
-      title: "Submitted Attempts",
+      title: "Generated Results",
       value:
-        activityStatistics
-          .submittedAttempts,
-      icon: "✅",
+        activityStatistics.totalResults,
+      icon: ClipboardCheck,
     },
   ];
 
@@ -169,56 +210,74 @@ const AdminDashboard = () => {
 
           <p>
             Monitor users, examinations,
-            and platform activity.
+            attempts, and platform activity.
           </p>
         </div>
 
-        <div className={styles.headerActions}>
-            <button
-                type="button"
-                className={styles.manageUsersButton}
-                onClick={() =>
-                    navigate("/admin/users")
-                }
-            >
-                Manage Users
-            </button>
+        <div
+          className={
+            styles.headerActions
+          }
+        >
+          <button
+            type="button"
+            className={
+              styles.manageUsersButton
+            }
+            onClick={() =>
+              navigate("/admin/users")
+            }
+          >
+            Manage Users
+          </button>
 
-            <button
-                type="button"
-                className={styles.logoutButton}
-                onClick={handleLogout}
-            >
-                Logout
-            </button>
+          <button
+            type="button"
+            className={
+              styles.logoutButton
+            }
+            onClick={handleLogout}
+          >
+            Logout
+          </button>
         </div>
       </header>
 
       <section
         className={styles.statsGrid}
       >
-        {statCards.map((card) => (
-          <article
-            className={styles.statCard}
-            key={card.title}
-          >
-            <div
-              className={styles.statIcon}
+        {statCards.map((card) => {
+          const Icon = card.icon;
+
+          return (
+            <article
+              className={
+                styles.statCard
+              }
+              key={card.title}
             >
-              {card.icon}
-            </div>
+              <div
+                className={
+                  styles.statIcon
+                }
+              >
+                <Icon size={27} />
+              </div>
 
-            <div>
-              <p>{card.title}</p>
+              <div>
+                <p>{card.title}</p>
 
-              <h2>{card.value}</h2>
-            </div>
-          </article>
-        ))}
+                <h2>{card.value}</h2>
+              </div>
+            </article>
+          );
+        })}
       </section>
 
       <section
-        className={styles.overviewGrid}
+        className={
+          styles.overviewGrid
+        }
       >
         <article
           className={styles.panel}
@@ -228,15 +287,14 @@ const AdminDashboard = () => {
               styles.sectionHeader
             }
           >
-            <div>
-              <h2>
-                User Overview
-              </h2>
+            <h2>
+              User Overview
+            </h2>
 
-              <p>
-                Current platform users
-              </p>
-            </div>
+            <p>
+              Role distribution and account
+              activity
+            </p>
           </div>
 
           <div
@@ -245,35 +303,7 @@ const AdminDashboard = () => {
             }
           >
             <div>
-              <span>
-                Active Users
-              </span>
-
-              <strong>
-                {
-                  userStatistics
-                    .activeUsers
-                }
-              </strong>
-            </div>
-
-            <div>
-              <span>
-                Inactive Users
-              </span>
-
-              <strong>
-                {
-                  userStatistics
-                    .inactiveUsers
-                }
-              </strong>
-            </div>
-
-            <div>
-              <span>
-                Admins
-              </span>
+              <span>Administrators</span>
 
               <strong>
                 {
@@ -284,14 +314,34 @@ const AdminDashboard = () => {
             </div>
 
             <div>
-              <span>
-                Super Admins
-              </span>
+              <span>Super Admins</span>
 
               <strong>
                 {
                   userStatistics
                     .totalSuperAdmins
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>Active Users</span>
+
+              <strong>
+                {
+                  userStatistics
+                    .activeUsers
+                }
+              </strong>
+            </div>
+
+            <div>
+              <span>Inactive Users</span>
+
+              <strong>
+                {
+                  userStatistics
+                    .inactiveUsers
                 }
               </strong>
             </div>
@@ -306,15 +356,14 @@ const AdminDashboard = () => {
               styles.sectionHeader
             }
           >
-            <div>
-              <h2>
-                Exam Overview
-              </h2>
+            <h2>
+              Examination Overview
+            </h2>
 
-              <p>
-                Examination status summary
-              </p>
-            </div>
+            <p>
+              Current exam status
+              distribution
+            </p>
           </div>
 
           <div
@@ -323,7 +372,7 @@ const AdminDashboard = () => {
             }
           >
             <div>
-              <span>Draft</span>
+              <span>Draft Exams</span>
 
               <strong>
                 {
@@ -335,7 +384,7 @@ const AdminDashboard = () => {
 
             <div>
               <span>
-                Published
+                Published Exams
               </span>
 
               <strong>
@@ -348,7 +397,7 @@ const AdminDashboard = () => {
 
             <div>
               <span>
-                Completed
+                Completed Exams
               </span>
 
               <strong>
@@ -361,7 +410,7 @@ const AdminDashboard = () => {
 
             <div>
               <span>
-                Archived
+                Archived Exams
               </span>
 
               <strong>
@@ -386,65 +435,58 @@ const AdminDashboard = () => {
               styles.sectionHeader
             }
           >
-            <div>
-              <h2>
-                Recent Users
-              </h2>
+            <h2>
+              Recent Users
+            </h2>
 
-              <p>
-                Latest registered accounts
-              </p>
-            </div>
+            <p>
+              Latest accounts registered on
+              the platform
+            </p>
           </div>
 
-          {recentUsers.length === 0 ? (
-            <p
-              className={
-                styles.emptyMessage
-              }
-            >
-              No users found.
-            </p>
-          ) : (
-            <div
-              className={
-                styles.listContainer
-              }
-            >
-              {recentUsers.map(
-                (user) => (
-                  <div
-                    className={
-                      styles.listItem
-                    }
-                    key={user.id}
-                  >
-                    <div>
-                      <strong>
-                        {user.firstName}{" "}
-                        {user.lastName}
-                      </strong>
+          <div
+            className={
+              styles.listContainer
+            }
+          >
+            {recentUsers.length > 0 ? (
+              recentUsers.map((user) => (
+                <div
+                  className={
+                    styles.listItem
+                  }
+                  key={user.id}
+                >
+                  <div>
+                    <strong>
+                      {formatName(user)}
+                    </strong>
 
-                      <span>
-                        {user.email}
-                      </span>
-                    </div>
-
-                    <span
-                      className={
-                        styles.roleBadge
-                      }
-                    >
-                      {user.role.replace(
-                        "_",
-                        " "
-                      )}
+                    <span>
+                      {user.email}
                     </span>
                   </div>
-                )
-              )}
-            </div>
-          )}
+
+                  <span
+                    className={
+                      styles.roleBadge
+                    }
+                  >
+                    {user.role}
+                  </span>
+                </div>
+              ))
+            ) : (
+              <p
+                className={
+                  styles.emptyMessage
+                }
+              >
+                No users are available.
+              </p>
+            )}
+          </div>
         </article>
 
         <article
@@ -455,83 +497,79 @@ const AdminDashboard = () => {
               styles.sectionHeader
             }
           >
-            <div>
-              <h2>
-                Recent Exams
-              </h2>
+            <h2>
+              Recent Exams
+            </h2>
 
-              <p>
-                Latest examinations
-              </p>
-            </div>
+            <p>
+              Latest examinations created
+              on the platform
+            </p>
           </div>
 
-          {recentExams.length === 0 ? (
-            <p
-              className={
-                styles.emptyMessage
-              }
-            >
-              No exams found.
-            </p>
-          ) : (
-            <div
-              className={
-                styles.listContainer
-              }
-            >
-              {recentExams.map(
-                (exam) => (
+          <div
+            className={
+              styles.listContainer
+            }
+          >
+            {recentExams.length > 0 ? (
+              recentExams.map((exam) => (
+                <div
+                  className={
+                    styles.examItem
+                  }
+                  key={exam.id}
+                >
+                  <div>
+                    <strong>
+                      {exam.title}
+                    </strong>
+
+                    <span>
+                      By{" "}
+                      {formatName(
+                        exam.createdBy
+                      )}
+                      {" • "}
+                      {formatDate(
+                        exam.createdAt
+                      )}
+                    </span>
+                  </div>
+
                   <div
                     className={
-                      styles.examItem
+                      styles.examMeta
                     }
-                    key={exam.id}
                   >
-                    <div>
-                      <strong>
-                        {exam.title}
-                      </strong>
+                    <span>
+                      {
+                        exam._count
+                          ?.questions ?? 0
+                      }{" "}
+                      questions
+                    </span>
 
-                      <span>
-                        Created by{" "}
-                        {
-                          exam.createdBy
-                            .firstName
-                        }{" "}
-                        {
-                          exam.createdBy
-                            .lastName
-                        }
-                      </span>
-                    </div>
-
-                    <div
+                    <span
                       className={
-                        styles.examMeta
+                        styles.statusBadge
                       }
                     >
-                      <span>
-                        {
-                          exam._count
-                            .questions
-                        }{" "}
-                        questions
-                      </span>
-
-                      <span
-                        className={
-                          styles.statusBadge
-                        }
-                      >
-                        {exam.status}
-                      </span>
-                    </div>
+                      {exam.status}
+                    </span>
                   </div>
-                )
-              )}
-            </div>
-          )}
+                </div>
+              ))
+            ) : (
+              <p
+                className={
+                  styles.emptyMessage
+                }
+              >
+                No exams are available.
+              </p>
+            )}
+          </div>
         </article>
       </section>
     </main>
