@@ -402,6 +402,111 @@ const saveAnswer = async (
     return answer;
 };
 
+
+/**
+ * Record an exam security violation
+ */
+const recordSecurityViolation = async (
+    examId,
+    studentId,
+    violationType
+) => {
+    const attempt =
+        await prisma.examAttempt.findUnique({
+            where: {
+                examId_studentId: {
+                    examId,
+                    studentId,
+                },
+            },
+
+            select: {
+                id: true,
+                isSubmitted: true,
+                startedAt: true,
+
+                exam: {
+                    select: {
+                        duration: true,
+                        endTime: true,
+                    },
+                },
+            },
+        });
+
+    if (!attempt) {
+        throw new ApiError(
+            404,
+            "Exam attempt not found. Start the exam first."
+        );
+    }
+
+    if (attempt.isSubmitted) {
+        throw new ApiError(
+            409,
+            "Security violations cannot be recorded after exam submission."
+        );
+    }
+
+    if (
+        isAttemptExpired(
+            attempt.startedAt,
+            attempt.exam.duration,
+            attempt.exam.endTime
+        )
+    ) {
+        throw new ApiError(
+            403,
+            "Your exam attempt time has expired."
+        );
+    }
+
+    let updateData;
+
+    if (
+        violationType ===
+        "TAB_SWITCH"
+    ) {
+        updateData = {
+            tabSwitchCount: {
+                increment: 1,
+            },
+        };
+    } else if (
+        violationType ===
+        "FULLSCREEN_EXIT"
+    ) {
+        updateData = {
+            fullscreenExitCount: {
+                increment: 1,
+            },
+        };
+    } else {
+        throw new ApiError(
+            400,
+            "Invalid security violation type."
+        );
+    }
+
+    const updatedAttempt =
+        await prisma.examAttempt.update({
+            where: {
+                id: attempt.id,
+            },
+
+            data: updateData,
+
+            select: {
+                id: true,
+                tabSwitchCount: true,
+                fullscreenExitCount: true,
+            },
+        });
+
+    return updatedAttempt;
+};
+
+
 /**
  * Submit exam and generate result
  */
@@ -507,6 +612,7 @@ module.exports = {
     startExam,
     getActiveAttempt,
     saveAnswer,
+    recordSecurityViolation,
     submitExam,
 };
 

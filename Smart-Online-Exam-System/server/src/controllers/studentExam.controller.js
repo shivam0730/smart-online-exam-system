@@ -105,6 +105,49 @@ const saveAnswer = async (req, res, next) => {
     }
 };
 
+
+/**
+ * Record an exam security violation
+ */
+const recordSecurityViolation = async (
+    req,
+    res,
+    next
+) => {
+    try {
+        const { examId } =
+            req.params;
+
+        const studentId =
+            req.user.id;
+
+        const { type } =
+            req.body;
+
+        const security =
+            await studentExamService
+                .recordSecurityViolation(
+                    examId,
+                    studentId,
+                    type
+                );
+
+        return res
+            .status(200)
+            .json({
+                success: true,
+                message:
+                    "Exam security violation recorded successfully.",
+                data: {
+                    security,
+                },
+            });
+    } catch (error) {
+        next(error);
+    }
+};
+
+
 /**
  * Submit exam and generate result
  */
@@ -138,5 +181,6 @@ module.exports = {
     startExam,
     getActiveAttempt,
     saveAnswer,
+    recordSecurityViolation,
     submitExam,
 };

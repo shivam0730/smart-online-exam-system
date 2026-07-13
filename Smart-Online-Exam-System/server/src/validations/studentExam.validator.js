@@ -20,6 +20,22 @@ const saveAnswerSchema = Joi.object({
         }),
 });
 
+const securityViolationSchema = Joi.object({
+    type: Joi.string()
+        .valid(
+            "TAB_SWITCH",
+            "FULLSCREEN_EXIT"
+        )
+        .required()
+        .messages({
+            "any.only":
+                "Violation type must be TAB_SWITCH or FULLSCREEN_EXIT.",
+            "any.required":
+                "Violation type is required.",
+        }),
+});
+
 module.exports = {
     saveAnswerSchema,
+    securityViolationSchema,
 };

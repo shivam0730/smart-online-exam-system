@@ -5,6 +5,14 @@ import {
 } from "react-router-dom";
 
 import {
+  useDispatch,
+} from "react-redux";
+
+import {
+  logout,
+} from "../../context/authSlice";
+
+import {
   getTeacherDashboard,
 } from "../../services/teacherService";
 
@@ -12,6 +20,7 @@ import styles from "./TeacherDashboard.module.css";
 
 const TeacherDashboard = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [dashboardData, setDashboardData] =
     useState(null);
 
@@ -44,6 +53,16 @@ const TeacherDashboard = () => {
 
     fetchDashboard();
   }, []);
+
+
+  const handleLogout = () => {
+    dispatch(logout());
+
+    navigate("/login", {
+      replace: true,
+    });
+  };
+
 
   if (loading) {
     return (
@@ -163,31 +182,55 @@ const TeacherDashboard = () => {
             </p>
           </div>
 
-          <div className={styles.profile}>
+
+          <div
+            className={
+              styles.profileActions
+            }
+          >
             <div
               className={
-                styles.profileAvatar
+                styles.profile
               }
             >
-              {teacher.firstName
-                .charAt(0)
-                .toUpperCase()}
+              <div
+                className={
+                  styles.profileAvatar
+                }
+              >
+                {teacher.firstName
+                  .charAt(0)
+                  .toUpperCase()}
 
-              {teacher.lastName
-                .charAt(0)
-                .toUpperCase()}
+                {teacher.lastName
+                  .charAt(0)
+                  .toUpperCase()}
+              </div>
+
+              <div>
+                <strong>
+                  {teacherName}
+                </strong>
+
+                <span>
+                  {teacher.email}
+                </span>
+              </div>
             </div>
 
-            <div>
-              <strong>
-                {teacherName}
-              </strong>
-
-              <span>
-                {teacher.email}
-              </span>
-            </div>
+            <button
+              type="button"
+              className={
+                styles.logoutButton
+              }
+              onClick={
+                handleLogout
+              }
+            >
+              Logout
+            </button>
           </div>
+
         </header>
 
         <section

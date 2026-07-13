@@ -7,6 +7,7 @@ const validate = require("../middleware/validate.middleware");
 
 const {
     saveAnswerSchema,
+    securityViolationSchema,
 } = require("../validations/studentExam.validator");
 
 const {
@@ -14,6 +15,7 @@ const {
     startExam,
     getActiveAttempt,
     saveAnswer,
+    recordSecurityViolation,
     submitExam,
 } = require("../controllers/studentExam.controller");
 
@@ -48,6 +50,15 @@ router.put(
     "/:examId/answer",
     validate(saveAnswerSchema),
     saveAnswer
+);
+
+// Record tab switching or fullscreen exit
+router.post(
+    "/:examId/security-violation",
+    validate(
+        securityViolationSchema
+    ),
+    recordSecurityViolation
 );
 
 // Submit exam and generate result

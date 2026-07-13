@@ -52,6 +52,20 @@ export const saveExamAnswer = async (
   return response.data.data;
 };
 
+export const recordSecurityViolation = async (
+  examId,
+  violationType
+) => {
+  const response = await api.post(
+    `/student/exams/${examId}/security-violation`,
+    {
+      type: violationType,
+    }
+  );
+
+  return response.data.data;
+};
+
 export const submitExam = async (examId) => {
   const response = await api.post(
     `/student/exams/${examId}/submit`

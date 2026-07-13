@@ -17,6 +17,7 @@ import {
 
 import {
   getActiveAttempt,
+  recordSecurityViolation,
   saveExamAnswer,
   startExam,
   submitExam,
@@ -56,7 +57,37 @@ function ExamAttemptPage() {
     setRemainingSeconds,
   ] = useState(null);
 
+  const [
+    securityWarning,
+    setSecurityWarning,
+  ] = useState("");
+
+
+  const [
+    tabSwitchCount,
+    setTabSwitchCount,
+  ] = useState(0);
+
+  const [
+    fullscreenExitCount,
+    setFullscreenExitCount,
+  ] = useState(0);
+
+  const [
+    isFullscreen,
+    setIsFullscreen,
+  ] = useState(
+    Boolean(
+      document.fullscreenElement
+    )
+  );
+
   const hasAutoSubmitted =
+    useRef(false);
+
+
+
+  const isRecordingViolation =
     useRef(false);
 
   useEffect(() => {
@@ -92,6 +123,16 @@ function ExamAttemptPage() {
 
         setAttempt(
           attemptData.attempt
+        );
+
+        setTabSwitchCount(
+          attemptData.attempt
+            ?.tabSwitchCount || 0
+        );
+
+        setFullscreenExitCount(
+          attemptData.attempt
+            ?.fullscreenExitCount || 0
         );
 
         const savedAnswers = {};
@@ -219,6 +260,177 @@ function ExamAttemptPage() {
     examId,
     navigate,
   ]);
+
+
+  useEffect(() => {
+    if (
+      !attempt ||
+      attempt.isSubmitted
+    ) {
+      return undefined;
+    }
+
+    const handleVisibilityChange =
+      async () => {
+        if (
+          document.visibilityState !==
+          "hidden"
+        ) {
+          return;
+        }
+
+        if (
+          isRecordingViolation.current
+        ) {
+          return;
+        }
+
+        try {
+          isRecordingViolation.current =
+            true;
+
+          const response =
+            await recordSecurityViolation(
+              examId,
+              "TAB_SWITCH"
+            );
+
+          const updatedCount =
+            response.security
+              .tabSwitchCount;
+
+          setTabSwitchCount(
+            updatedCount
+          );
+
+          setSecurityWarning(
+            `Warning: Leaving the exam tab is not allowed. Tab-switch violation ${updatedCount} has been recorded.`
+          );
+        } catch (
+        requestError
+        ) {
+          console.error(
+            "Unable to record tab-switch violation:",
+            requestError
+          );
+        } finally {
+          isRecordingViolation.current =
+            false;
+        }
+      };
+
+    document.addEventListener(
+      "visibilitychange",
+      handleVisibilityChange
+    );
+
+    return () => {
+      document.removeEventListener(
+        "visibilitychange",
+        handleVisibilityChange
+      );
+    };
+  }, [
+    attempt,
+    examId,
+  ]);
+
+  useEffect(() => {
+    if (
+      !attempt ||
+      attempt.isSubmitted
+    ) {
+      return undefined;
+    }
+
+    const handleFullscreenChange =
+      async () => {
+        const fullscreenActive =
+          Boolean(
+            document.fullscreenElement
+          );
+
+        setIsFullscreen(
+          fullscreenActive
+        );
+
+        if (
+          fullscreenActive
+        ) {
+          return;
+        }
+
+        try {
+          const response =
+            await recordSecurityViolation(
+              examId,
+              "FULLSCREEN_EXIT"
+            );
+
+          const updatedCount =
+            response.security
+              .fullscreenExitCount;
+
+          setFullscreenExitCount(
+            updatedCount
+          );
+
+          setSecurityWarning(
+            `Warning: Exiting fullscreen during the exam is not allowed. Fullscreen-exit violation ${updatedCount} has been recorded.`
+          );
+        } catch (
+        requestError
+        ) {
+          console.error(
+            "Unable to record fullscreen-exit violation:",
+            requestError
+          );
+        }
+      };
+
+    document.addEventListener(
+      "fullscreenchange",
+      handleFullscreenChange
+    );
+
+    return () => {
+      document.removeEventListener(
+        "fullscreenchange",
+        handleFullscreenChange
+      );
+    };
+  }, [
+    attempt,
+    examId,
+  ]);
+
+  const handleEnterFullscreen =
+    async () => {
+      try {
+        setError("");
+
+        if (
+          document.fullscreenElement
+        ) {
+          return;
+        }
+
+        await document.documentElement
+          .requestFullscreen();
+
+        setIsFullscreen(true);
+      } catch (fullscreenError) {
+        setError(
+          "Fullscreen mode could not be enabled. Please allow fullscreen access and try again."
+        );
+
+        console.error(
+          "Unable to enter fullscreen:",
+          fullscreenError
+        );
+      }
+    };
+
 
   const handleSelectAnswer = async (
     questionId,
@@ -395,13 +607,38 @@ function ExamAttemptPage() {
 
         <div
           className={
-            styles.timer
+            styles.headerActions
           }
         >
-          <Clock size={20} />
+          {!isFullscreen && (
+            <button
+              type="button"
+              className={
+                styles.fullscreenButton
+              }
+              onClick={
+                handleEnterFullscreen
+              }
+              disabled={
+                isSubmitting
+              }
+            >
+              Enter Fullscreen
+            </button>
+          )}
 
-          {formattedTime}
+          <div
+            className={
+              styles.timer
+            }
+          >
+            <Clock size={20} />
+
+            {formattedTime}
+          </div>
         </div>
+
+
       </header>
 
       <main
@@ -409,6 +646,33 @@ function ExamAttemptPage() {
           styles.main
         }
       >
+
+        {securityWarning && (
+          <div
+            className={
+              styles.securityWarning
+            }
+            role="alert"
+          >
+            <p>
+              {securityWarning}
+            </p>
+
+            <p
+              className={
+                styles.securityCount
+              }
+            >
+              Tab switches:{" "}
+              {tabSwitchCount}
+              {" | "}
+              Fullscreen exits:{" "}
+              {fullscreenExitCount}
+            </p>
+          </div>
+        )}
+
+
         <section
           className={
             styles.examHeading
