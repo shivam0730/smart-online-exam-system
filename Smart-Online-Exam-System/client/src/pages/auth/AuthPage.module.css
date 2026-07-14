@@ -225,3 +225,106 @@
     font-size: 32px;
   }
 }
+/* Day 25: Responsive authentication protection */
+
+.authPage,
+.brandPanel,
+.formPanel,
+.formContainer,
+.formHeading,
+.form,
+.formGroup,
+.passwordField,
+.errorMessage,
+.switchText {
+  min-width: 0;
+}
+
+.formPanel > *,
+.formContainer > *,
+.formHeading > *,
+.formGroup > *,
+.passwordField > * {
+  min-width: 0;
+}
+
+.formHeading h2,
+.formHeading p,
+.formGroup label,
+.errorMessage,
+.switchText {
+  overflow-wrap: anywhere;
+}
+
+.formGroup input,
+.passwordField input,
+.submitButton {
+  width: 100%;
+  min-width: 0;
+  max-width: 100%;
+}
+
+@media (max-width: 520px) {
+  .formPanel {
+    min-height: 100svh;
+    padding: 24px 16px;
+  }
+
+  .homeLink {
+    margin-bottom: 32px;
+  }
+
+  .formHeading h2 {
+    margin: 10px 0;
+    font-size: clamp(
+      1.8rem,
+      9vw,
+      2.15rem
+    );
+    line-height: 1.2;
+    letter-spacing: -1px;
+  }
+
+  .formHeading p {
+    margin-bottom: 28px;
+    line-height: 1.6;
+  }
+
+  .form {
+    gap: 20px;
+  }
+
+  .formGroup input {
+    height: 50px;
+    padding-inline: 14px;
+  }
+
+  .passwordField input {
+    padding-right: 50px;
+  }
+
+  .submitButton {
+    min-height: 50px;
+    height: auto;
+    padding: 13px 16px;
+  }
+
+  .switchText {
+    margin-top: 24px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 360px) {
+  .formPanel {
+    padding-inline: 12px;
+  }
+
+  .homeLink {
+    margin-bottom: 25px;
+  }
+
+  .formHeading h2 {
+    font-size: 1.75rem;
+  }
+}

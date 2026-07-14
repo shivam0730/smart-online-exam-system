@@ -345,3 +345,48 @@
     width: 100%;
   }
 }
+
+/* Day 25: Responsive form protection */
+
+.page,
+.header,
+.form,
+.formSection,
+.sectionHeading,
+.field,
+.formActions {
+  min-width: 0;
+}
+
+.header > div,
+.sectionHeading > div,
+.field > div {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.header span,
+.sectionHeading h2,
+.sectionHeading p,
+.field label,
+.field p {
+  overflow-wrap: anywhere;
+}
+
+.field input,
+.field select,
+.field textarea {
+  width: 100%;
+  min-width: 0;
+}
+
+@media (max-width: 520px) {
+  .header h1 {
+    overflow-wrap: anywhere;
+  }
+
+  .formActions button {
+    min-width: 0;
+  }
+}

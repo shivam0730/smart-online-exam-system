@@ -509,3 +509,30 @@ button:disabled {
     padding: 19px;
   }
 }
+/* Day 25: Responsive overflow protection */
+
+.page,
+.header,
+.summary,
+.toolbar,
+.examGrid,
+.examCard,
+.details,
+.schedule,
+.primaryActions,
+.secondaryActions {
+  min-width: 0;
+}
+
+.header > div,
+.examCard > div {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.examCard h2,
+.examCard h3,
+.examCard p {
+  overflow-wrap: anywhere;
+}

@@ -613,3 +613,175 @@
   font-size: 0.78rem;
   font-weight: 700;
 }
+/* Day 25: Responsive UI improvements */
+
+.page,
+.container,
+.header,
+.summaryGrid,
+.summaryCard,
+.contentCard,
+.toolbar,
+.searchForm,
+.filters,
+.tableWrapper,
+.pagination {
+  min-width: 0;
+}
+
+.header > div,
+.totalUsers,
+.totalUsers > div,
+.summaryCard > div,
+.userCell,
+.userCell > div:last-child,
+.pagination > div {
+  min-width: 0;
+}
+
+.header h1,
+.subtitle,
+.summaryCard span,
+.userCell strong,
+.userCell span {
+  overflow-wrap: anywhere;
+}
+
+.tableWrapper {
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.userCell {
+  max-width: 320px;
+}
+
+.userCell > div:last-child {
+  max-width: 250px;
+}
+
+.userCell strong,
+.userCell span {
+  display: block;
+  max-width: 100%;
+}
+
+.userCell span {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 720px) {
+  .header {
+    gap: 20px;
+  }
+
+  .summaryGrid {
+    gap: 14px;
+  }
+
+  .toolbar {
+    padding: 18px;
+  }
+
+  .error {
+    align-items: flex-start;
+    flex-direction: column;
+    margin: 16px 18px 0;
+  }
+
+  .error button {
+    padding: 0;
+  }
+
+  .pagination {
+    padding: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: 12px 8px;
+  }
+
+  .header {
+    padding: 21px 17px;
+    margin-bottom: 18px;
+  }
+
+  .header h1 {
+    font-size: clamp(1.8rem, 10vw, 2.3rem);
+  }
+
+  .backButton {
+    margin-bottom: 20px;
+  }
+
+  .totalUsers {
+    min-width: 0;
+    padding: 16px;
+  }
+
+  .summaryGrid {
+    margin-bottom: 18px;
+  }
+
+  .summaryCard {
+    padding: 18px;
+  }
+
+  .contentCard {
+    border-radius: 18px;
+  }
+
+  .toolbar {
+    padding: 16px;
+  }
+
+  .tableWrapper table {
+    min-width: 780px;
+  }
+
+  .tableWrapper th {
+    padding: 13px 16px;
+  }
+
+  .tableWrapper td {
+    padding: 16px;
+  }
+
+  .pagination {
+    gap: 16px;
+    padding: 16px;
+  }
+
+  .pagination > div {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .pagination > div > span {
+    width: 100%;
+    order: -1;
+    text-align: center;
+  }
+
+  .pagination button {
+    flex: 1;
+    justify-content: center;
+    min-width: 0;
+  }
+}
+
+@media (max-width: 360px) {
+  .summaryCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .pagination button {
+    font-size: 0.8rem;
+    padding-inline: 8px;
+  }
+}

@@ -462,3 +462,150 @@
     width: 100%;
   }
 }
+/* Day 25: Responsive UI improvements */
+
+.page,
+.header,
+.statsGrid,
+.overviewGrid,
+.contentGrid,
+.panel,
+.statCard,
+.overviewItems,
+.listContainer,
+.listItem,
+.examItem {
+  min-width: 0;
+}
+
+.header > div,
+.headerActions,
+.statCard > div,
+.overviewItems > div,
+.listItem > div,
+.examItem > div {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.sectionHeader h2,
+.sectionHeader p,
+.listItem strong,
+.examItem strong {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .header {
+    gap: 20px;
+  }
+
+  .headerActions {
+    width: 100%;
+  }
+
+  .statsGrid,
+  .overviewGrid,
+  .contentGrid {
+    gap: 16px;
+  }
+
+  .panel {
+    overflow: hidden;
+  }
+}
+
+@media (max-width: 520px) {
+  .page {
+    padding: 12px;
+  }
+
+  .header {
+    margin-bottom: 20px;
+    padding: 20px;
+  }
+
+  .header h1 {
+    font-size: clamp(1.8rem, 10vw, 2.35rem);
+  }
+
+  .header p {
+    line-height: 1.6;
+  }
+
+  .statsGrid,
+  .overviewGrid,
+  .contentGrid {
+    margin-bottom: 20px;
+  }
+
+  .statCard {
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .statCard h2 {
+    font-size: 1.7rem;
+  }
+
+  .panel {
+    padding: 19px;
+  }
+
+  .overviewItems div {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .listItem,
+  .examItem {
+    gap: 13px;
+    padding: 15px;
+  }
+
+  .listItem > div:first-child,
+  .examItem > div:first-child {
+    width: 100%;
+  }
+
+  .listItem div span,
+  .examItem div span {
+    width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .roleBadge,
+  .statusBadge {
+    max-width: 100%;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+
+  .stateContainer,
+  .errorContainer {
+    width: calc(100% - 24px);
+    min-height: 260px;
+    margin: 40px auto;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 360px) {
+  .headerActions {
+    align-items: stretch;
+  }
+
+  .manageUsersButton,
+  .logoutButton {
+    min-width: 0;
+    padding-inline: 14px;
+  }
+
+  .statCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+}

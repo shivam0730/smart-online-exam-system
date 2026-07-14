@@ -518,3 +518,42 @@
     flex: 1;
   }
 }
+/* Day 25: Responsive overflow protection */
+
+.page,
+.header,
+.examInformation,
+.statistics,
+.questionSection,
+.sectionHeader,
+.questionCard,
+.questionTop,
+.options,
+.questionFooter {
+  min-width: 0;
+}
+
+.header > div,
+.questionCard > div,
+.questionTop > div,
+.questionFooter > div {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.questionCard h2,
+.questionCard h3,
+.questionCard p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .questionFooter > div {
+    align-items: stretch;
+  }
+
+  .questionFooter button {
+    min-width: 0;
+  }
+}

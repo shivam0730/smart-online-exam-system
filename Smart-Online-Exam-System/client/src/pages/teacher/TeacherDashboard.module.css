@@ -756,3 +756,179 @@ button div {
     max-width: 100%;
   }
 }
+/* Day 25: Responsive UI improvements */
+
+.page,
+.dashboard,
+.header,
+.profileActions,
+.profile,
+.statsGrid,
+.statCard,
+.contentGrid,
+.recentSection,
+.quickActions,
+.sectionHeader,
+.examList,
+.examCard,
+.examMain,
+.examTitle,
+.examDetails,
+.examActions {
+  min-width: 0;
+}
+
+.header > div,
+.profile > div,
+.statCard > div,
+.sectionHeader > div,
+.examMain > div,
+.quickActions > button > div {
+  min-width: 0;
+}
+
+.header h1,
+.subtitle,
+.profile strong,
+.profile span,
+.statCard h3,
+.statCard p,
+.sectionHeader h2,
+.sectionHeader p,
+.examTitle h3,
+.examMain p,
+.quickActions strong,
+.quickActions small {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 850px) {
+  .header {
+    gap: 22px;
+  }
+
+  .profileActions {
+    align-items: stretch;
+  }
+
+  .contentGrid {
+    gap: 18px;
+  }
+}
+
+@media (max-width: 560px) {
+  .page {
+    padding: 12px 8px;
+  }
+
+  .header {
+    gap: 20px;
+    padding: 20px 18px;
+    margin-bottom: 20px;
+  }
+
+  .header h1 {
+    font-size: clamp(
+      1.75rem,
+      9vw,
+      2.2rem
+    );
+    overflow-wrap: anywhere;
+  }
+
+  .subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .profileActions {
+    gap: 10px;
+  }
+
+  .profile {
+    padding: 13px;
+  }
+
+  .profileAvatar {
+    width: 46px;
+    height: 46px;
+    border-radius: 13px;
+  }
+
+  .statsGrid {
+    gap: 14px;
+    margin-bottom: 20px;
+  }
+
+  .statCard {
+    padding: 19px;
+  }
+
+  .statCard h2 {
+    margin-top: 18px;
+    font-size: 1.75rem;
+  }
+
+  .contentGrid {
+    gap: 16px;
+  }
+
+  .recentSection,
+  .quickActions {
+    padding: 17px;
+  }
+
+  .sectionHeader {
+    gap: 14px;
+  }
+
+  .sectionHeader > button {
+    width: 100%;
+  }
+
+  .examCard {
+    padding: 16px;
+  }
+
+  .examMain {
+    align-items: flex-start;
+  }
+
+  .examIcon {
+    width: 43px;
+    height: 43px;
+  }
+
+  .examTitle {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .examDetails {
+    gap: 8px;
+  }
+
+  .examDetails span {
+    overflow-wrap: anywhere;
+  }
+
+  .quickActions > button {
+    min-width: 0;
+    padding: 13px;
+  }
+}
+
+@media (max-width: 360px) {
+  .examMain {
+    flex-direction: column;
+  }
+
+  .examDetails {
+    grid-template-columns: 1fr;
+  }
+
+  .profile {
+    align-items: flex-start;
+  }
+}

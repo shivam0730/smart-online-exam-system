@@ -474,3 +474,70 @@
     width: 100%;
   }
 }
+/* Day 25: Responsive content protection */
+
+.page,
+.header,
+.statistics,
+.sectionHeader,
+.toolbar,
+.filters,
+.resultsSection,
+.examInformation,
+.profileLayout,
+.detailsGrid,
+.actions,
+.actionButtons {
+  min-width: 0;
+}
+
+.header > div,
+.sectionHeader > div,
+.statistics > *,
+.examInformation > *,
+.detailsGrid > * {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.header span,
+.sectionHeader h2,
+.sectionHeader p,
+.statistics h2,
+.statistics h3,
+.statistics p,
+.examInformation h2,
+.examInformation h3,
+.examInformation p,
+.detailsGrid h2,
+.detailsGrid h3,
+.detailsGrid p,
+.detailsGrid span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: clamp(
+      1.9rem,
+      10vw,
+      2.4rem
+    );
+    overflow-wrap: anywhere;
+  }
+
+  .header,
+  .sectionHeader,
+  .toolbar,
+  .filters,
+  .actions {
+    min-width: 0;
+  }
+
+  .actionButtons button,
+  .headerActions button,
+  .examButton {
+    min-width: 0;
+  }
+}

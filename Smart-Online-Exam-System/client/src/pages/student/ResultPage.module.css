@@ -294,3 +294,68 @@
     padding: 20px;
   }
 }
+/* Day 25: Responsive result protection */
+
+.page,
+.header,
+.main,
+.statsGrid,
+.performanceGrid,
+.historySection,
+.sectionHeading,
+.resultHero,
+.reviewSection,
+.statePage,
+.errorCard {
+  min-width: 0;
+}
+
+.header > div,
+.sectionHeading > div,
+.statsGrid > *,
+.performanceGrid > *,
+.resultHero > *,
+.reviewSection > * {
+  min-width: 0;
+}
+
+.header h1,
+.header p,
+.resultHero h1,
+.resultHero h2,
+.resultHero p,
+.statCard h2,
+.statCard h3,
+.statCard p,
+.sectionHeading h2,
+.sectionHeading p,
+.historySection h2,
+.historySection h3,
+.historySection p,
+.reviewSection h2,
+.reviewSection h3,
+.reviewSection p,
+.errorCard h1,
+.errorCard p {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .header h1,
+  .resultHero h1 {
+    font-size: clamp(
+      1.75rem,
+      9vw,
+      2.1rem
+    );
+  }
+
+  .statePage {
+    padding: 16px;
+  }
+
+  .errorCard {
+    width: 100%;
+    padding: 28px 20px;
+  }
+}
