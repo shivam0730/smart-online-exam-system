@@ -359,3 +359,120 @@
     padding: 28px 20px;
   }
 }
+
+/* ========================================
+   INDIVIDUAL RESULT PAGE DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .resultPage {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  border-bottom-color: #263449;
+  background: #111827;
+}
+
+:global([data-theme="dark"]) .brand {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .header a {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.28);
+}
+
+:global([data-theme="dark"]) .header a:hover {
+  color: #ffffff;
+  background: rgba(37, 99, 235, 0.42);
+}
+
+:global([data-theme="dark"]) .resultHero,
+:global([data-theme="dark"]) .statCard,
+:global([data-theme="dark"]) .reviewSection {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .resultHero > span,
+:global([data-theme="dark"]) .sectionHeading span {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .resultHero h1,
+:global([data-theme="dark"]) .statCard strong,
+:global([data-theme="dark"]) .sectionHeading h2,
+:global([data-theme="dark"]) .answerCard h3,
+:global([data-theme="dark"]) .errorCard h1 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .resultHero p,
+:global([data-theme="dark"]) .statCard span,
+:global([data-theme="dark"]) .answerHeader > span,
+:global([data-theme="dark"]) .errorCard p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .statCard svg {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .passIcon,
+:global([data-theme="dark"]) .passBadge,
+:global([data-theme="dark"]) .correct {
+  color: #86efac;
+  background: rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .failIcon,
+:global([data-theme="dark"]) .failBadge,
+:global([data-theme="dark"]) .incorrect {
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.3);
+}
+
+:global([data-theme="dark"]) .answerCard {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .answerCard > p {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .explanation {
+  border-left-color: #60a5fa;
+  background: rgba(30, 64, 175, 0.22);
+}
+
+:global([data-theme="dark"]) .explanation strong {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .explanation p {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .statePage {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .errorCard {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .errorCard svg,
+:global([data-theme="dark"]) .errorCard a {
+  color: #60a5fa;
+}
+

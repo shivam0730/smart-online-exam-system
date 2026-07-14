@@ -4,6 +4,8 @@ import {
   Routes,
 } from "react-router-dom";
 
+import "./App.css";
+
 import TeacherProfilePage
   from "./pages/teacher/TeacherProfilePage";
 
@@ -30,7 +32,8 @@ import NotFoundPage from "./pages/shared/NotFoundPage";
 function App() {
   return (
     <BrowserRouter>
-      <Routes>
+      <div className="app">
+        <Routes>
         <Route
           path="/"
           element={<HomePage />}
@@ -132,9 +135,11 @@ function App() {
           path="*"
           element={<NotFoundPage />}
         />
-      </Routes>
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
 
 export default App;
+

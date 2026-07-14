@@ -1,0 +1,1245 @@
+﻿.page {
+  min-width: 0;
+  min-height: 100vh;
+  overflow-x: hidden;
+  color: #0f172a;
+  background: #ffffff;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid rgba(226, 232, 240, 0.9);
+  background: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(18px);
+}
+
+.navContainer {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: min(100% - 48px, 1180px);
+  min-width: 0;
+  min-height: 76px;
+  margin-inline: auto;
+}
+
+.logo {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 10px;
+  color: #0f172a;
+  font-size: 1.15rem;
+  font-weight: 800;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+.logoIcon {
+  display: grid;
+  width: 40px;
+  height: 40px;
+  place-items: center;
+  border-radius: 12px;
+  color: #ffffff;
+  background: linear-gradient(135deg, #2563eb, #4f46e5);
+  box-shadow: 0 10px 25px rgba(37, 99, 235, 0.24);
+}
+
+.navigation {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+.navigation a {
+  color: #475569;
+  font-size: 0.92rem;
+  font-weight: 650;
+  text-decoration: none;
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.navigation a:hover {
+  color: #2563eb;
+}
+
+.navigation .signInLink {
+  margin-left: 8px;
+  color: #1e293b;
+}
+
+.navigation .navCta {
+  padding: 11px 18px;
+  border-radius: 11px;
+  color: #ffffff;
+  background: #2563eb;
+  box-shadow: 0 9px 20px rgba(37, 99, 235, 0.2);
+}
+
+.navigation .navCta:hover {
+  color: #ffffff;
+  background: #1d4ed8;
+  transform: translateY(-1px);
+}
+
+.menuButton {
+  display: none;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  padding: 0;
+  border: 1px solid #dbe3ef;
+  border-radius: 11px;
+  color: #1e293b;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background:
+    radial-gradient(
+      circle at 85% 16%,
+      rgba(99, 102, 241, 0.16),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 76%,
+      rgba(37, 99, 235, 0.1),
+      transparent 27%
+    ),
+    linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
+}
+
+.hero::before {
+  position: absolute;
+  z-index: -1;
+  top: 80px;
+  right: -180px;
+  width: 480px;
+  height: 480px;
+  border: 1px solid rgba(99, 102, 241, 0.13);
+  border-radius: 50%;
+  content: "";
+}
+
+.heroContent {
+  display: grid;
+  grid-template-columns: minmax(0, 1.02fr) minmax(420px, 0.98fr);
+  align-items: center;
+  width: min(100% - 48px, 1180px);
+  min-height: 670px;
+  margin-inline: auto;
+  padding-block: 78px 92px;
+  gap: clamp(48px, 7vw, 90px);
+}
+
+.heroCopy {
+  min-width: 0;
+}
+
+.eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 22px;
+  padding: 8px 13px;
+  border: 1px solid #bfdbfe;
+  border-radius: 999px;
+  color: #1d4ed8;
+  background: #eff6ff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.heroCopy h1 {
+  max-width: 720px;
+  margin: 0;
+  color: #0f172a;
+  font-size: clamp(2.65rem, 5.3vw, 4.65rem);
+  line-height: 1.02;
+  letter-spacing: -0.06em;
+}
+
+.heroCopy h1 span {
+  display: block;
+  color: #2563eb;
+}
+
+.heroCopy > p {
+  max-width: 650px;
+  margin: 27px 0 0;
+  color: #64748b;
+  font-size: clamp(1rem, 1.5vw, 1.13rem);
+  line-height: 1.8;
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin-top: 34px;
+  gap: 13px;
+}
+
+.primaryButton,
+.secondaryButton {
+  display: inline-flex;
+  min-height: 52px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 13px 21px;
+  border-radius: 12px;
+  font-size: 0.93rem;
+  font-weight: 750;
+  text-decoration: none;
+  transition:
+    transform 180ms ease,
+    box-shadow 180ms ease,
+    background-color 180ms ease;
+}
+
+.primaryButton {
+  color: #ffffff;
+  background: #2563eb;
+  box-shadow: 0 13px 28px rgba(37, 99, 235, 0.25);
+}
+
+.primaryButton:hover {
+  background: #1d4ed8;
+  box-shadow: 0 17px 34px rgba(37, 99, 235, 0.3);
+  transform: translateY(-2px);
+}
+
+.secondaryButton {
+  border: 1px solid #dbe3ef;
+  color: #1e293b;
+  background: #ffffff;
+}
+
+.secondaryButton:hover {
+  border-color: #bfdbfe;
+  background: #f8fbff;
+  transform: translateY(-2px);
+}
+
+.trustPoints {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 30px;
+  gap: 12px 22px;
+}
+
+.trustPoints span {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  color: #64748b;
+  font-size: 0.82rem;
+  font-weight: 650;
+}
+
+.trustPoints svg {
+  flex-shrink: 0;
+  color: #16a34a;
+}
+
+.heroVisual {
+  position: relative;
+  min-width: 0;
+  padding: 22px 0 38px;
+}
+
+.dashboardCard {
+  position: relative;
+  padding: 27px;
+  border: 1px solid rgba(203, 213, 225, 0.85);
+  border-radius: 24px;
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow:
+    0 30px 70px rgba(15, 23, 42, 0.13),
+    0 8px 25px rgba(37, 99, 235, 0.08);
+}
+
+.cardHeader {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+.cardHeader > div {
+  display: grid;
+  min-width: 0;
+  gap: 5px;
+}
+
+.cardHeader span {
+  color: #64748b;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+
+.cardHeader strong {
+  color: #0f172a;
+  font-size: 1.25rem;
+  letter-spacing: -0.025em;
+}
+
+.liveBadge {
+  display: inline-flex;
+  flex-shrink: 0;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 10px;
+  border-radius: 999px;
+  color: #15803d !important;
+  background: #f0fdf4;
+}
+
+.liveBadge > span {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.progressCard {
+  margin-top: 24px;
+  padding: 20px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, #eff6ff, #eef2ff);
+}
+
+.progressTop {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 15px;
+}
+
+.progressTop span {
+  color: #475569;
+  font-size: 0.83rem;
+  font-weight: 700;
+}
+
+.progressTop strong {
+  color: #1d4ed8;
+  font-size: 1.12rem;
+}
+
+.progressTrack {
+  height: 8px;
+  margin-top: 14px;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #dbeafe;
+}
+
+.progressTrack span {
+  display: block;
+  width: 84%;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #2563eb, #6366f1);
+}
+
+.statGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  margin-top: 18px;
+  gap: 12px;
+}
+
+.statGrid > div {
+  display: grid;
+  min-width: 0;
+  padding: 17px 12px;
+  border: 1px solid #e7edf5;
+  border-radius: 15px;
+  text-align: center;
+  background: #ffffff;
+  gap: 4px;
+}
+
+.statGrid svg {
+  margin: 0 auto 4px;
+  color: #2563eb;
+}
+
+.statGrid strong {
+  color: #0f172a;
+  font-size: 1.15rem;
+}
+
+.statGrid span {
+  color: #64748b;
+  font-size: 0.73rem;
+  font-weight: 650;
+}
+
+.upcomingExam {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  margin-top: 18px;
+  padding: 17px;
+  border: 1px solid #e7edf5;
+  border-radius: 16px;
+  gap: 13px;
+}
+
+.examIcon {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 13px;
+  color: #ffffff;
+  background: #2563eb;
+}
+
+.upcomingExam > div:nth-child(2) {
+  display: grid;
+  min-width: 0;
+  gap: 3px;
+}
+
+.upcomingExam span,
+.upcomingExam small {
+  color: #64748b;
+  font-size: 0.71rem;
+  font-weight: 650;
+}
+
+.upcomingExam strong {
+  overflow: hidden;
+  color: #1e293b;
+  font-size: 0.82rem;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.readyBadge {
+  padding: 6px 9px;
+  border-radius: 999px;
+  color: #15803d !important;
+  background: #f0fdf4;
+}
+
+.floatingSecurity {
+  position: absolute;
+  right: -24px;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 11px;
+  padding: 14px 17px;
+  border: 1px solid #dcfce7;
+  border-radius: 15px;
+  color: #16a34a;
+  background: #ffffff;
+  box-shadow: 0 16px 35px rgba(15, 23, 42, 0.13);
+}
+
+.floatingSecurity div {
+  display: grid;
+  gap: 2px;
+}
+
+.floatingSecurity strong {
+  color: #166534;
+  font-size: 0.8rem;
+}
+
+.floatingSecurity span {
+  color: #64748b;
+  font-size: 0.68rem;
+}
+
+.featuresSection,
+.rolesSection {
+  padding: 105px 0;
+}
+
+.featuresSection {
+  background: #ffffff;
+}
+
+.rolesSection {
+  border-block: 1px solid #e8eef6;
+  background: #f8fafc;
+}
+
+.sectionContainer {
+  width: min(100% - 48px, 1180px);
+  min-width: 0;
+  margin-inline: auto;
+}
+
+.sectionHeading {
+  max-width: 700px;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.sectionHeading > span,
+.ctaCard > div:first-child > span {
+  color: #2563eb;
+  font-size: 0.76rem;
+  font-weight: 850;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+
+.sectionHeading h2,
+.ctaCard h2 {
+  margin: 13px 0 0;
+  color: #0f172a;
+  font-size: clamp(2rem, 3.5vw, 3rem);
+  line-height: 1.12;
+  letter-spacing: -0.045em;
+}
+
+.sectionHeading p {
+  margin: 17px auto 0;
+  color: #64748b;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+.featureGrid,
+.roleGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.featureCard {
+  min-width: 0;
+  padding: 31px;
+  border: 1px solid #e2e8f0;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.045);
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease;
+}
+
+.featureCard:hover {
+  border-color: #bfdbfe;
+  box-shadow: 0 20px 45px rgba(15, 23, 42, 0.08);
+  transform: translateY(-4px);
+}
+
+.featureIcon,
+.roleIcon {
+  display: grid;
+  width: 52px;
+  height: 52px;
+  flex-shrink: 0;
+  place-items: center;
+  border-radius: 15px;
+  color: #2563eb;
+  background: #eff6ff;
+}
+
+.featureCard h3,
+.roleCard h3 {
+  margin: 22px 0 0;
+  color: #172033;
+  font-size: 1.08rem;
+  letter-spacing: -0.02em;
+}
+
+.featureCard p,
+.roleCard p {
+  margin: 11px 0 0;
+  color: #64748b;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.roleCard {
+  display: flex;
+  min-width: 0;
+  align-items: flex-start;
+  gap: 18px;
+  padding: 27px;
+  border: 1px solid #e2e8f0;
+  border-radius: 19px;
+  background: #ffffff;
+}
+
+.roleCard > div:last-child {
+  min-width: 0;
+}
+
+.roleCard h3 {
+  margin-top: 2px;
+}
+
+.ctaSection {
+  padding: 105px 24px;
+  background: #ffffff;
+}
+
+.ctaCard {
+  display: flex;
+  width: min(100%, 1180px);
+  min-width: 0;
+  align-items: center;
+  justify-content: space-between;
+  margin-inline: auto;
+  padding: clamp(36px, 6vw, 68px);
+  overflow: hidden;
+  border-radius: 28px;
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(129, 140, 248, 0.35),
+      transparent 28%
+    ),
+    linear-gradient(135deg, #172554, #1d4ed8);
+  box-shadow: 0 25px 55px rgba(30, 64, 175, 0.2);
+  gap: 45px;
+}
+
+.ctaCard > div:first-child {
+  max-width: 690px;
+  min-width: 0;
+}
+
+.ctaCard > div:first-child > span {
+  color: #bfdbfe;
+}
+
+.ctaCard h2 {
+  color: #ffffff;
+}
+
+.ctaCard p {
+  max-width: 620px;
+  margin: 18px 0 0;
+  color: #dbeafe;
+  line-height: 1.75;
+}
+
+.ctaActions {
+  display: flex;
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  gap: 11px;
+}
+
+.ctaPrimary,
+.ctaSecondary {
+  display: inline-flex;
+  min-height: 50px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 19px;
+  border-radius: 11px;
+  font-size: 0.9rem;
+  font-weight: 750;
+  text-decoration: none;
+}
+
+.ctaPrimary {
+  color: #1d4ed8;
+  background: #ffffff;
+}
+
+.ctaSecondary {
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: #ffffff;
+}
+
+.footer {
+  border-top: 1px solid #e2e8f0;
+  background: #f8fafc;
+}
+
+.footerContent {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  width: min(100% - 48px, 1180px);
+  min-width: 0;
+  align-items: center;
+  margin-inline: auto;
+  padding-block: 30px;
+  gap: 28px;
+}
+
+.footerContent p {
+  margin: 0;
+  color: #64748b;
+  font-size: 0.82rem;
+  text-align: center;
+}
+
+.footerContent > span {
+  color: #94a3b8;
+  font-size: 0.78rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1050px) {
+  .heroContent {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 0.88fr);
+    gap: 42px;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.55rem, 5vw, 3.7rem);
+  }
+
+  .floatingSecurity {
+    right: -8px;
+  }
+
+  .featureGrid,
+  .roleGrid {
+    gap: 16px;
+  }
+
+  .featureCard,
+  .roleCard {
+    padding: 24px;
+  }
+}
+
+@media (max-width: 900px) {
+  .navContainer,
+  .heroContent,
+  .sectionContainer,
+  .footerContent {
+    width: min(100% - 36px, 720px);
+  }
+
+  .menuButton {
+    display: grid;
+  }
+
+  .navigation {
+    position: absolute;
+    top: calc(100% + 10px);
+    right: 0;
+    left: 0;
+    display: none;
+    align-items: stretch;
+    padding: 14px;
+    border: 1px solid #dbe3ef;
+    border-radius: 16px;
+    background: #ffffff;
+    box-shadow: 0 20px 45px rgba(15, 23, 42, 0.13);
+    gap: 4px;
+  }
+
+  .navigationOpen {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navigation a {
+    width: 100%;
+    padding: 12px 13px;
+    border-radius: 10px;
+  }
+
+  .navigation a:hover {
+    background: #f1f5f9;
+  }
+
+  .navigation .signInLink {
+    margin-left: 0;
+  }
+
+  .navigation .navCta {
+    margin-top: 4px;
+    text-align: center;
+  }
+
+  .heroContent {
+    grid-template-columns: minmax(0, 1fr);
+    min-height: auto;
+    padding-block: 76px 100px;
+  }
+
+  .heroCopy {
+    max-width: 720px;
+    text-align: center;
+  }
+
+  .eyebrow {
+    margin-inline: auto;
+  }
+
+  .heroCopy h1,
+  .heroCopy > p {
+    margin-inline: auto;
+  }
+
+  .heroActions,
+  .trustPoints {
+    justify-content: center;
+  }
+
+  .heroVisual {
+    width: min(100%, 600px);
+    margin-inline: auto;
+  }
+
+  .featureGrid,
+  .roleGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .featureCard:last-child,
+  .roleCard:last-child {
+    grid-column: 1 / -1;
+  }
+
+  .ctaCard {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .footerContent {
+    grid-template-columns: 1fr;
+    justify-items: center;
+    text-align: center;
+    gap: 16px;
+  }
+}
+
+@media (max-width: 600px) {
+  .navContainer {
+    width: calc(100% - 28px);
+    min-height: 68px;
+  }
+
+  .logo {
+    font-size: 1.05rem;
+  }
+
+  .logoIcon {
+    width: 37px;
+    height: 37px;
+    border-radius: 11px;
+  }
+
+  .heroContent,
+  .sectionContainer {
+    width: calc(100% - 32px);
+  }
+
+  .heroContent {
+    padding-block: 58px 78px;
+    gap: 48px;
+  }
+
+  .eyebrow {
+    margin-bottom: 18px;
+    font-size: 0.68rem;
+  }
+
+  .heroCopy h1 {
+    font-size: clamp(2.25rem, 11vw, 3.15rem);
+    line-height: 1.06;
+  }
+
+  .heroCopy > p {
+    margin-top: 21px;
+    font-size: 0.96rem;
+    line-height: 1.7;
+  }
+
+  .heroActions {
+    align-items: stretch;
+    flex-direction: column;
+    margin-top: 28px;
+  }
+
+  .primaryButton,
+  .secondaryButton {
+    width: 100%;
+  }
+
+  .trustPoints {
+    align-items: flex-start;
+    flex-direction: column;
+    width: fit-content;
+    margin: 25px auto 0;
+    gap: 11px;
+  }
+
+  .heroVisual {
+    padding-bottom: 22px;
+  }
+
+  .dashboardCard {
+    padding: 19px;
+    border-radius: 20px;
+  }
+
+  .statGrid {
+    gap: 8px;
+  }
+
+  .statGrid > div {
+    padding: 14px 7px;
+  }
+
+  .upcomingExam {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .readyBadge {
+    display: none;
+  }
+
+  .floatingSecurity {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    width: fit-content;
+    margin: 14px auto 0;
+  }
+
+  .featuresSection,
+  .rolesSection {
+    padding: 76px 0;
+  }
+
+  .sectionHeading {
+    margin-bottom: 35px;
+  }
+
+  .sectionHeading h2,
+  .ctaCard h2 {
+    font-size: clamp(1.85rem, 9vw, 2.45rem);
+  }
+
+  .featureGrid,
+  .roleGrid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featureCard:last-child,
+  .roleCard:last-child {
+    grid-column: auto;
+  }
+
+  .featureCard {
+    padding: 25px;
+  }
+
+  .roleCard {
+    padding: 23px;
+  }
+
+  .ctaSection {
+    padding: 76px 16px;
+  }
+
+  .ctaCard {
+    padding: 35px 24px;
+    border-radius: 22px;
+    gap: 29px;
+  }
+
+  .ctaActions {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .ctaPrimary,
+  .ctaSecondary {
+    width: 100%;
+  }
+
+  .footerContent {
+    width: calc(100% - 32px);
+    padding-block: 28px;
+  }
+}
+
+@media (max-width: 380px) {
+  .heroCopy h1 {
+    font-size: 2.05rem;
+  }
+
+  .dashboardCard {
+    padding: 15px;
+  }
+
+  .cardHeader strong {
+    font-size: 1.05rem;
+  }
+
+  .progressCard {
+    padding: 16px;
+  }
+
+  .statGrid strong {
+    font-size: 1rem;
+  }
+
+  .upcomingExam {
+    padding: 13px;
+  }
+
+  .examIcon {
+    width: 39px;
+    height: 39px;
+  }
+
+  .roleCard {
+    flex-direction: column;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .navigation a,
+  .primaryButton,
+  .secondaryButton,
+  .featureCard {
+    transition: none;
+  }
+}
+
+
+
+/* ========================================
+   DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .navbar {
+  border-bottom-color: rgba(51, 65, 85, 0.85);
+  background: rgba(11, 17, 32, 0.94);
+}
+
+:global([data-theme="dark"]) .logo {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .navigation a {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .navigation a:hover,
+:global([data-theme="dark"]) .navigation .signInLink {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .navigation .navCta {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+:global([data-theme="dark"]) .menuButton {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #111827;
+}
+
+:global([data-theme="dark"]) .hero {
+  background:
+    radial-gradient(
+      circle at 85% 16%,
+      rgba(99, 102, 241, 0.2),
+      transparent 28%
+    ),
+    radial-gradient(
+      circle at 8% 76%,
+      rgba(37, 99, 235, 0.14),
+      transparent 27%
+    ),
+    linear-gradient(
+      180deg,
+      #0b1120 0%,
+      #0f172a 100%
+    );
+}
+
+:global([data-theme="dark"]) .hero::before {
+  border-color: rgba(96, 165, 250, 0.13);
+}
+
+:global([data-theme="dark"]) .eyebrow {
+  border-color: #1e40af;
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.22);
+}
+
+:global([data-theme="dark"]) .heroCopy h1,
+:global([data-theme="dark"]) .sectionHeading h2,
+:global([data-theme="dark"]) .featureCard h3,
+:global([data-theme="dark"]) .roleCard h3 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .heroCopy h1 span {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .heroCopy > p,
+:global([data-theme="dark"]) .sectionHeading p,
+:global([data-theme="dark"]) .featureCard p,
+:global([data-theme="dark"]) .roleCard p,
+:global([data-theme="dark"]) .trustPoints span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .secondaryButton {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #111827;
+}
+
+:global([data-theme="dark"]) .secondaryButton:hover {
+  border-color: #3b82f6;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .dashboardCard {
+  border-color: #334155;
+  background: rgba(17, 24, 39, 0.97);
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.36),
+    0 8px 25px rgba(37, 99, 235, 0.1);
+}
+
+:global([data-theme="dark"]) .cardHeader strong,
+:global([data-theme="dark"]) .statGrid strong,
+:global([data-theme="dark"]) .upcomingExam strong {
+  color: #f1f5f9;
+}
+
+:global([data-theme="dark"]) .cardHeader span,
+:global([data-theme="dark"]) .statGrid span,
+:global([data-theme="dark"]) .upcomingExam span,
+:global([data-theme="dark"]) .upcomingExam small {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .progressCard {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(30, 64, 175, 0.27),
+      rgba(67, 56, 202, 0.22)
+    );
+}
+
+:global([data-theme="dark"]) .progressTop span {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .progressTop strong {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .progressTrack {
+  background: #263449;
+}
+
+:global([data-theme="dark"]) .statGrid > div,
+:global([data-theme="dark"]) .upcomingExam {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .floatingSecurity {
+  border-color: #166534;
+  background: #111827;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.35);
+}
+
+:global([data-theme="dark"]) .floatingSecurity strong {
+  color: #86efac;
+}
+
+:global([data-theme="dark"]) .floatingSecurity span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .featuresSection {
+  background: #0f172a;
+}
+
+:global([data-theme="dark"]) .rolesSection {
+  border-block-color: #263449;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .featureCard,
+:global([data-theme="dark"]) .roleCard {
+  border-color: #263449;
+  background: #111827;
+  box-shadow: 0 12px 35px rgba(0, 0, 0, 0.16);
+}
+
+:global([data-theme="dark"]) .featureCard:hover {
+  border-color: #3b82f6;
+  box-shadow: 0 20px 45px rgba(0, 0, 0, 0.28);
+}
+
+:global([data-theme="dark"]) .featureIcon,
+:global([data-theme="dark"]) .roleIcon {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.24);
+}
+
+:global([data-theme="dark"]) .ctaSection {
+  background: #0f172a;
+}
+
+:global([data-theme="dark"]) .footer {
+  border-top-color: #263449;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .footerContent p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .footerContent > span {
+  color: #64748b;
+}
+
+@media (max-width: 900px) {
+  :global([data-theme="dark"]) .navigation {
+    border-color: #334155;
+    background: #111827;
+    box-shadow: 0 20px 45px rgba(0, 0, 0, 0.35);
+  }
+
+  :global([data-theme="dark"]) .navigation a:hover {
+    background: #172033;
+  }
+}

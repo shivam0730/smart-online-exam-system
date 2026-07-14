@@ -477,3 +477,127 @@
     padding: 28px 20px;
   }
 }
+
+/* ========================================
+   EXAM ATTEMPT DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .examPage {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  border-bottom-color: #263449;
+  background: #111827;
+}
+
+:global([data-theme="dark"]) .brand {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .timer {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.28);
+}
+
+:global([data-theme="dark"]) .examHeading span {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .examHeading h1,
+:global([data-theme="dark"]) .questionPanel h2,
+:global([data-theme="dark"]) .errorCard h1 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .examHeading p,
+:global([data-theme="dark"]) .questionHeader,
+:global([data-theme="dark"]) .errorCard p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .questionHeader strong {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .questionPanel {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .option {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .option:hover {
+  border-color: #60a5fa;
+  background: #1e293b;
+}
+
+:global([data-theme="dark"]) .option span {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.35);
+}
+
+:global([data-theme="dark"]) .selectedOption {
+  border-color: #60a5fa;
+  color: #f8fafc;
+  background: rgba(37, 99, 235, 0.2);
+  box-shadow:
+    0 0 0 3px
+    rgba(96, 165, 250, 0.15);
+}
+
+:global([data-theme="dark"])
+  .selectedOption span {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+:global([data-theme="dark"]) .fullscreenButton {
+  border-color: #60a5fa;
+  color: #93c5fd;
+  background: #111827;
+}
+
+:global([data-theme="dark"])
+  .fullscreenButton:hover {
+  border-color: #2563eb;
+  color: #ffffff;
+  background: #2563eb;
+}
+
+:global([data-theme="dark"]) .securityWarning {
+  border-color: #d97706;
+  color: #fcd34d;
+  background: rgba(146, 64, 14, 0.22);
+}
+
+:global([data-theme="dark"]) .answerError {
+  color: #fca5a5;
+}
+
+:global([data-theme="dark"]) .statePage {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .errorCard {
+  border: 1px solid #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .errorCard svg,
+:global([data-theme="dark"]) .errorCard a {
+  color: #60a5fa;
+}
+

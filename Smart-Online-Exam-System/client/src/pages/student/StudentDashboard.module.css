@@ -482,3 +482,100 @@
     padding: 17px;
   }
 }
+
+/* ========================================
+   STUDENT DASHBOARD DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .dashboard {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  border-bottom-color: #263449;
+  background: #0f172a;
+}
+
+:global([data-theme="dark"]) .brand {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .userArea strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .userArea span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .welcome h1,
+:global([data-theme="dark"]) .panelHeading h2,
+:global([data-theme="dark"]) .statCard strong,
+:global([data-theme="dark"]) .examCard h3,
+:global([data-theme="dark"]) .progress h3 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .welcome span,
+:global([data-theme="dark"]) .panelHeading span,
+:global([data-theme="dark"]) .panelHeading button {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .welcome p,
+:global([data-theme="dark"]) .statCard span,
+:global([data-theme="dark"]) .examCard p,
+:global([data-theme="dark"]) .progress p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .statCard,
+:global([data-theme="dark"]) .panel {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 16px 38px rgba(0, 0, 0, 0.16);
+}
+
+:global([data-theme="dark"]) .iconBox {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.25);
+}
+
+:global([data-theme="dark"]) .examCard {
+  border: 1px solid #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .examStatus {
+  color: #86efac;
+}
+
+:global([data-theme="dark"]) .progressCircle {
+  border-color: #263449;
+  border-top-color: #60a5fa;
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .userArea button,
+:global([data-theme="dark"]) .welcome button,
+:global([data-theme="dark"]) .examCard button,
+:global([data-theme="dark"]) .resultsButton {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+:global([data-theme="dark"]) .userArea button:hover,
+:global([data-theme="dark"]) .welcome button:hover,
+:global([data-theme="dark"]) .examCard button:hover,
+:global([data-theme="dark"]) .resultsButton:hover {
+  background: #1d4ed8;
+}
+
+:global([data-theme="dark"]) .errorMessage {
+  border-color: rgba(248, 113, 113, 0.35);
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.25);
+}
+

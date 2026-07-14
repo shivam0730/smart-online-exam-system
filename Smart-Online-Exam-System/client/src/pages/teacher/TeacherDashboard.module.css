@@ -932,3 +932,235 @@ button div {
     align-items: flex-start;
   }
 }
+
+/* ========================================
+   TEACHER DASHBOARD DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(99, 102, 241, 0.18),
+      transparent 32%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a5f
+    );
+  box-shadow:
+    0 20px 48px
+    rgba(0, 0, 0, 0.32);
+}
+
+:global([data-theme="dark"]) .profile {
+  border-color:
+    rgba(148, 163, 184, 0.24);
+  background:
+    rgba(15, 23, 42, 0.42);
+}
+
+:global([data-theme="dark"]) .profileAvatar {
+  color: #bfdbfe;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .profile span {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .statCard,
+:global([data-theme="dark"]) .recentSection,
+:global([data-theme="dark"]) .quickActions {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 16px 40px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .statCard::after {
+  background:
+    rgba(99, 102, 241, 0.1);
+}
+
+:global([data-theme="dark"]) .statCard:hover {
+  border-color: #3b4d68;
+  box-shadow:
+    0 20px 46px
+    rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .statIcon {
+  background:
+    rgba(79, 70, 229, 0.22);
+}
+
+:global([data-theme="dark"])
+  .statCardTop > span {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .statCard h2,
+:global([data-theme="dark"]) .statCard h3,
+:global([data-theme="dark"]) .sectionHeader h2,
+:global([data-theme="dark"]) .examTitle h3,
+:global([data-theme="dark"]) .quickActions strong,
+:global([data-theme="dark"]) .emptyState h3,
+:global([data-theme="dark"]) .errorContainer h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .statCard p,
+:global([data-theme="dark"]) .sectionHeader p,
+:global([data-theme="dark"]) .examMain p,
+:global([data-theme="dark"]) .quickActions small,
+:global([data-theme="dark"]) .emptyState p,
+:global([data-theme="dark"]) .stateContainer p,
+:global([data-theme="dark"]) .errorContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .sectionHeader {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader > button {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.22);
+}
+
+:global([data-theme="dark"])
+  .sectionHeader > button:hover {
+  color: #e0e7ff;
+  background:
+    rgba(79, 70, 229, 0.36);
+}
+
+:global([data-theme="dark"]) .examCard {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .examCard:hover {
+  border-color: #6366f1;
+  box-shadow:
+    0 12px 30px
+    rgba(0, 0, 0, 0.25);
+}
+
+:global([data-theme="dark"]) .examIcon {
+  background:
+    rgba(79, 70, 229, 0.24);
+}
+
+:global([data-theme="dark"]) .published {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .draft {
+  color: #fcd34d;
+  background:
+    rgba(146, 64, 14, 0.3);
+}
+
+:global([data-theme="dark"]) .examDetails span {
+  border-color: #334155;
+  color: #cbd5e1;
+  background: #111827;
+}
+
+:global([data-theme="dark"])
+  .examActions .secondaryButton {
+  border-color: #475569;
+  color: #cbd5e1;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .examActions .secondaryButton:hover {
+  border-color: #64748b;
+  color: #f8fafc;
+  background: #1e293b;
+}
+
+:global([data-theme="dark"])
+  .quickActions > button {
+  border-color: #29374c;
+  color: #e5e7eb;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .quickActions > button:hover {
+  border-color: #6366f1;
+  background: #1e293b;
+}
+
+:global([data-theme="dark"])
+  .quickActions > button > span {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"]) .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+:global([data-theme="dark"])
+  .errorContainer button {
+  background: #4f46e5;
+}
+
+:global([data-theme="dark"])
+  .errorContainer button:hover {
+  background: #6366f1;
+}
+
+
+/* ========================================
+   TEACHER HEADER DESKTOP ALIGNMENT
+======================================== */
+
+@media (min-width: 851px) {
+  .header {
+    align-items: center;
+  }
+
+  .header > div:first-child {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .profileActions {
+    flex: 0 0 auto;
+    width: auto;
+    margin-left: auto;
+  }
+
+  .profile {
+    width: auto;
+    min-width: 250px;
+  }
+
+  .logoutButton {
+    flex: 0 0 auto;
+    min-height: 74px;
+  }
+}
+

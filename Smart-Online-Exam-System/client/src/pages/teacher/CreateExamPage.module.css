@@ -390,3 +390,187 @@
     min-width: 0;
   }
 }
+
+/* ========================================
+   CREATE EXAM PAGE DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.18),
+      transparent 32%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a5f
+    );
+  box-shadow:
+    0 20px 48px
+    rgba(0, 0, 0, 0.32);
+}
+
+:global([data-theme="dark"]) .formSection,
+:global([data-theme="dark"]) .formActions {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 16px 40px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .sectionHeading {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeading > span {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"]) .sectionHeading h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .sectionHeading p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .field label {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"]) .field label span {
+  color: #f87171;
+}
+
+:global([data-theme="dark"]) .field input,
+:global([data-theme="dark"]) .field textarea,
+:global([data-theme="dark"]) .field select {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #172033;
+  color-scheme: dark;
+}
+
+:global([data-theme="dark"])
+  .field input::placeholder,
+:global([data-theme="dark"])
+  .field textarea::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"]) .field input:focus,
+:global([data-theme="dark"]) .field textarea:focus,
+:global([data-theme="dark"]) .field select:focus {
+  border-color: #818cf8;
+  background: #1e293b;
+  box-shadow:
+    0 0 0 4px
+    rgba(129, 140, 248, 0.14);
+}
+
+:global([data-theme="dark"])
+  .field input[type="date"],
+:global([data-theme="dark"])
+  .field input[type="time"],
+:global([data-theme="dark"])
+  .field input[type="datetime-local"] {
+  color-scheme: dark;
+}
+
+:global([data-theme="dark"]) .field em {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .field small {
+  color: #fca5a5;
+}
+
+:global([data-theme="dark"]) .apiError {
+  border-color:
+    rgba(248, 113, 113, 0.42);
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.28);
+}
+
+:global([data-theme="dark"]) .cancelButton {
+  border-color: #475569;
+  color: #cbd5e1;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .cancelButton:hover {
+  border-color: #64748b;
+  color: #f8fafc;
+  background: #1e293b;
+}
+
+:global([data-theme="dark"]) .submitButton {
+  border-color: #4f46e5;
+  background: #4f46e5;
+}
+
+:global([data-theme="dark"]) .submitButton:hover {
+  border-color: #6366f1;
+  background: #6366f1;
+}
+
+/* Additional responsive protection */
+
+.container,
+.threeColumns,
+.twoColumns,
+.threeColumns > *,
+.twoColumns > * {
+  min-width: 0;
+}
+
+.field input,
+.field textarea,
+.field select,
+.formActions button {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: clamp(
+      1.8rem,
+      10vw,
+      2.3rem
+    );
+  }
+
+  .header > span {
+    font-size: 0.9rem;
+  }
+
+  .sectionHeading {
+    gap: 13px;
+  }
+
+  .sectionHeading > span {
+    width: 43px;
+    height: 43px;
+  }
+
+  .field input,
+  .field textarea,
+  .field select {
+    font-size: 16px;
+  }
+}
+

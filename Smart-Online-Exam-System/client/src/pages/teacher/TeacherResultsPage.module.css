@@ -673,3 +673,467 @@
     min-width: 0;
   }
 }
+
+/* ========================================
+   TEACHER RESULTS PAGE DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    linear-gradient(
+      135deg,
+      #0b1120 0%,
+      #0f172a 50%,
+      #0b1120 100%
+    );
+}
+
+/* Header */
+
+:global([data-theme="dark"]) .header {
+  border-color: #263449;
+  background:
+    linear-gradient(
+      135deg,
+      #111827,
+      #172033
+    );
+  box-shadow:
+    0 20px 55px
+    rgba(0, 0, 0, 0.28);
+}
+
+:global([data-theme="dark"]) .backButton {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"])
+  .backButton:hover {
+  color: #e0e7ff;
+}
+
+:global([data-theme="dark"]) .header p {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"]) .header h1 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .header span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .examButton {
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6366f1
+    );
+  box-shadow:
+    0 13px 28px
+    rgba(79, 70, 229, 0.28);
+}
+
+:global([data-theme="dark"])
+  .examButton:hover {
+  box-shadow:
+    0 17px 34px
+    rgba(79, 70, 229, 0.38);
+}
+
+/* Statistics */
+
+:global([data-theme="dark"])
+  .statistics article {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 15px 38px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"])
+  .statistics article::after {
+  background:
+    rgba(99, 102, 241, 0.12);
+}
+
+:global([data-theme="dark"])
+  .statistics span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .statistics strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .statistics p {
+  color: #94a3b8;
+}
+
+/* Results section */
+
+:global([data-theme="dark"])
+  .resultsSection {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 50px
+    rgba(0, 0, 0, 0.24);
+}
+
+:global([data-theme="dark"])
+  .sectionHeader {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader > span {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+/* Search and filter */
+
+:global([data-theme="dark"]) .toolbar {
+  border-bottom-color: #29374c;
+  background: #0f172a;
+}
+
+:global([data-theme="dark"])
+  .toolbar input,
+:global([data-theme="dark"])
+  .toolbar select {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #172033;
+  color-scheme: dark;
+}
+
+:global([data-theme="dark"])
+  .toolbar input::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"])
+  .toolbar input:focus,
+:global([data-theme="dark"])
+  .toolbar select:focus {
+  border-color: #818cf8;
+  box-shadow:
+    0 0 0 4px
+    rgba(129, 140, 248, 0.14);
+}
+
+:global([data-theme="dark"])
+  .toolbar select option {
+  color: #e2e8f0;
+  background: #172033;
+}
+
+/* Results table */
+
+:global([data-theme="dark"])
+  .resultTable th {
+  border-bottom-color: #334155;
+  color: #94a3b8;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .resultTable td {
+  border-bottom-color: #29374c;
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .resultTable tbody tr:hover {
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .student strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .student span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .percentage {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"]) .passed {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .failed {
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.3);
+}
+
+:global([data-theme="dark"])
+  .viewButton {
+  border-color: #475569;
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.16);
+}
+
+:global([data-theme="dark"])
+  .viewButton:hover {
+  border-color: #6366f1;
+  color: #ffffff;
+  background: #4f46e5;
+}
+
+/* Empty, loading and error states */
+
+:global([data-theme="dark"])
+  .emptyState > div {
+  background:
+    rgba(79, 70, 229, 0.24);
+}
+
+:global([data-theme="dark"])
+  .emptyState h2,
+:global([data-theme="dark"])
+  .stateContainer h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .emptyState p,
+:global([data-theme="dark"])
+  .stateContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .stateContainer button {
+  background: #4f46e5;
+}
+
+:global([data-theme="dark"])
+  .stateContainer button:hover {
+  background: #6366f1;
+}
+
+:global([data-theme="dark"]) .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+/* Additional responsive protection */
+
+.container,
+.statistics article,
+.resultsSection,
+.tableWrapper,
+.resultTable,
+.student {
+  min-width: 0;
+}
+
+.toolbar input,
+.toolbar select,
+.examButton,
+.viewButton {
+  max-width: 100%;
+  box-sizing: border-box;
+}
+
+.student strong,
+.student span,
+.resultTable th,
+.resultTable td {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 760px) {
+  .header {
+    gap: 22px;
+  }
+
+  .statistics {
+    gap: 15px;
+  }
+
+  .resultsSection {
+    border-radius: 20px;
+  }
+
+  .tableWrapper {
+    overscroll-behavior-x:
+      contain;
+    -webkit-overflow-scrolling:
+      touch;
+  }
+}
+
+@media (max-width: 520px) {
+  .header {
+    padding:
+      24px
+      18px;
+    border-radius: 20px;
+  }
+
+  .header h1 {
+    font-size: clamp(
+      1.9rem,
+      10vw,
+      2.4rem
+    );
+  }
+
+  .statistics article {
+    padding: 20px;
+  }
+
+  .statistics strong {
+    font-size: 2rem;
+  }
+
+  .sectionHeader {
+    padding:
+      22px
+      17px;
+  }
+
+  .toolbar {
+    padding:
+      17px;
+  }
+
+  .toolbar input,
+  .toolbar select {
+    min-width: 0;
+    font-size: 16px;
+  }
+}
+
+
+/* ========================================
+   FIX MOBILE RESULTS TABLE COMPRESSION
+======================================== */
+
+.tableWrapper {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.resultTable {
+  width: 100%;
+  min-width: 1050px;
+  table-layout: auto;
+}
+
+.resultTable th,
+.resultTable td {
+  min-width: max-content;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.resultTable th:first-child,
+.resultTable td:first-child {
+  min-width: 230px;
+}
+
+.resultTable th:nth-child(2),
+.resultTable td:nth-child(2) {
+  min-width: 260px;
+}
+
+.resultTable th:nth-child(3),
+.resultTable td:nth-child(3) {
+  min-width: 110px;
+}
+
+.resultTable th:nth-child(4),
+.resultTable td:nth-child(4) {
+  min-width: 140px;
+}
+
+.resultTable th:nth-child(5),
+.resultTable td:nth-child(5) {
+  min-width: 130px;
+}
+
+.resultTable th:nth-child(6),
+.resultTable td:nth-child(6) {
+  min-width: 210px;
+}
+
+.resultTable th:nth-child(7),
+.resultTable td:nth-child(7) {
+  min-width: 130px;
+}
+
+.student {
+  min-width: 0;
+}
+
+.student strong,
+.student span {
+  white-space: normal;
+  overflow-wrap: anywhere;
+}
+
+.viewButton {
+  min-width: 105px;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+@media (max-width: 760px) {
+  .resultsSection {
+    max-width: 100%;
+    overflow: hidden;
+  }
+
+  .tableWrapper {
+    border-top: 1px solid #29374c;
+  }
+
+  .resultTable {
+    min-width: 1050px;
+  }
+
+  .resultTable th,
+  .resultTable td {
+    padding: 17px 16px;
+  }
+}
+

@@ -551,3 +551,162 @@
     padding: 28px 20px;
   }
 }
+
+/* ========================================
+   STUDENT RESULTS DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.18),
+      transparent 32%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .backButton {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .backButton:hover {
+  color: #bfdbfe;
+}
+
+:global([data-theme="dark"]) .header,
+:global([data-theme="dark"]) .statCard,
+:global([data-theme="dark"]) .performanceCard,
+:global([data-theme="dark"]) .historySection {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .eyebrow {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .header h1,
+:global([data-theme="dark"]) .statCard strong,
+:global([data-theme="dark"]) .performanceCard strong,
+:global([data-theme="dark"]) .sectionHeading h2,
+:global([data-theme="dark"]) .examInfo strong,
+:global([data-theme="dark"]) .percentage,
+:global([data-theme="dark"]) .emptyState h3 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .header p,
+:global([data-theme="dark"]) .statCard span,
+:global([data-theme="dark"]) .performanceCard span,
+:global([data-theme="dark"]) .sectionHeading p,
+:global([data-theme="dark"]) .examInfo span,
+:global([data-theme="dark"]) .emptyState {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .blueIcon {
+  color: #93c5fd;
+  background: rgba(30, 64, 175, 0.28);
+}
+
+:global([data-theme="dark"]) .greenIcon {
+  color: #86efac;
+  background: rgba(22, 101, 52, 0.28);
+}
+
+:global([data-theme="dark"]) .redIcon {
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.28);
+}
+
+:global([data-theme="dark"]) .purpleIcon {
+  color: #c4b5fd;
+  background: rgba(91, 33, 182, 0.26);
+}
+
+:global([data-theme="dark"]) .highIcon {
+  color: #fbbf24;
+}
+
+:global([data-theme="dark"]) .lowIcon {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .resultCount {
+  color: #c4b5fd;
+  background: rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"]) .tableWrapper {
+  border-color: #29374c;
+}
+
+:global([data-theme="dark"]) .table th {
+  color: #94a3b8;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .table td {
+  border-top-color: #29374c;
+  color: #cbd5e1;
+  background: #111827;
+}
+
+:global([data-theme="dark"]) .table tbody tr:hover,
+:global([data-theme="dark"]) .table tbody tr:hover td {
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .passedBadge {
+  color: #86efac;
+  background: rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .failedBadge {
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.3);
+}
+
+:global([data-theme="dark"]) .viewButton {
+  border-color: #3730a3;
+  color: #c4b5fd;
+  background: rgba(79, 70, 229, 0.18);
+}
+
+:global([data-theme="dark"])
+  .viewButton:hover:not(:disabled) {
+  border-color: #6366f1;
+  background: rgba(79, 70, 229, 0.3);
+}
+
+:global([data-theme="dark"]) .emptyState {
+  border-color: #475569;
+  background: rgba(23, 32, 51, 0.42);
+}
+
+:global([data-theme="dark"]) .statePage {
+  color: #e5e7eb;
+  background: #0b1120;
+}
+
+:global([data-theme="dark"]) .statePage h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .statePage p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .loader {
+  border-color: #263449;
+  border-top-color: #818cf8;
+}
+
+:global([data-theme="dark"]) .errorIcon {
+  color: #f87171;
+}
+

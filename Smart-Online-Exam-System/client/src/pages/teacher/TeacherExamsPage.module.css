@@ -536,3 +536,209 @@ button:disabled {
 .examCard p {
   overflow-wrap: anywhere;
 }
+
+/* ========================================
+   TEACHER EXAMS DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.18),
+      transparent 30%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a5f
+    );
+  box-shadow:
+    0 20px 48px
+    rgba(0, 0, 0, 0.32);
+}
+
+:global([data-theme="dark"]) .summary article,
+:global([data-theme="dark"]) .toolbar,
+:global([data-theme="dark"]) .examCard,
+:global([data-theme="dark"]) .emptyState {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 16px 40px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"]) .summary span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .summary strong {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"]) .toolbar input,
+:global([data-theme="dark"]) .toolbar select {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .toolbar input::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"])
+  .toolbar input:focus,
+:global([data-theme="dark"])
+  .toolbar select:focus {
+  border-color: #818cf8;
+  box-shadow:
+    0 0 0 4px
+    rgba(129, 140, 248, 0.14);
+}
+
+:global([data-theme="dark"])
+  .toolbar select option {
+  color: #e2e8f0;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .examCard:hover {
+  border-color: #6366f1;
+  box-shadow:
+    0 20px 46px
+    rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"]) .examIcon {
+  background:
+    rgba(79, 70, 229, 0.24);
+}
+
+:global([data-theme="dark"]) .examCard h2,
+:global([data-theme="dark"]) .details strong,
+:global([data-theme="dark"]) .emptyState h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .description,
+:global([data-theme="dark"]) .details span,
+:global([data-theme="dark"]) .schedule span,
+:global([data-theme="dark"]) .emptyState p,
+:global([data-theme="dark"]) .stateContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .published {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"]) .draft {
+  color: #fcd34d;
+  background:
+    rgba(146, 64, 14, 0.3);
+}
+
+:global([data-theme="dark"]) .completed {
+  color: #93c5fd;
+  background:
+    rgba(30, 64, 175, 0.3);
+}
+
+:global([data-theme="dark"]) .archived {
+  color: #cbd5e1;
+  background: #334155;
+}
+
+:global([data-theme="dark"]) .details div,
+:global([data-theme="dark"]) .schedule p {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"]) .schedule p {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .secondaryActions button {
+  border-color: #475569;
+  color: #cbd5e1;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .secondaryActions button:hover {
+  border-color: #64748b;
+  color: #f8fafc;
+  background: #1e293b;
+}
+
+:global([data-theme="dark"])
+  .secondaryActions .deleteButton {
+  border-color:
+    rgba(248, 113, 113, 0.45);
+  color: #fca5a5;
+}
+
+:global([data-theme="dark"])
+  .secondaryActions
+  .deleteButton:hover {
+  border-color: #f87171;
+  color: #fecaca;
+  background:
+    rgba(127, 29, 29, 0.3);
+}
+
+:global([data-theme="dark"]) .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+/* Additional mobile protection */
+
+.cardHeader,
+.details > *,
+.schedule > * {
+  min-width: 0;
+}
+
+.details strong,
+.schedule p,
+.primaryActions button,
+.secondaryActions button {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: clamp(
+      1.8rem,
+      10vw,
+      2.3rem
+    );
+  }
+
+  .summary article {
+    min-width: 0;
+  }
+
+  .toolbar {
+    padding: 15px;
+  }
+
+  .examCard {
+    border-radius: 17px;
+  }
+}
+

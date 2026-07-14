@@ -541,3 +541,248 @@
     min-width: 0;
   }
 }
+
+/* ========================================
+   TEACHER PROFILE PAGE DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.18),
+      transparent 30%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  border-color: #263449;
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a5f
+    );
+  box-shadow:
+    0 22px 55px
+    rgba(0, 0, 0, 0.32);
+}
+
+/* Profile and details cards */
+
+:global([data-theme="dark"]) .profileCard,
+:global([data-theme="dark"]) .detailsCard,
+:global([data-theme="dark"]) .stateContainer {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 44px
+    rgba(0, 0, 0, 0.22);
+}
+
+:global([data-theme="dark"]) .avatar {
+  border-color: #29374c;
+  box-shadow:
+    0 16px 32px
+    rgba(79, 70, 229, 0.28);
+}
+
+:global([data-theme="dark"]) .profileCard h2,
+:global([data-theme="dark"]) .sectionHeading h2,
+:global([data-theme="dark"]) .detailsGrid strong,
+:global([data-theme="dark"]) .stateContainer h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .profileCard > p,
+:global([data-theme="dark"]) .detailsGrid span,
+:global([data-theme="dark"]) .stateContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .roleBadge {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+/* Account status */
+
+:global([data-theme="dark"]) .accountStatus {
+  border-color: #334155;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .accountStatus span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .accountStatus strong {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+/* Personal information */
+
+:global([data-theme="dark"]) .sectionHeading {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeading p {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"])
+  .sectionHeading > span {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"])
+  .detailsGrid > div {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .detailsGrid > div:nth-child(odd) {
+  border-right-color: #29374c;
+}
+
+/* Account actions */
+
+:global([data-theme="dark"]) .actions {
+  background:
+    linear-gradient(
+      135deg,
+      #4338ca,
+      #1e1b4b
+    );
+  box-shadow:
+    0 20px 46px
+    rgba(0, 0, 0, 0.3);
+}
+
+:global([data-theme="dark"])
+  .actionButtons button {
+  border-color:
+    rgba(148, 163, 184, 0.35);
+  color: #e0e7ff;
+  background:
+    rgba(15, 23, 42, 0.5);
+}
+
+:global([data-theme="dark"])
+  .actionButtons button:hover {
+  border-color:
+    rgba(199, 210, 254, 0.65);
+  color: #ffffff;
+  background:
+    rgba(30, 41, 59, 0.8);
+}
+
+/* Loading and error state */
+
+:global([data-theme="dark"]) .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+:global([data-theme="dark"])
+  .stateContainer button {
+  background: #4f46e5;
+}
+
+:global([data-theme="dark"])
+  .stateContainer button:hover {
+  background: #6366f1;
+}
+
+/* Additional responsive protection */
+
+.container,
+.profileCard,
+.detailsCard,
+.accountStatus,
+.sectionHeading,
+.detailsGrid > *,
+.actions > *,
+.actionButtons > * {
+  min-width: 0;
+}
+
+.profileCard h2,
+.profileCard > p,
+.accountStatus span,
+.accountStatus strong,
+.sectionHeading h2,
+.sectionHeading p,
+.detailsGrid span,
+.detailsGrid strong,
+.actions h2,
+.actions p,
+.actions span {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 650px) {
+  .profileCard {
+    padding:
+      34px
+      20px;
+  }
+
+  .avatar {
+    width: 105px;
+    height: 105px;
+    border-width: 7px;
+    font-size: 34px;
+  }
+
+  .sectionHeading > span {
+    flex-shrink: 1;
+  }
+
+  .actions {
+    gap: 24px;
+  }
+}
+
+@media (max-width: 360px) {
+  .header {
+    padding:
+      32px
+      18px;
+  }
+
+  .profileCard {
+    padding:
+      30px
+      16px;
+  }
+
+  .sectionHeading {
+    padding:
+      25px
+      18px;
+  }
+
+  .detailsGrid > div {
+    padding:
+      25px
+      18px;
+  }
+
+  .actions {
+    padding:
+      30px
+      18px;
+  }
+}
+

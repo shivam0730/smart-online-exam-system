@@ -596,3 +596,333 @@ span {
     min-width: 0;
   }
 }
+
+/* ========================================
+   EXAM RESULTS PAGE DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.18),
+      transparent 28%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header {
+  border-color: #263449;
+  background:
+    linear-gradient(
+      135deg,
+      #0f172a,
+      #1e3a5f
+    );
+  box-shadow:
+    0 22px 55px
+    rgba(0, 0, 0, 0.32);
+}
+
+/* Exam information and statistics */
+
+:global([data-theme="dark"])
+  .examInformation article,
+:global([data-theme="dark"])
+  .statistics article {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 16px 40px
+    rgba(0, 0, 0, 0.2);
+}
+
+:global([data-theme="dark"])
+  .examInformation span,
+:global([data-theme="dark"])
+  .statistics span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .examInformation strong,
+:global([data-theme="dark"])
+  .statistics strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .statistics p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .statistics article::after {
+  background:
+    rgba(99, 102, 241, 0.14);
+}
+
+/* Results section */
+
+:global([data-theme="dark"])
+  .resultsSection {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 20px 48px
+    rgba(0, 0, 0, 0.24);
+}
+
+:global([data-theme="dark"])
+  .sectionHeader {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader h2,
+:global([data-theme="dark"])
+  .emptyState h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader p,
+:global([data-theme="dark"])
+  .emptyState p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader > span {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+/* Search and filters */
+
+:global([data-theme="dark"])
+  .filters {
+  border-bottom-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .filters input,
+:global([data-theme="dark"])
+  .filters select {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #111827;
+  color-scheme: dark;
+}
+
+:global([data-theme="dark"])
+  .filters input::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"])
+  .filters input:focus,
+:global([data-theme="dark"])
+  .filters select:focus {
+  border-color: #818cf8;
+  box-shadow:
+    0 0 0 4px
+    rgba(129, 140, 248, 0.14);
+}
+
+:global([data-theme="dark"])
+  .filters select option {
+  color: #e2e8f0;
+  background: #111827;
+}
+
+/* Results table */
+
+:global([data-theme="dark"])
+  .resultsTable th {
+  color: #94a3b8;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .resultsTable td {
+  border-top-color: #29374c;
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .resultsTable tbody tr:hover {
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .resultsTable td:first-child strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .resultsTable td:first-child span {
+  color: #94a3b8;
+}
+
+/* Percentage and result status */
+
+:global([data-theme="dark"])
+  .percentage {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"])
+  .passed {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"])
+  .failed {
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.3);
+}
+
+/* Loading and error states */
+
+:global([data-theme="dark"])
+  .stateContainer {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 20px 45px
+    rgba(0, 0, 0, 0.24);
+}
+
+:global([data-theme="dark"])
+  .stateContainer h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .stateContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+/* Additional responsive protection */
+
+.container,
+.tableWrapper,
+.resultsTable,
+.headerActions,
+.examInformation > *,
+.statistics > * {
+  min-width: 0;
+}
+
+.examInformation strong,
+.statistics strong,
+.resultsTable th,
+.resultsTable td {
+  overflow-wrap: anywhere;
+}
+
+@media (max-width: 520px) {
+  .header h1 {
+    font-size: clamp(
+      1.85rem,
+      10vw,
+      2.35rem
+    );
+  }
+
+  .headerActions button {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .examInformation article,
+  .statistics article {
+    padding: 24px 20px;
+  }
+
+  .sectionHeader {
+    padding: 25px 20px;
+  }
+
+  .filters {
+    padding: 18px;
+  }
+
+  .filters input,
+  .filters select {
+    min-width: 0;
+    font-size: 16px;
+  }
+}
+
+
+/* ========================================
+   DAY 25: EXAM RESULTS TABLE MOBILE FIX
+======================================== */
+
+.tableWrapper {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+
+.resultsTable {
+  width: 100%;
+  min-width: 920px;
+  table-layout: auto;
+}
+
+.resultsTable th,
+.resultsTable td {
+  min-width: 110px;
+  white-space: nowrap;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+.resultsTable th:first-child,
+.resultsTable td:first-child {
+  min-width: 240px;
+}
+
+.resultsTable td:first-child strong,
+.resultsTable td:first-child span {
+  white-space: normal;
+  overflow-wrap: break-word;
+  word-break: normal;
+}
+
+@media (max-width: 700px) {
+  .tableWrapper {
+    overflow-x: auto;
+    overscroll-behavior-inline: contain;
+  }
+
+  .resultsTable {
+    width: 920px;
+    min-width: 920px;
+  }
+
+  .resultsTable th,
+  .resultsTable td {
+    padding: 18px 20px;
+  }
+}
+

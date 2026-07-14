@@ -328,3 +328,122 @@
     font-size: 1.75rem;
   }
 }
+
+/* ========================================
+   AUTHENTICATION DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .authPage {
+  color: var(--theme-text);
+  background: var(--theme-background);
+}
+
+:global([data-theme="dark"]) .formPanel {
+  background:
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(37, 99, 235, 0.1),
+      transparent 32%
+    ),
+    var(--theme-background);
+}
+
+:global([data-theme="dark"]) .homeLink {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .homeLink:hover {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"]) .formHeading span {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .formHeading h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"]) .formHeading p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"]) .formGroup label {
+  color: #e2e8f0;
+}
+
+:global([data-theme="dark"]) .formGroup input {
+  border-color: #334155;
+  color: #f8fafc;
+  background: #111827;
+}
+
+:global([data-theme="dark"])
+.formGroup input::placeholder {
+  color: #64748b;
+  opacity: 1;
+}
+
+:global([data-theme="dark"])
+.formGroup input:hover {
+  border-color: #475569;
+}
+
+:global([data-theme="dark"])
+.formGroup input:focus {
+  border-color: #60a5fa;
+  background: #172033;
+  box-shadow:
+    0 0 0 4px rgba(96, 165, 250, 0.14);
+}
+
+:global([data-theme="dark"])
+.passwordButton {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+.passwordButton:hover {
+  color: #93c5fd;
+}
+
+:global([data-theme="dark"])
+.passwordButton:focus-visible {
+  border-radius: 5px;
+  outline: 2px solid #60a5fa;
+  outline-offset: 2px;
+}
+
+:global([data-theme="dark"])
+.errorMessage {
+  border: 1px solid rgba(248, 113, 113, 0.25);
+  color: #fca5a5;
+  background: rgba(127, 29, 29, 0.25);
+}
+
+:global([data-theme="dark"])
+.submitButton {
+  color: #ffffff;
+  background: #2563eb;
+}
+
+:global([data-theme="dark"])
+.submitButton:hover:not(:disabled) {
+  background: #3b82f6;
+}
+
+:global([data-theme="dark"])
+.switchText {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+.switchText a {
+  color: #60a5fa;
+}
+
+:global([data-theme="dark"])
+.switchText a:hover {
+  color: #93c5fd;
+}
+
