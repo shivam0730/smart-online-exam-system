@@ -609,3 +609,249 @@
     flex-direction: column;
   }
 }
+
+/* ========================================
+   DAY 27: ADMIN DASHBOARD DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.2),
+      transparent 32%
+    ),
+    #0b1120;
+}
+
+:global([data-theme="dark"]) .header,
+:global([data-theme="dark"]) .statCard,
+:global([data-theme="dark"]) .panel,
+:global([data-theme="dark"]) .stateContainer,
+:global([data-theme="dark"]) .errorContainer {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.25);
+}
+
+/* Header */
+
+:global([data-theme="dark"])
+  .dashboardLabel {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"])
+  .header h1 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .header p {
+  color: #94a3b8;
+}
+
+/* Dashboard action buttons */
+
+:global([data-theme="dark"])
+  .manageUsersButton {
+  background: #6366f1;
+}
+
+:global([data-theme="dark"])
+  .manageUsersButton:hover {
+  background: #818cf8;
+}
+
+:global([data-theme="dark"])
+  .logoutButton {
+  border-color:
+    rgba(248, 113, 113, 0.65);
+  color: #fca5a5;
+}
+
+:global([data-theme="dark"])
+  .logoutButton:hover {
+  border-color: #ef4444;
+  color: #ffffff;
+  background: #dc2626;
+}
+
+/* Statistics */
+
+:global([data-theme="dark"])
+  .statIcon {
+  background:
+    rgba(79, 70, 229, 0.22);
+}
+
+:global([data-theme="dark"])
+  .statCard p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .statCard h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .statCard:hover {
+  border-color: #475569;
+  box-shadow:
+    0 22px 48px
+    rgba(0, 0, 0, 0.34);
+}
+
+/* Panel headings */
+
+:global([data-theme="dark"])
+  .sectionHeader {
+  border-bottom-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .sectionHeader p {
+  color: #94a3b8;
+}
+
+/* Overview cards */
+
+:global([data-theme="dark"])
+  .overviewItems div {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .overviewItems span {
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .overviewItems strong {
+  color: #a5b4fc;
+}
+
+/* Recent users and exams */
+
+:global([data-theme="dark"])
+  .listItem,
+:global([data-theme="dark"])
+  .examItem {
+  border-color: #29374c;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .listItem:hover,
+:global([data-theme="dark"])
+  .examItem:hover {
+  border-color: #6366f1;
+}
+
+:global([data-theme="dark"])
+  .listItem strong,
+:global([data-theme="dark"])
+  .examItem strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .listItem div span,
+:global([data-theme="dark"])
+  .examItem div span {
+  color: #94a3b8;
+}
+
+/* Badges */
+
+:global([data-theme="dark"])
+  .roleBadge {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"])
+  .statusBadge {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.32);
+}
+
+:global([data-theme="dark"])
+  .examMeta > span:first-child {
+  color: #cbd5e1;
+}
+
+/* Empty, loading and error states */
+
+:global([data-theme="dark"])
+  .emptyMessage {
+  border-color: #475569;
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .stateContainer p,
+:global([data-theme="dark"])
+  .errorContainer p {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .errorContainer h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .loader {
+  border-color: #29374c;
+  border-top-color: #818cf8;
+}
+
+/* ========================================
+   DAY 27: COMPACT MOBILE EXAM CARDS
+======================================== */
+
+@media (max-width: 520px) {
+  .examItem {
+    min-height: 0;
+    height: auto;
+    gap: 12px;
+  }
+
+  .examItem > div:first-child {
+    width: 100%;
+  }
+
+  .examMeta {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .examMeta > span:first-child {
+    flex: 1 1 auto;
+    min-width: 0;
+  }
+
+  .examMeta .statusBadge {
+    width: auto;
+    max-width: 100%;
+    margin-left: 0;
+    flex: 0 1 auto;
+  }
+}

@@ -785,3 +785,351 @@
     padding-inline: 8px;
   }
 }
+
+/* ========================================
+   DAY 27: ADMIN USERS DARK THEME
+======================================== */
+
+:global([data-theme="dark"]) .page {
+  color: #e5e7eb;
+  background:
+    radial-gradient(
+      circle at top right,
+      rgba(79, 70, 229, 0.2),
+      transparent 32%
+    ),
+    #0b1120;
+}
+
+/* Header */
+
+:global([data-theme="dark"]) .header {
+  border-color: #263449;
+  background:
+    rgba(17, 24, 39, 0.96);
+  box-shadow:
+    0 20px 50px
+    rgba(0, 0, 0, 0.28);
+}
+
+:global([data-theme="dark"])
+  .backButton,
+:global([data-theme="dark"])
+  .eyebrow {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"])
+  .backButton:hover {
+  color: #c7d2fe;
+}
+
+:global([data-theme="dark"])
+  .header h1 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .subtitle {
+  color: #94a3b8;
+}
+
+/* Total users */
+
+:global([data-theme="dark"])
+  .totalUsers {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.22);
+}
+
+:global([data-theme="dark"])
+  .totalUsers span {
+  color: #a5b4fc;
+}
+
+:global([data-theme="dark"])
+  .totalUsers strong {
+  color: #f8fafc;
+}
+
+/* Summary cards */
+
+:global([data-theme="dark"])
+  .summaryCard {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 14px 36px
+    rgba(0, 0, 0, 0.22);
+}
+
+:global([data-theme="dark"])
+  .summaryIcon {
+  color: #a5b4fc;
+  background:
+    rgba(79, 70, 229, 0.24);
+}
+
+:global([data-theme="dark"])
+  .summaryCard span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .summaryCard strong {
+  color: #f8fafc;
+}
+
+/* Main content */
+
+:global([data-theme="dark"])
+  .contentCard {
+  border-color: #263449;
+  background: #111827;
+  box-shadow:
+    0 18px 45px
+    rgba(0, 0, 0, 0.26);
+}
+
+:global([data-theme="dark"])
+  .toolbar {
+  border-bottom-color: #29374c;
+}
+
+/* Search */
+
+:global([data-theme="dark"])
+  .searchForm {
+  border-color: #334155;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .searchForm svg {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .searchForm input {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .searchForm input::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"])
+  .searchForm button {
+  background: #6366f1;
+}
+
+:global([data-theme="dark"])
+  .searchForm button:hover {
+  background: #818cf8;
+}
+
+/* Filters */
+
+:global([data-theme="dark"])
+  .filters select,
+:global([data-theme="dark"])
+  .clearButton {
+  border-color: #334155;
+  color: #e2e8f0;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .filters select:focus {
+  border-color: #818cf8;
+  box-shadow:
+    0 0 0 3px
+    rgba(129, 140, 248, 0.16);
+}
+
+:global([data-theme="dark"])
+  .clearButton:hover {
+  border-color: #818cf8;
+  color: #c7d2fe;
+}
+
+/* Table */
+
+:global([data-theme="dark"])
+  .tableWrapper th {
+  border-bottom-color: #334155;
+  color: #94a3b8;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .tableWrapper td {
+  border-bottom-color: #29374c;
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .tableWrapper tbody tr:hover {
+  background:
+    rgba(79, 70, 229, 0.1);
+}
+
+:global([data-theme="dark"])
+  .userCell strong {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .userCell span {
+  color: #94a3b8;
+}
+
+/* Badges */
+
+:global([data-theme="dark"])
+  .roleBadge {
+  color: #c4b5fd;
+  background:
+    rgba(79, 70, 229, 0.25);
+}
+
+:global([data-theme="dark"])
+  .activeBadge {
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.3);
+}
+
+:global([data-theme="dark"])
+  .inactiveBadge {
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.3);
+}
+
+/* Account action buttons */
+
+:global([data-theme="dark"])
+  .activateButton {
+  border-color:
+    rgba(74, 222, 128, 0.5);
+  color: #86efac;
+  background:
+    rgba(22, 101, 52, 0.24);
+}
+
+:global([data-theme="dark"])
+  .activateButton:hover:not(
+    :disabled
+  ) {
+  border-color: #4ade80;
+  background:
+    rgba(22, 101, 52, 0.4);
+}
+
+:global([data-theme="dark"])
+  .deactivateButton {
+  border-color:
+    rgba(248, 113, 113, 0.5);
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.22);
+}
+
+:global([data-theme="dark"])
+  .deactivateButton:hover:not(
+    :disabled
+  ) {
+  border-color: #f87171;
+  background:
+    rgba(127, 29, 29, 0.4);
+}
+
+:global([data-theme="dark"])
+  .protectedText {
+  color: #94a3b8;
+}
+
+/* Pagination */
+
+:global([data-theme="dark"])
+  .pagination {
+  border-top-color: #29374c;
+  background: #0f172a;
+}
+
+:global([data-theme="dark"])
+  .pagination p,
+:global([data-theme="dark"])
+  .pagination > div > span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .pagination button {
+  border-color: #334155;
+  color: #cbd5e1;
+  background: #172033;
+}
+
+:global([data-theme="dark"])
+  .pagination button:hover:not(
+    :disabled
+  ) {
+  border-color: #818cf8;
+  color: #c7d2fe;
+}
+
+/* Loading and empty states */
+
+:global([data-theme="dark"])
+  .stateMessage {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .stateMessage h2 {
+  color: #f8fafc;
+}
+
+:global([data-theme="dark"])
+  .stateMessage svg {
+  color: #a5b4fc;
+}
+
+/* Error state */
+
+:global([data-theme="dark"])
+  .error {
+  border-color:
+    rgba(248, 113, 113, 0.45);
+  color: #fca5a5;
+  background:
+    rgba(127, 29, 29, 0.25);
+}
+
+:global([data-theme="dark"])
+  .error button {
+  color: #fca5a5;
+}
+
+/* Mobile search input */
+
+@media (max-width: 480px) {
+  :global([data-theme="dark"])
+    .searchForm {
+    background: transparent;
+  }
+
+  :global([data-theme="dark"])
+    .searchForm input {
+    border-color: #334155;
+    color: #f8fafc;
+    background: #172033;
+  }
+}
+
+
+

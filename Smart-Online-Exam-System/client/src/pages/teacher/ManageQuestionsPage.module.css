@@ -809,3 +809,28 @@
   }
 }
 
+/* Day 27: Mobile question action buttons */
+
+@media (max-width: 520px) {
+  .questionFooter > div {
+    display: grid;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+    gap: 10px;
+    width: 100%;
+  }
+
+  .questionFooter button {
+    width: 100%;
+    min-width: 0;
+    padding: 10px 8px;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
+}
+
+@media (max-width: 340px) {
+  .questionFooter > div {
+    grid-template-columns: 1fr;
+  }
+}
