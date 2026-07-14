@@ -274,7 +274,7 @@ const CreateExamPage = () => {
               )
             }
           >
-            Back to My Exams
+            ← Back to My Exams
           </button>
 
           <p>

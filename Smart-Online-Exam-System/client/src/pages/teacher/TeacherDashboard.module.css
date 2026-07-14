@@ -716,3 +716,43 @@ button div {
     width: 100%;
   }
 }
+
+/* Teacher profile mobile overflow fix */
+
+.profileActions {
+  width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.profile {
+  max-width: 100%;
+  min-width: 0;
+  box-sizing: border-box;
+}
+
+.profile > div:last-child {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.profile strong,
+.profile span {
+  display: block;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@media (max-width: 560px) {
+  .profileActions {
+    width: 100%;
+    min-width: 0;
+  }
+
+  .profile {
+    width: 100%;
+    max-width: 100%;
+  }
+}

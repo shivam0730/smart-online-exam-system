@@ -462,6 +462,7 @@ const StudentResultsPage = () => {
                 </tbody>
               </table>
             </div>
+            
           )}
         </section>
       </section>

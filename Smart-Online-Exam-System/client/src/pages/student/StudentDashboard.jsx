@@ -1,5 +1,6 @@
 import {
     useEffect,
+    useRef,
     useState,
 } from "react";
 
@@ -22,8 +23,10 @@ import {
 } from "../../services/studentService";
 
 function StudentDashboard() {
+
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const availableExamsRef = useRef(null);
 
     const { user } = useSelector(
         (state) => state.auth
@@ -130,10 +133,19 @@ function StudentDashboard() {
                         </p>
                     </div>
 
-                    <button type="button">
+                    <button
+                        type="button"
+                        onClick={() =>
+                            availableExamsRef.current?.scrollIntoView({
+                                behavior: "smooth",
+                                block: "start",
+                            })
+                        }
+                    >
                         <BookOpen size={20} />
                         Browse Exams
                     </button>
+
                 </section>
 
                 <section className={styles.statsGrid}>
@@ -185,7 +197,9 @@ function StudentDashboard() {
                         {dashboardError}
                     </p>
                 )}
-                <section className={styles.contentGrid}>
+                <section 
+                    ref={availableExamsRef}
+                    className={styles.contentGrid}>
                     <article className={styles.panel}>
                         <div className={styles.panelHeading}>
                             <div>
