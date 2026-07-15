@@ -9,6 +9,7 @@ import {
 } from "react-router-dom";
 
 import {
+  ArrowLeft,
   CheckCircle,
   GraduationCap,
   Home,
@@ -50,7 +51,7 @@ function ResultPage() {
         setError(
           requestError.response
             ?.data?.message ||
-            "Unable to load the exam result."
+          "Unable to load the exam result."
         );
       } finally {
         setIsLoading(false);
@@ -141,13 +142,26 @@ function ResultPage() {
           </span>
         </div>
 
-        <Link
-          to="/student/dashboard"
-        >
-          <Home size={18} />
+        <div className={styles.headerActions}>
+          <Link
+            to="/student/results"
+            className={styles.backToResults}
+          >
+            <ArrowLeft size={18} />
 
-          Dashboard
-        </Link>
+            Back to Results
+          </Link>
+
+          <Link
+            to="/student/dashboard"
+            className={styles.dashboardButton}
+          >
+            <Home size={18} />
+
+            Dashboard
+          </Link>
+        </div>
+
       </header>
 
       <main
@@ -398,24 +412,24 @@ function ResultPage() {
 
                     {answer.question
                       .explanation && (
-                      <div
-                        className={
-                          styles.explanation
-                        }
-                      >
-                        <strong>
-                          Explanation
-                        </strong>
-
-                        <p>
-                          {
-                            answer
-                              .question
-                              .explanation
+                        <div
+                          className={
+                            styles.explanation
                           }
-                        </p>
-                      </div>
-                    )}
+                        >
+                          <strong>
+                            Explanation
+                          </strong>
+
+                          <p>
+                            {
+                              answer
+                                .question
+                                .explanation
+                            }
+                          </p>
+                        </div>
+                      )}
                   </article>
                 );
               }

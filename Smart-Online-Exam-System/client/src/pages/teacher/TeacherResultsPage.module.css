@@ -407,6 +407,54 @@
   font-size: 12px;
 }
 
+/*
+|--------------------------------------------------------------------------
+| Clickable Exam Name
+|--------------------------------------------------------------------------
+*/
+
+.examNameButton {
+  display: inline;
+  max-width: 260px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #5366dd;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 750;
+  line-height: 1.5;
+  text-align: left;
+  white-space: normal;
+  overflow-wrap: anywhere;
+  cursor: pointer;
+  transition:
+    color 0.2s ease,
+    text-decoration-color
+      0.2s ease;
+}
+
+.examNameButton:hover {
+  color: #3447c7;
+  text-decoration: underline;
+  text-decoration-thickness:
+    1.5px;
+  text-underline-offset: 4px;
+}
+
+.examNameButton:focus-visible {
+  border-radius: 5px;
+  outline: 3px solid
+    rgba(
+      83,
+      102,
+      221,
+      0.25
+    );
+  outline-offset: 4px;
+}
+
 .percentage {
   display: inline-flex;
   min-width: 60px;
@@ -677,6 +725,17 @@
 /* ========================================
    TEACHER RESULTS PAGE DARK THEME
 ======================================== */
+
+:global([data-theme="dark"])
+  .examNameButton {
+  color: #c4b5fd;
+  background: transparent;
+}
+
+:global([data-theme="dark"])
+  .examNameButton:hover {
+  color: #ffffff;
+}
 
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
@@ -1049,6 +1108,13 @@
   overflow-x: auto;
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
+}
+
+.resultTable td:nth-child(2)
+  .examNameButton {
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: normal;
 }
 
 .resultTable {

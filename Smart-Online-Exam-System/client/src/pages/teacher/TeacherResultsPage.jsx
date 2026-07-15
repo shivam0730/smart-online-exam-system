@@ -90,17 +90,17 @@ const TeacherResultsPage = () => {
         totalResults === 0
           ? 0
           : (
-              results.reduce(
-                (
-                  total,
-                  result
-                ) =>
-                  total +
-                  result.percentage,
-                0
-              ) /
-              totalResults
-            ).toFixed(2);
+            results.reduce(
+              (
+                total,
+                result
+              ) =>
+                total +
+                result.percentage,
+              0
+            ) /
+            totalResults
+          ).toFixed(2);
 
       return {
         totalResults,
@@ -145,15 +145,15 @@ const TeacherResultsPage = () => {
 
           const matchesStatus =
             statusFilter ===
-              "ALL" ||
+            "ALL" ||
             (
               statusFilter ===
-                "PASSED" &&
+              "PASSED" &&
               result.isPassed
             ) ||
             (
               statusFilter ===
-                "FAILED" &&
+              "FAILED" &&
               !result.isPassed
             );
 
@@ -585,14 +585,20 @@ const TeacherResultsPage = () => {
 
                           <td>
                             <button
-                                type="button"
-                                 onClick={() =>
-                                    navigate(
-                                        `/teacher/exams/${result.exam.id}/results`
-                                    )
-                                }
+                              type="button"
+                              className={
+                                styles.examNameButton
+                              }
+                              title={
+                                `View results for ${result.exam.title}`
+                              }
+                              onClick={() =>
+                                navigate(
+                                  `/teacher/exams/${result.exam.id}/results`
+                                )
+                              }
                             >
-                                {result.exam.title}
+                              {result.exam.title}
                             </button>
                           </td>
 
@@ -631,9 +637,9 @@ const TeacherResultsPage = () => {
                                 result
                                   .isPassed
                                   ? styles
-                                      .passed
+                                    .passed
                                   : styles
-                                      .failed
+                                    .failed
                               }
                             >
                               {

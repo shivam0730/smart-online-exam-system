@@ -394,7 +394,7 @@ const EditExamPage = () => {
               )
             }
           >
-            Back to My Exams
+          ← Back to My Exams
           </button>
 
           <p>

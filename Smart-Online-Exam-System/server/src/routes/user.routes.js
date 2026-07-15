@@ -5,6 +5,7 @@ const authorize = require("../middleware/role.middleware");
 
 const {
     profile,
+    updateProfile,
     adminDashboard,
 } = require("../controllers/user.controller");
 
@@ -14,6 +15,12 @@ router.get(
     "/profile",
     auth,
     profile
+);
+
+router.patch(
+  "/profile",
+  auth,
+  updateProfile
 );
 
 router.get(

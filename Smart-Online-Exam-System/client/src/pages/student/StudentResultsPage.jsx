@@ -348,16 +348,29 @@ const StudentResultsPage = () => {
                 <tbody>
                   {examHistory.map(
                     (result) => {
-                      const percentage =
-                        Number(
-                          result.percentage ||
-                            0
-                        );
+
+                      const percentage = Number(
+                        result.performance?.percentage ??
+                        result.percentage ??
+                        0
+                      );
 
                       const passed =
+                        result.performance?.isPassed ??
                         result.isPassed ??
                         result.passed ??
                         percentage >= 40;
+
+                      const score =
+                        result.performance?.score ??
+                        result.score ??
+                        0;
+
+                      const totalMarks =
+                        result.performance?.totalMarks ??
+                        result.totalMarks ??
+                        result.exam?.totalMarks ??
+                        0;
 
                       const examId =
                         result.examId ||
@@ -393,13 +406,7 @@ const StudentResultsPage = () => {
 
                           <td>
                             <strong>
-                              {result.score ??
-                                0}
-                              /
-                              {result.totalMarks ??
-                                result.exam
-                                  ?.totalMarks ??
-                                0}
+                              {score}/{totalMarks}
                             </strong>
                           </td>
 
@@ -432,9 +439,11 @@ const StudentResultsPage = () => {
 
                           <td>
                             {formatDate(
+                              result.attempt?.submittedAt ||
+                              result.attempt?.completedAt ||
+                              result.generatedAt ||
                               result.submittedAt ||
-                                result.completedAt ||
-                                result.updatedAt
+                              result.completedAt
                             )}
                           </td>
 
@@ -462,7 +471,7 @@ const StudentResultsPage = () => {
                 </tbody>
               </table>
             </div>
-            
+
           )}
         </section>
       </section>

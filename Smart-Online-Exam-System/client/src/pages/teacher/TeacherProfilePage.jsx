@@ -11,6 +11,10 @@ import {
   getTeacherProfile,
 } from "../../services/teacherService";
 
+import {
+  updateUserProfile,
+} from "../../services/userService";
+
 import styles from "./TeacherProfilePage.module.css";
 
 const TeacherProfilePage = () => {
@@ -31,6 +35,31 @@ const TeacherProfilePage = () => {
     setError,
   ] = useState("");
 
+  const [
+    isEditing,
+    setIsEditing,
+  ] = useState(false);
+
+  const [
+    isSaving,
+    setIsSaving,
+  ] = useState(false);
+
+  const [
+    successMessage,
+    setSuccessMessage,
+  ] = useState("");
+
+  const [
+    formData,
+    setFormData,
+  ] = useState({
+    firstName: "",
+    lastName: "",
+    phone: "",
+    avatar: "",
+  });
+
   const fetchTeacherProfile =
     async () => {
       try {
@@ -44,6 +73,24 @@ const TeacherProfilePage = () => {
         setTeacher(
           profileData
         );
+
+        setFormData({
+          firstName:
+            profileData
+              .firstName || "",
+
+          lastName:
+            profileData
+              .lastName || "",
+
+          phone:
+            profileData
+              .phone || "",
+
+          avatar:
+            profileData
+              .avatar || "",
+        });
       } catch (error) {
         const message =
           error.response
@@ -62,6 +109,148 @@ const TeacherProfilePage = () => {
   useEffect(() => {
     fetchTeacherProfile();
   }, []);
+
+  const handleInputChange = (
+    event
+  ) => {
+    const {
+      name,
+      value,
+    } = event.target;
+
+    setFormData(
+      (
+        previousData
+      ) => ({
+        ...previousData,
+
+        [name]:
+          value,
+      })
+    );
+  };
+
+  const handleEdit = () => {
+    setSuccessMessage("");
+
+    setError("");
+
+    setIsEditing(true);
+  };
+
+  const handleCancel = () => {
+    setFormData({
+      firstName:
+        teacher.firstName ||
+        "",
+
+      lastName:
+        teacher.lastName ||
+        "",
+
+      phone:
+        teacher.phone ||
+        "",
+
+      avatar:
+        teacher.avatar ||
+        "",
+    });
+
+    setError("");
+
+    setSuccessMessage("");
+
+    setIsEditing(false);
+  };
+
+  const handleSave =
+    async (
+      event
+    ) => {
+      event.preventDefault();
+
+      try {
+        setIsSaving(true);
+
+        setError("");
+
+        setSuccessMessage("");
+
+        const updatedProfile =
+          await updateUserProfile(
+            {
+              firstName:
+                formData
+                  .firstName
+                  .trim(),
+
+              lastName:
+                formData
+                  .lastName
+                  .trim(),
+
+              phone:
+                formData
+                  .phone
+                  .trim(),
+
+              avatar:
+                formData
+                  .avatar
+                  .trim(),
+            }
+          );
+
+        setTeacher(
+          updatedProfile
+        );
+
+        setFormData({
+          firstName:
+            updatedProfile
+              .firstName ||
+            "",
+
+          lastName:
+            updatedProfile
+              .lastName ||
+            "",
+
+          phone:
+            updatedProfile
+              .phone ||
+            "",
+
+          avatar:
+            updatedProfile
+              .avatar ||
+            "",
+        });
+
+        setSuccessMessage(
+          "Profile updated successfully."
+        );
+
+        setIsEditing(
+          false
+        );
+      } catch (error) {
+        const message =
+          error.response
+            ?.data
+            ?.message ||
+          "Unable to update profile.";
+
+        setError(
+          message
+        );
+      } finally {
+        setIsSaving(
+          false
+        );
+      }
+    };
 
   const teacherName =
     teacher
@@ -121,7 +310,10 @@ const TeacherProfilePage = () => {
     );
   }
 
-  if (error) {
+  if (
+    error &&
+    !teacher
+  ) {
     return (
       <main
         className={
@@ -194,11 +386,35 @@ const TeacherProfilePage = () => {
           </h1>
 
           <span>
-            Review your account
-            information and teacher
-            access details.
+            Review and manage
+            your account
+            information.
           </span>
         </header>
+
+        {successMessage && (
+          <div
+            className={
+              styles
+                .successMessage
+            }
+          >
+            {
+              successMessage
+            }
+          </div>
+        )}
+
+        {error && (
+          <div
+            className={
+              styles
+                .errorMessage
+            }
+          >
+            {error}
+          </div>
+        )}
 
         <section
           className={
@@ -215,9 +431,18 @@ const TeacherProfilePage = () => {
                 styles.avatar
               }
             >
-              {
+              {teacher.avatar ? (
+                <img
+                  src={
+                    teacher.avatar
+                  }
+                  alt={
+                    teacherName
+                  }
+                />
+              ) : (
                 teacherInitials
-              }
+              )}
             </div>
 
             <h2>
@@ -274,94 +499,252 @@ const TeacherProfilePage = () => {
                 </h2>
               </div>
 
-              <span>
-                Verified Teacher
-              </span>
+              {!isEditing && (
+                <button
+                  type="button"
+                  className={
+                    styles
+                      .editButton
+                  }
+                  onClick={
+                    handleEdit
+                  }
+                >
+                  Edit Profile
+                </button>
+              )}
             </div>
 
-            <div
-              className={
-                styles.detailsGrid
-              }
-            >
-              <div>
-                <span>
-                  First Name
-                </span>
-
-                <strong>
-                  {
-                    teacher
-                      .firstName
+            {isEditing ? (
+              <form
+                className={
+                  styles.editForm
+                }
+                onSubmit={
+                  handleSave
+                }
+              >
+                <div
+                  className={
+                    styles
+                      .formGrid
                   }
-                </strong>
-              </div>
+                >
+                  <label>
+                    <span>
+                      First Name
+                    </span>
 
-              <div>
-                <span>
-                  Last Name
-                </span>
+                    <input
+                      type="text"
+                      name="firstName"
+                      value={
+                        formData
+                          .firstName
+                      }
+                      onChange={
+                        handleInputChange
+                      }
+                      required
+                    />
+                  </label>
 
-                <strong>
-                  {
-                    teacher
-                      .lastName
+                  <label>
+                    <span>
+                      Last Name
+                    </span>
+
+                    <input
+                      type="text"
+                      name="lastName"
+                      value={
+                        formData
+                          .lastName
+                      }
+                      onChange={
+                        handleInputChange
+                      }
+                      required
+                    />
+                  </label>
+
+                  <label>
+                    <span>
+                      Phone Number
+                    </span>
+
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={
+                        formData
+                          .phone
+                      }
+                      onChange={
+                        handleInputChange
+                      }
+                      placeholder=
+                        "Enter phone number"
+                    />
+                  </label>
+
+                  <label>
+                    <span>
+                      Profile Image
+                      URL
+                    </span>
+
+                    <input
+                      type="url"
+                      name="avatar"
+                      value={
+                        formData
+                          .avatar
+                      }
+                      onChange={
+                        handleInputChange
+                      }
+                      placeholder=
+                        "Paste image URL"
+                    />
+                  </label>
+                </div>
+
+                <div
+                  className={
+                    styles
+                      .formActions
                   }
-                </strong>
+                >
+                  <button
+                    type="button"
+                    className={
+                      styles
+                        .cancelButton
+                    }
+                    onClick={
+                      handleCancel
+                    }
+                    disabled={
+                      isSaving
+                    }
+                  >
+                    Cancel
+                  </button>
+
+                  <button
+                    type="submit"
+                    className={
+                      styles
+                        .saveButton
+                    }
+                    disabled={
+                      isSaving
+                    }
+                  >
+                    {isSaving
+                      ? "Saving..."
+                      : "Save Changes"}
+                  </button>
+                </div>
+              </form>
+            ) : (
+              <div
+                className={
+                  styles
+                    .detailsGrid
+                }
+              >
+                <div>
+                  <span>
+                    First Name
+                  </span>
+
+                  <strong>
+                    {
+                      teacher
+                        .firstName
+                    }
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Last Name
+                  </span>
+
+                  <strong>
+                    {
+                      teacher
+                        .lastName
+                    }
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Email Address
+                  </span>
+
+                  <strong>
+                    {
+                      teacher
+                        .email
+                    }
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Phone Number
+                  </span>
+
+                  <strong>
+                    {teacher.phone ||
+                      "Not added"}
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Account Role
+                  </span>
+
+                  <strong>
+                    {
+                      teacher
+                        .role
+                    }
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Account Created
+                  </span>
+
+                  <strong>
+                    {formatDate(
+                      teacher
+                        .createdAt
+                    )}
+                  </strong>
+                </div>
+
+                <div>
+                  <span>
+                    Last Updated
+                  </span>
+
+                  <strong>
+                    {formatDate(
+                      teacher
+                        .updatedAt
+                    )}
+                  </strong>
+                </div>
               </div>
-
-              <div>
-                <span>
-                  Email Address
-                </span>
-
-                <strong>
-                  {
-                    teacher
-                      .email
-                  }
-                </strong>
-              </div>
-
-              <div>
-                <span>
-                  Account Role
-                </span>
-
-                <strong>
-                  {
-                    teacher
-                      .role
-                  }
-                </strong>
-              </div>
-
-              <div>
-                <span>
-                  Account Created
-                </span>
-
-                <strong>
-                  {formatDate(
-                    teacher
-                      .createdAt
-                  )}
-                </strong>
-              </div>
-
-              <div>
-                <span>
-                  Last Updated
-                </span>
-
-                <strong>
-                  {formatDate(
-                    teacher
-                      .updatedAt
-                  )}
-                </strong>
-              </div>
-            </div>
+            )}
           </article>
         </section>
 

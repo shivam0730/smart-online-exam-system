@@ -476,3 +476,48 @@
   color: #60a5fa;
 }
 
+.headerActions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.headerActions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  text-decoration: none;
+}
+
+.backToResults {
+  padding: 12px 18px;
+  color: #9fc5ff;
+  border: 1px solid #29456f;
+  border-radius: 10px;
+  background: transparent;
+  transition:
+    background-color 0.2s ease,
+    border-color 0.2s ease;
+}
+
+.backToResults:hover {
+  background: #17233a;
+  border-color: #4b73b4;
+}
+
+.dashboardButton {
+  padding: 12px 18px;
+}
+
+@media (max-width: 600px) {
+  .headerActions {
+    gap: 8px;
+  }
+
+  .backToResults,
+  .dashboardButton {
+    padding: 10px 12px;
+    font-size: 0.85rem;
+  }
+}

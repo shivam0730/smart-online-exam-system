@@ -786,3 +786,404 @@
   }
 }
 
+/* ========================================
+   EDIT PROFILE FEATURE
+======================================== */
+
+/* Profile image */
+
+.avatar {
+  overflow: hidden;
+}
+
+.avatar img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+
+/* Edit profile button */
+
+.editButton {
+  flex-shrink: 0;
+  min-height: 46px;
+  padding: 0 21px;
+  border: none;
+  border-radius: 13px;
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6d5dfc
+    );
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  box-shadow:
+    0 10px 24px
+    rgba(
+      79,
+      70,
+      229,
+      0.22
+    );
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.editButton:hover {
+  transform:
+    translateY(-2px);
+  box-shadow:
+    0 14px 29px
+    rgba(
+      79,
+      70,
+      229,
+      0.3
+    );
+}
+
+/* Success and error messages */
+
+.successMessage,
+.errorMessage {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid;
+  border-radius: 15px;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.5;
+}
+
+.successMessage {
+  border-color: #bbf7d0;
+  background: #ecfdf3;
+  color: #15803d;
+}
+
+.errorMessage {
+  border-color: #fecaca;
+  background: #fff1f2;
+  color: #dc2626;
+}
+
+/* Edit form */
+
+.editForm {
+  padding: 36px 38px;
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns:
+    repeat(
+      2,
+      minmax(
+        0,
+        1fr
+      )
+    );
+  gap: 25px;
+}
+
+.formGrid label {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.formGrid label > span {
+  color: #69758d;
+  font-size: 13px;
+  font-weight: 900;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+}
+
+.formGrid input {
+  width: 100%;
+  min-width: 0;
+  min-height: 53px;
+  padding: 0 17px;
+  border: 1px solid
+    #d8deea;
+  border-radius: 14px;
+  outline: none;
+  background: #f9faff;
+  color: #17233e;
+  font-family: inherit;
+  font-size: 15px;
+  box-sizing: border-box;
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.formGrid input::placeholder {
+  color: #9aa3b5;
+}
+
+.formGrid input:hover {
+  border-color: #b9c1d2;
+}
+
+.formGrid input:focus {
+  border-color: #6366f1;
+  background: #ffffff;
+  box-shadow:
+    0 0 0 4px
+    rgba(
+      99,
+      102,
+      241,
+      0.12
+    );
+}
+
+/* Form action buttons */
+
+.formActions {
+  display: flex;
+  align-items: center;
+  justify-content:
+    flex-end;
+  gap: 14px;
+  margin-top: 32px;
+  padding-top: 28px;
+  border-top:
+    1px solid #e5e9f2;
+}
+
+.cancelButton,
+.saveButton {
+  min-width: 145px;
+  min-height: 50px;
+  padding: 0 22px;
+  border-radius: 14px;
+  font-family: inherit;
+  font-size: 14px;
+  font-weight: 900;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease,
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.cancelButton {
+  border: 1px solid
+    #ccd4e2;
+  background: #ffffff;
+  color: #536078;
+}
+
+.cancelButton:hover {
+  border-color: #9ca8bb;
+  background: #f5f7fb;
+}
+
+.saveButton {
+  border: none;
+  background:
+    linear-gradient(
+      135deg,
+      #4f46e5,
+      #6d5dfc
+    );
+  color: #ffffff;
+  box-shadow:
+    0 11px 25px
+    rgba(
+      79,
+      70,
+      229,
+      0.25
+    );
+}
+
+.saveButton:hover {
+  transform:
+    translateY(-2px);
+  box-shadow:
+    0 15px 31px
+    rgba(
+      79,
+      70,
+      229,
+      0.32
+    );
+}
+
+.cancelButton:disabled,
+.saveButton:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+  transform: none;
+}
+
+/* ========================================
+   EDIT PROFILE DARK THEME
+======================================== */
+
+:global([data-theme="dark"])
+  .successMessage {
+  border-color:
+    rgba(
+      34,
+      197,
+      94,
+      0.35
+    );
+  background:
+    rgba(
+      22,
+      101,
+      52,
+      0.25
+    );
+  color: #86efac;
+}
+
+:global([data-theme="dark"])
+  .errorMessage {
+  border-color:
+    rgba(
+      239,
+      68,
+      68,
+      0.35
+    );
+  background:
+    rgba(
+      127,
+      29,
+      29,
+      0.25
+    );
+  color: #fca5a5;
+}
+
+:global([data-theme="dark"])
+  .formGrid label > span {
+  color: #94a3b8;
+}
+
+:global([data-theme="dark"])
+  .formGrid input {
+  border-color: #334155;
+  background: #172033;
+  color: #f8fafc;
+  color-scheme: dark;
+}
+
+:global([data-theme="dark"])
+  .formGrid input::placeholder {
+  color: #64748b;
+}
+
+:global([data-theme="dark"])
+  .formGrid input:hover {
+  border-color: #526176;
+}
+
+:global([data-theme="dark"])
+  .formGrid input:focus {
+  border-color: #818cf8;
+  background: #0f172a;
+  box-shadow:
+    0 0 0 4px
+    rgba(
+      129,
+      140,
+      248,
+      0.14
+    );
+}
+
+:global([data-theme="dark"])
+  .formActions {
+  border-top-color: #29374c;
+}
+
+:global([data-theme="dark"])
+  .cancelButton {
+  border-color: #475569;
+  background: #172033;
+  color: #cbd5e1;
+}
+
+:global([data-theme="dark"])
+  .cancelButton:hover {
+  border-color: #64748b;
+  background: #1e293b;
+}
+
+/* ========================================
+   EDIT PROFILE RESPONSIVE DESIGN
+======================================== */
+
+.editForm,
+.formGrid,
+.formGrid label,
+.formActions {
+  min-width: 0;
+}
+
+@media (
+  max-width: 650px
+) {
+  .editButton {
+    width: 100%;
+  }
+
+  .editForm {
+    padding:
+      28px
+      24px;
+  }
+
+  .formGrid {
+    grid-template-columns:
+      1fr;
+    gap: 20px;
+  }
+
+  .formActions {
+    align-items: stretch;
+    flex-direction: column-reverse;
+  }
+
+  .cancelButton,
+  .saveButton {
+    width: 100%;
+    min-width: 0;
+  }
+}
+
+@media (
+  max-width: 360px
+) {
+  .editForm {
+    padding:
+      25px
+      18px;
+  }
+
+  .successMessage,
+  .errorMessage {
+    padding:
+      14px
+      16px;
+  }
+}
