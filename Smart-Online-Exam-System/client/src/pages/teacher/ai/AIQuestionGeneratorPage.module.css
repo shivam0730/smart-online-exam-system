@@ -455,3 +455,185 @@
     flex-wrap: wrap;
   }
 }
+
+/* ========================================
+   Save AI Questions Panel
+======================================== */
+
+.savePanel {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+
+  margin-bottom: 22px;
+  padding: 22px;
+
+  border: 1px solid #dbe5f0;
+  border-radius: 18px;
+
+  background: #ffffff;
+
+  box-shadow:
+    0 10px 30px
+    rgba(15, 23, 42, 0.06);
+}
+
+.examSelection {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 9px;
+}
+
+.examSelection label {
+  color: #334155;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.examSelection select {
+  width: 100%;
+  min-height: 48px;
+
+  padding: 0 42px 0 15px;
+
+  border: 1px solid #cbd5e1;
+  border-radius: 12px;
+
+  background-color: #ffffff;
+
+  color: #0f172a;
+
+  font: inherit;
+  font-size: 15px;
+
+  cursor: pointer;
+
+  outline: none;
+
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.examSelection select:focus {
+  border-color: #2563eb;
+
+  box-shadow:
+    0 0 0 4px
+    rgba(37, 99, 235, 0.12);
+}
+
+.examSelection select:disabled {
+  background: #f1f5f9;
+
+  color: #64748b;
+
+  cursor: not-allowed;
+}
+
+.saveButton {
+  min-height: 48px;
+
+  padding: 0 22px;
+
+  border: none;
+  border-radius: 12px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #2563eb,
+      #4f46e5
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 800;
+
+  white-space: nowrap;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 10px 22px
+    rgba(37, 99, 235, 0.2);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    opacity 0.2s ease;
+}
+
+.saveButton:hover:not(:disabled) {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 14px 28px
+    rgba(37, 99, 235, 0.28);
+}
+
+.saveButton:disabled {
+  opacity: 0.6;
+
+  cursor: not-allowed;
+
+  box-shadow: none;
+}
+
+.success {
+  margin-bottom: 22px;
+  padding: 14px 17px;
+
+  border: 1px solid #bbf7d0;
+  border-radius: 12px;
+
+  background: #f0fdf4;
+
+  color: #166534;
+
+  font-size: 14px;
+  font-weight: 700;
+}
+
+/* ========================================
+   Save Panel Responsive Design
+======================================== */
+
+@media (max-width: 768px) {
+  .savePanel {
+    align-items: stretch;
+    flex-direction: column;
+
+    padding: 18px;
+  }
+
+  .saveButton {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .savePanel {
+    gap: 16px;
+
+    padding: 15px;
+
+    border-radius: 14px;
+  }
+
+  .examSelection select {
+    min-height: 46px;
+
+    font-size: 14px;
+  }
+
+  .saveButton {
+    min-height: 46px;
+
+    padding: 0 15px;
+  }
+}

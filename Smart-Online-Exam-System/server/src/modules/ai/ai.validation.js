@@ -28,6 +28,54 @@ const generateQuestionsSchema = Joi.object({
         .required(),
 });
 
+const saveGeneratedQuestionsSchema = Joi.object({
+    examId: Joi.string()
+        .trim()
+        .required(),
+
+    questions: Joi.array()
+        .items(
+            Joi.object({
+                questionText: Joi.string()
+                    .trim()
+                    .min(5)
+                    .max(1000)
+                    .required(),
+
+                marks: Joi.number()
+                    .integer()
+                    .min(1)
+                    .required(),
+
+                explanation: Joi.string()
+                    .trim()
+                    .allow("")
+                    .optional(),
+
+                options: Joi.array()
+                    .items(
+                        Joi.object({
+                            text: Joi.string()
+                                .trim()
+                                .min(1)
+                                .max(500)
+                                .required(),
+
+                            isCorrect: Joi.boolean()
+                                .required(),
+                        })
+                    )
+                    .min(2)
+                    .max(6)
+                    .required(),
+            })
+        )
+        .min(1)
+        .max(AI_LIMITS.MAX_QUESTIONS)
+        .required(),
+});
+
 module.exports = {
     generateQuestionsSchema,
+    saveGeneratedQuestionsSchema,
 };

@@ -16,3 +16,20 @@ export const generateAIQuestions = async (
 
   return response.data.data;
 };
+
+/*
+|--------------------------------------------------------------------------
+| Save AI-Generated Questions
+|--------------------------------------------------------------------------
+*/
+
+export const saveAIQuestions = async (
+  saveData
+) => {
+  const response = await api.post(
+    "/ai/questions/save",
+    saveData
+  );
+
+  return response.data.data;
+};

@@ -16,6 +16,7 @@ const validateMiddleware = require(
 
 const {
     generateQuestionsSchema,
+    saveGeneratedQuestionsSchema,
 } = require("./ai.validation");
 
 const router = express.Router();
@@ -32,6 +33,20 @@ router.post(
         generateQuestionsSchema
     ),
     aiController.generateQuestions
+);
+
+router.post(
+    "/questions/save",
+    authMiddleware,
+    roleMiddleware(
+        "SUPER_ADMIN",
+        "ADMIN",
+        "TEACHER"
+    ),
+    validateMiddleware(
+        saveGeneratedQuestionsSchema
+    ),
+    aiController.saveGeneratedQuestions
 );
 
 module.exports = router;

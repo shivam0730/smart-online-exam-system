@@ -22,6 +22,30 @@ const generateQuestions = async (
     }
 };
 
+const saveGeneratedQuestions = async (
+    req,
+    res,
+    next
+) => {
+    try {
+        const result =
+            await aiService.saveGeneratedQuestions(
+                req.body,
+                req.user
+            );
+
+        return res.status(201).json({
+            success: true,
+            message:
+                `${result.totalSaved} AI-generated questions saved successfully.`,
+            data: result,
+        });
+    } catch (error) {
+        next(error);
+    }
+};
+
 module.exports = {
     generateQuestions,
+    saveGeneratedQuestions,
 };

@@ -3,9 +3,91 @@ const { GoogleGenAI } = require("@google/genai");
 const config = require("../../config");
 const ApiError = require("../../errors/ApiError");
 
+const questionService = require(
+    "../../services/question.service"
+);
+
 const {
     buildQuestionGenerationPrompt,
 } = require("./ai.prompt");
+
+const MAX_RETRIES = 2;
+
+const wait = (milliseconds) =>
+    new Promise((resolve) => {
+        setTimeout(resolve, milliseconds);
+    });
+
+const getErrorMessage = (error) =>
+    error?.message ||
+    JSON.stringify(error) ||
+    "";
+
+const isHighDemandError = (error) => {
+    const errorMessage =
+        getErrorMessage(error).toLowerCase();
+
+    return (
+        errorMessage.includes("503") ||
+        errorMessage.includes("unavailable") ||
+        errorMessage.includes("high demand")
+    );
+};
+
+const isQuotaError = (error) => {
+    const errorMessage =
+        getErrorMessage(error).toLowerCase();
+
+    return (
+        errorMessage.includes("429") ||
+        errorMessage.includes("quota")
+    );
+};
+
+const generateContentWithRetry = async (
+    ai,
+    prompt
+) => {
+    for (
+        let attempt = 0;
+        attempt <= MAX_RETRIES;
+        attempt += 1
+    ) {
+        try {
+            return await ai.models.generateContent({
+                model: config.GEMINI_MODEL,
+                contents: prompt,
+                config: {
+                    responseMimeType:
+                        "application/json",
+                    temperature: 0.7,
+                },
+            });
+        } catch (error) {
+            const shouldRetry =
+                isHighDemandError(error) &&
+                attempt < MAX_RETRIES;
+
+            if (!shouldRetry) {
+                throw error;
+            }
+
+            const delay =
+                1500 * (attempt + 1);
+
+            console.warn(
+                `Gemini is temporarily busy. Retrying request ${attempt + 1}/${MAX_RETRIES} in ${delay}ms.`
+            );
+
+            await wait(delay);
+        }
+    }
+
+    throw new ApiError(
+        503,
+        "AI service is currently unavailable."
+    );
+};
 
 const validateGeneratedQuestions = (
     questions,
@@ -41,16 +123,21 @@ const validateGeneratedQuestions = (
             );
         }
 
-        if (question.options.length !== expectedOptions) {
+        if (
+            question.options.length !==
+            expectedOptions
+        ) {
             throw new ApiError(
                 502,
                 `Question ${index + 1} has an invalid number of options.`
             );
         }
 
-        const correctOptions = question.options.filter(
-            (option) => option.isCorrect === true
-        );
+        const correctOptions =
+            question.options.filter(
+                (option) =>
+                    option.isCorrect === true
+            );
 
         if (correctOptions.length !== 1) {
             throw new ApiError(
@@ -78,17 +165,13 @@ const generateQuestions = async (payload) => {
 
     try {
         const response =
-            await ai.models.generateContent({
-                model: config.GEMINI_MODEL,
-                contents: prompt,
-                config: {
-                    responseMimeType:
-                        "application/json",
-                    temperature: 0.7,
-                },
-            });
+            await generateContentWithRetry(
+                ai,
+                prompt
+            );
 
-        const responseText = response.text;
+        const responseText =
+            response.text;
 
         if (!responseText) {
             throw new ApiError(
@@ -116,12 +199,18 @@ const generateQuestions = async (payload) => {
         );
 
         return {
-            topic: payload.topic,
-            difficulty: payload.difficulty,
+            topic:
+                payload.topic,
+
+            difficulty:
+                payload.difficulty,
+
             questionType:
                 payload.questionType,
+
             totalGenerated:
                 parsedResponse.questions.length,
+
             questions:
                 parsedResponse.questions,
         };
@@ -131,17 +220,24 @@ const generateQuestions = async (payload) => {
         }
 
         const errorMessage =
-            error?.message || "";
+            getErrorMessage(error);
 
-        if (
-            errorMessage.includes("429") ||
-            errorMessage
-                .toLowerCase()
-                .includes("quota")
-        ) {
+        if (isQuotaError(error)) {
             throw new ApiError(
                 429,
                 "Free AI usage limit has been reached. Please try again later."
+            );
+        }
+
+        if (isHighDemandError(error)) {
+            console.error(
+                "Gemini remained unavailable after automatic retries:",
+                errorMessage
+            );
+
+            throw new ApiError(
+                503,
+                "AI service is currently busy due to high demand. Please try again shortly."
             );
         }
 
@@ -157,6 +253,68 @@ const generateQuestions = async (payload) => {
     }
 };
 
+const saveGeneratedQuestions = async (
+    payload,
+    user
+) => {
+    const {
+        examId,
+        questions,
+    } = payload;
+
+    const savedQuestions = [];
+
+    for (
+        const generatedQuestion
+        of questions
+    ) {
+        const questionData = {
+            question:
+                generatedQuestion.questionText,
+
+            marks:
+                generatedQuestion.marks,
+
+            explanation:
+                generatedQuestion.explanation ||
+                "",
+
+            options:
+                generatedQuestion.options.map(
+                    (option) => ({
+                        option:
+                            option.text,
+
+                        isCorrect:
+                            option.isCorrect,
+                    })
+                ),
+        };
+
+        const savedQuestion =
+            await questionService.createQuestion(
+                examId,
+                user,
+                questionData
+            );
+
+        savedQuestions.push(
+            savedQuestion
+        );
+    }
+
+    return {
+        examId,
+
+        totalSaved:
+            savedQuestions.length,
+
+        questions:
+            savedQuestions,
+    };
+};
+
 module.exports = {
     generateQuestions,
+    saveGeneratedQuestions,
 };
