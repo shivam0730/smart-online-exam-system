@@ -234,6 +234,30 @@ const AdminDashboard = () => {
           <button
             type="button"
             className={
+              styles.manageExamsButton
+            }
+            onClick={() =>
+              navigate("/admin/exams")
+            }
+          >
+            Manage Exams
+          </button>
+
+          <button
+            type="button"
+            className={
+              styles.manageResultsButton
+            }
+            onClick={() =>
+              navigate("/admin/results")
+            }
+          >
+            View Results
+          </button>
+
+          <button
+            type="button"
+            className={
               styles.logoutButton
             }
             onClick={handleLogout}
@@ -241,6 +265,7 @@ const AdminDashboard = () => {
             Logout
           </button>
         </div>
+
       </header>
 
       <section

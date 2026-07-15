@@ -8,7 +8,6 @@ export const getAdminDashboard = async () => {
   return response.data.data;
 };
 
-
 export const getAdminUsers = async ({
   search = "",
   role = "",
@@ -44,4 +43,92 @@ export const updateAdminUserStatus = async (
   );
 
   return response.data;
+};
+
+// Get all exams for admin
+export const getAdminExams = async ({
+  search = "",
+  status = "",
+  page = 1,
+  limit = 10,
+} = {}) => {
+  const response = await api.get(
+    "/admin/exams",
+    {
+      params: {
+        search,
+        status,
+        page,
+        limit,
+      },
+    }
+  );
+
+  return response.data.data;
+};
+
+// Get a single exam with complete details
+export const getAdminExamById = async (
+  examId
+) => {
+  const response = await api.get(
+    `/admin/exams/${examId}`
+  );
+
+  return response.data.data;
+};
+
+// Archive an exam
+export const archiveAdminExam = async (
+  examId
+) => {
+  const response = await api.patch(
+    `/admin/exams/${examId}/archive`
+  );
+
+  return response.data;
+};
+
+// Delete an exam
+export const deleteAdminExam = async (
+  examId
+) => {
+  const response = await api.delete(
+    `/admin/exams/${examId}`
+  );
+
+  return response.data;
+};
+
+// Get all results for admin
+export const getAdminResults = async ({
+  search = "",
+  status = "",
+  page = 1,
+  limit = 10,
+} = {}) => {
+  const response = await api.get(
+    "/admin/results",
+    {
+      params: {
+        search,
+        status,
+        page,
+        limit,
+      },
+    }
+  );
+
+  return response.data.data;
+};
+
+// Get complete details of a single result
+export const getAdminResultById = async (
+  resultId
+) => {
+  const response = await api.get(
+    `/admin/results/${resultId}`
+  );
+
+  return response.data.data;
 };

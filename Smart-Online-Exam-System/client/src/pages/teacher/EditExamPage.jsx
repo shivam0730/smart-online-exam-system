@@ -226,10 +226,10 @@ const EditExamPage = () => {
       !Number.isInteger(
         passingMarks
       ) ||
-      passingMarks < 0
+      passingMarks < 1
     ) {
       newErrors.passingMarks =
-        "Passing marks cannot be negative.";
+        "Passing marks cannot be negative and must be at least 1.";
     } else if (
       formData.totalMarks !== "" &&
       passingMarks > totalMarks
@@ -659,7 +659,7 @@ const EditExamPage = () => {
                   id="passingMarks"
                   name="passingMarks"
                   type="number"
-                  min="0"
+                  min="1"
                   value={
                     formData.passingMarks
                   }

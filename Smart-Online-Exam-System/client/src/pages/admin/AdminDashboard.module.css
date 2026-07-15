@@ -855,3 +855,70 @@
     flex: 0 1 auto;
   }
 }
+
+.manageExamsButton {
+  min-height: 52px;
+  padding: 0 24px;
+  border: 1px solid #818cf8;
+  border-radius: 14px;
+  background: transparent;
+  color: #c7d2fe;
+  font: inherit;
+  font-weight: 800;
+  cursor: pointer;
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.manageExamsButton:hover {
+  border-color: #a5b4fc;
+  background:
+    rgba(99, 102, 241, 0.16);
+  color: #ffffff;
+  transform: translateY(-1px);
+}
+
+@media (max-width: 720px) {
+  .manageExamsButton {
+    width: 100%;
+  }
+}
+
+
+.manageResultsButton {
+  min-height: 54px;
+  padding: 0 24px;
+
+  border: 1px solid
+    rgba(52, 211, 153, 0.7);
+
+  border-radius: 14px;
+
+  background:
+    rgba(16, 185, 129, 0.1);
+
+  color: #6ee7b7;
+
+  font-size: 1rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition:
+    background 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.manageResultsButton:hover {
+  background:
+    rgba(16, 185, 129, 0.2);
+
+  border-color: #34d399;
+
+  transform:
+    translateY(-2px);
+}

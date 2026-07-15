@@ -13,7 +13,7 @@ const createExamSchema = Joi.object({
 
     passingMarks: Joi.number()
         .integer()
-        .min(0)
+        .min(1)
         .required(),
 
     startTime: Joi.date().required(),
@@ -40,7 +40,7 @@ const updateExamSchema = Joi.object({
 
     totalMarks: Joi.number().integer().min(1),
 
-    passingMarks: Joi.number().integer().min(0),
+    passingMarks: Joi.number().integer().min(1),
 
     startTime: Joi.date(),
 
