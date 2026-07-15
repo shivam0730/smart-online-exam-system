@@ -493,6 +493,27 @@ const TeacherDashboard = () => {
               type="button"
               onClick={() =>
                 navigate(
+                  "/teacher/ai-question-generator"
+                )
+              }
+            >
+              <span>✨</span>
+
+              <div>
+                <strong>
+                  Generate Questions with AI
+                </strong>
+
+                <small>
+                  Create exam questions using AI
+                </small>
+              </div>
+            </button>
+
+            <button
+              type="button"
+              onClick={() =>
+                navigate(
                   "/teacher/exams"
                 )
               }
