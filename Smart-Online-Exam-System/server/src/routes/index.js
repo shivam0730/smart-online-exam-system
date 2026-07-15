@@ -21,6 +21,8 @@ const adminRoutes = require("./admin.routes");
 
 const examRoutes = require("../modules/exam/exam.routes");
 
+const aiRoutes = require("../modules/ai/ai.routes");
+
 const router = express.Router();
 
 router.use("/", healthRoutes);
@@ -34,6 +36,6 @@ router.use("/teacher", teacherRoutes);
 router.use("/teacher", questionRoutes);
 router.use("/admin", adminRoutes);
 router.use("/exams", examRoutes);
-
+router.use("/ai", aiRoutes);
 
 module.exports = router;

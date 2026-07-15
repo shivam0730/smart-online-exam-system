@@ -32,6 +32,8 @@ import EditExamPage from "./pages/teacher/EditExamPage";
 import ManageQuestionsPage from "./pages/teacher/ManageQuestionsPage";
 import CreateQuestionPage from "./pages/teacher/CreateQuestionPage";
 import EditQuestionPage from "./pages/teacher/EditQuestionPage";
+import AIQuestionGeneratorPage
+  from "./pages/teacher/ai/AIQuestionGeneratorPage";
 import ResultPage from "./pages/student/ResultPage";
 import NotFoundPage from "./pages/shared/NotFoundPage";
 
@@ -148,6 +150,14 @@ function App() {
             path="/teacher/exams/:examId/questions/:questionId/edit"
             element={<EditQuestionPage />}
           />
+
+          <Route
+            path="/teacher/ai-question-generator"
+            element={
+              <AIQuestionGeneratorPage />
+            }
+          />
+
           <Route
             path="/student/exams/:examId"
             element={<ExamAttemptPage />}

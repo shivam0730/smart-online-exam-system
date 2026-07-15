@@ -1,0 +1,23 @@
+const AI_QUESTION_TYPES = {
+    MCQ: "MCQ",
+    TRUE_FALSE: "TRUE_FALSE",
+};
+
+const AI_DIFFICULTY_LEVELS = {
+    EASY: "EASY",
+    MEDIUM: "MEDIUM",
+    HARD: "HARD",
+};
+
+const AI_LIMITS = {
+    MIN_QUESTIONS: 1,
+    MAX_QUESTIONS: 20,
+    MIN_TOPIC_LENGTH: 2,
+    MAX_TOPIC_LENGTH: 100,
+};
+
+module.exports = {
+    AI_QUESTION_TYPES,
+    AI_DIFFICULTY_LEVELS,
+    AI_LIMITS,
+};
