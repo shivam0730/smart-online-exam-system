@@ -52,6 +52,9 @@ function ExamAttemptPage() {
     setIsSubmitting,
   ] = useState(false);
 
+  const [currentQuestionIndex, setCurrentQuestionIndex] =
+    useState(0);
+
   const [
     remainingSeconds,
     setRemainingSeconds,
@@ -552,8 +555,7 @@ function ExamAttemptPage() {
     attempt?.exam?.questions ||
     [];
 
-  const currentQuestion =
-    questions[0];
+  const currentQuestion = questions[currentQuestionIndex];
   const displaySeconds =
     remainingSeconds ??
     attempt.exam.duration *
@@ -709,10 +711,7 @@ function ExamAttemptPage() {
               }
             >
               <span>
-                Question 1 of{" "}
-                {
-                  questions.length
-                }
+                Question {currentQuestionIndex + 1} of {questions.length}
               </span>
 
               <strong>
@@ -791,39 +790,57 @@ function ExamAttemptPage() {
           </p>
         )}
 
-        <div
-          className={
-            styles.examActions
-          }
-        >
+        <div className={styles.examActions}>
           {error && (
-            <p
-              className={
-                styles.answerError
-              }
-            >
+            <p className={styles.answerError}>
               {error}
             </p>
           )}
 
           <button
             type="button"
-            disabled={
-              isSaving ||
-              isSubmitting ||
-              !currentQuestion
-            }
-            onClick={
-              handleSubmitExam
-            }
+            disabled={currentQuestionIndex === 0}
+            onClick={() => {
+              setCurrentQuestionIndex((prev) => Math.max(prev - 1, 0));
+
+              window.scrollTo({
+                top: 0,
+                behavior: "smooth",
+              });
+            }}
           >
-            {isSubmitting
-              ? "Submitting..."
-              : isSaving
-                ? "Saving answer..."
-                : "Submit Exam"}
+            ← Previous
           </button>
+
+          {currentQuestionIndex < questions.length - 1 ? (
+            <button
+              type="button"
+              onClick={() => {
+                setCurrentQuestionIndex((prev) =>
+                  Math.min(prev + 1, questions.length - 1)
+                );
+
+                window.scrollTo({
+                  top: 0,
+                  behavior: "smooth",
+                });
+              }}
+            >
+              Next →
+            </button>
+          ) : (
+            <button
+              type="button"
+              disabled={isSaving || isSubmitting}
+              onClick={handleSubmitExam}
+            >
+              {isSubmitting
+                ? "Submitting..."
+                : "Submit Exam"}
+            </button>
+          )}
         </div>
+
       </main>
     </div>
   );
