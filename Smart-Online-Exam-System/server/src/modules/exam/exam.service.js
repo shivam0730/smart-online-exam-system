@@ -19,22 +19,42 @@ const createExam = async (payload, user) => {
     return examRepository.createExam(examData);
 };
 
-const getExamById = async (id) => {
+const getExamById = async (id, user) => {
     const exam = await examRepository.findExamById(id);
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
     }
 
+    if (
+        user.role === "TEACHER" &&
+        exam.createdById !== user.id
+    ) {
+        throw new ApiError(
+            403,
+            "You are not authorized."
+        );
+    }
+
     return exam;
 };
 
 
-const updateExam = async (id, payload) => {
+const updateExam = async (id, payload, user) => {
     const exam = await examRepository.findExamById(id);
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
+    }
+
+    if (
+        user.role === "TEACHER" &&
+        exam.createdById !== user.id
+    ) {
+        throw new ApiError(
+            403,
+            "You are not authorized."
+        );
     }
 
     if (exam.status === EXAM_STATUS.COMPLETED) {
@@ -63,11 +83,21 @@ const updateExam = async (id, payload) => {
 };
 
 
-const deleteExam = async (id) => {
+const deleteExam = async (id, user) => {
     const exam = await examRepository.findExamById(id);
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
+    }
+
+    if (
+        user.role === "TEACHER" &&
+        exam.createdById !== user.id
+    ) {
+        throw new ApiError(
+            403,
+            "You are not authorized."
+        );
     }
 
     if (exam.status === EXAM_STATUS.COMPLETED) {
@@ -85,11 +115,21 @@ const deleteExam = async (id) => {
 };
 
 
-const publishExam = async (id) => {
+const publishExam = async (id, user) => {
     const exam = await examRepository.findExamById(id);
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
+    }
+
+    if (
+        user.role === "TEACHER" &&
+        exam.createdById !== user.id
+    ) {
+        throw new ApiError(
+            403,
+            "You are not authorized."
+        );
     }
 
     if (exam.status === EXAM_STATUS.PUBLISHED) {
@@ -110,13 +150,21 @@ const publishExam = async (id) => {
 };
 
 
-const unpublishExam = async (id) => {
+const unpublishExam = async (id, user) => {
     const exam = await examRepository.findExamById(id);
 
     if (!exam) {
         throw new ApiError(404, "Exam not found.");
     }
-
+    if (
+        user.role === "TEACHER" &&
+        exam.createdById !== user.id
+    ) {
+        throw new ApiError(
+            403,
+            "You are not authorized."
+        );
+    }
     if (exam.status === EXAM_STATUS.DRAFT) {
         throw new ApiError(
             400,

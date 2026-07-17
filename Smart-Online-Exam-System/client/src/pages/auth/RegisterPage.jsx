@@ -131,7 +131,7 @@ function RegisterPage() {
                 type="text"
                 value={formData.firstName}
                 onChange={handleChange}
-                placeholder="Exam"
+                placeholder="Enter your first name"
                 autoComplete="given-name"
               />
             </div>
@@ -147,7 +147,7 @@ function RegisterPage() {
                 type="text"
                 value={formData.lastName}
                 onChange={handleChange}
-                placeholder="Student"
+                placeholder="Enter your last name"
                 autoComplete="family-name"
               />
             </div>
@@ -163,7 +163,7 @@ function RegisterPage() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="examstudent@test.com"
+                placeholder="Enter your email address"
                 autoComplete="email"
               />
             </div>

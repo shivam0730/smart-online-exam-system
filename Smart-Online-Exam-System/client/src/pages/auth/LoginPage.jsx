@@ -145,7 +145,7 @@ function LoginPage() {
                 type="email"
                 value={formData.email}
                 onChange={handleChange}
-                placeholder="student@example.com"
+                placeholder="Enter your email address"
                 autoComplete="email"
               />
             </div>

@@ -36,6 +36,25 @@ const getUsers = async (req, res, next) => {
   }
 };
 
+const createTeacher = async (req, res, next) => {
+  try {
+    const teacher = await adminService.createTeacher({
+      firstName: req.body.firstName,
+      lastName: req.body.lastName,
+      email: req.body.email,
+      password: req.body.password,
+    });
+
+    return res.status(201).json({
+      success: true,
+      message: "Teacher account created successfully",
+      data: teacher,
+    });
+  } catch (error) {
+    next(error);
+  }
+};
+
 const updateUserStatus = async (
   req,
   res,
@@ -251,6 +270,7 @@ const getResultById = async (
 module.exports = {
   getDashboard,
   getUsers,
+  createTeacher,
   updateUserStatus,
   getExams,
   getExamById,

@@ -467,13 +467,17 @@ const EditQuestionPage = () => {
   if (loadError) {
     return (
       <main className={styles.page}>
-        <div
-          className={
-            styles.stateContainer
-          }
-        >
+        <div className={styles.stateContainer}>
+          <div className={styles.errorIcon}>
+            🔒
+          </div>
+
+          <span className={styles.errorEyebrow}>
+            ACCESS RESTRICTED
+          </span>
+
           <h2>
-            Unable to load question
+            Access Denied
           </h2>
 
           <p>
@@ -482,13 +486,12 @@ const EditQuestionPage = () => {
 
           <button
             type="button"
+            className={styles.backButton}
             onClick={() =>
-              navigate(
-                `/teacher/exams/${examId}/questions`
-              )
+              navigate("/teacher/exams")
             }
           >
-            &larr;  Back to Questions
+            &larr; Back to My Exams
           </button>
         </div>
       </main>

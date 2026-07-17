@@ -1,5 +1,7 @@
 const prisma = require("../lib/prisma");
 
+const { hashPassword } = require("../utils/password");
+
 const getDashboard = async () => {
   const [
     totalUsers,
@@ -187,6 +189,72 @@ const getDashboard = async () => {
   };
 };
 
+const createTeacher = async ({
+  firstName,
+  lastName,
+  email,
+  password,
+}) => {
+  if (
+    !firstName ||
+    !lastName ||
+    !email ||
+    !password
+  ) {
+    const error = new Error(
+      "First name, last name, email and password are required"
+    );
+
+    error.statusCode = 400;
+    throw error;
+  }
+
+  const normalizedEmail =
+    email.trim().toLowerCase();
+
+  const existingUser =
+    await prisma.user.findUnique({
+      where: {
+        email: normalizedEmail,
+      },
+    });
+
+  if (existingUser) {
+    const error = new Error(
+      "Email already exists"
+    );
+
+    error.statusCode = 409;
+    throw error;
+  }
+
+  const hashedPassword =
+    await hashPassword(password);
+
+  const teacher =
+    await prisma.user.create({
+      data: {
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        email: normalizedEmail,
+        password: hashedPassword,
+        role: "TEACHER",
+        isActive: true,
+      },
+
+      select: {
+        id: true,
+        firstName: true,
+        lastName: true,
+        email: true,
+        role: true,
+        isActive: true,
+        createdAt: true,
+      },
+    });
+
+  return teacher;
+};
 
 const getUsers = async ({
   search = "",
@@ -1154,6 +1222,7 @@ const getResultById = async (
 module.exports = {
   getDashboard,
   getUsers,
+  createTeacher,
   updateUserStatus,
   getExams,
   getExamById,

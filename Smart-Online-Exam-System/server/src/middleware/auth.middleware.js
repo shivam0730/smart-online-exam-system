@@ -14,7 +14,7 @@ const auth = async (req, res, next) => {
 
         const token = authHeader.split(" ")[1];
 
-   
+
 
         const decoded = verifyToken(token);
 
@@ -26,6 +26,13 @@ const auth = async (req, res, next) => {
 
         if (!user) {
             throw new ApiError(401, "User not found.");
+        }
+
+        if (!user.isActive) {
+            throw new ApiError(
+                403,
+                "Your account has been deactivated. Please contact the administrator."
+            );
         }
 
         req.user = {

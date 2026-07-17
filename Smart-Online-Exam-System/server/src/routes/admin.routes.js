@@ -6,6 +6,7 @@ const authorize = require("../middleware/role.middleware");
 const {
   getDashboard,
   getUsers,
+  createTeacher,
   updateUserStatus,
   getExams,
   getExamById,
@@ -51,6 +52,11 @@ router.get(
 router.get(
   "/users",
   getUsers
+);
+
+router.post(
+  "/users/teachers",
+  createTeacher
 );
 
 router.patch(

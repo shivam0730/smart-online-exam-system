@@ -34,6 +34,9 @@ function StudentDashboard() {
 
     const [exams, setExams] = useState([]);
 
+    const [showAllExams, setShowAllExams] =
+        useState(false);
+
     const [statistics, setStatistics] = useState({
         totalExamsAttempted: 0,
         totalExamsPassed: 0,
@@ -197,7 +200,7 @@ function StudentDashboard() {
                         {dashboardError}
                     </p>
                 )}
-                <section 
+                <section
                     ref={availableExamsRef}
                     className={styles.contentGrid}>
                     <article className={styles.panel}>
@@ -207,42 +210,58 @@ function StudentDashboard() {
                                 <h2>Available Exams</h2>
                             </div>
 
-                            <button type="button">
-                                View all
+                            <button
+                                type="button"
+                                onClick={() =>
+                                    setShowAllExams((prev) => !prev)
+                                }
+                            >
+                                {showAllExams ? "Show less" : "View all"}
                             </button>
+
                         </div>
 
                         {isLoading ? (
                             <p>Loading available exams...</p>
                         ) : exams.length > 0 ? (
-                            <div className={styles.examCard}>
-                                <div>
-                                    <span className={styles.examStatus}>
-                                        AVAILABLE
-                                    </span>
+                            <>
+                                {(showAllExams
+                                    ? exams
+                                    : exams.slice(0, 1)
+                                ).map((exam) => (
+                                    <div
+                                        key={exam.id}
+                                        className={styles.examCard}
+                                    >
+                                        <div>
+                                            <span
+                                                className={styles.examStatus}
+                                            >
+                                                AVAILABLE
+                                            </span>
 
-                                    <h3>{exams[0].title}</h3>
+                                            <h3>{exam.title}</h3>
 
-                                    <p>
-                                        {exams[0].description ||
-                                            "No description available."}
-                                    </p>
-                                </div>
+                                            <p>
+                                                {exam.description ||
+                                                    "No description available."}
+                                            </p>
+                                        </div>
 
-                                <button
-                                    type="button"
-                                    onClick={() =>
-                                        handleStartExam(exams[0].id)
-                                    }
-                                >
-                                    Start Exam
-                                </button>
-
-                            </div>
+                                        <button
+                                            type="button"
+                                            onClick={() =>
+                                                handleStartExam(exam.id)
+                                            }
+                                        >
+                                            Start Exam
+                                        </button>
+                                    </div>
+                                ))}
+                            </>
                         ) : (
                             <p>No exams are currently available.</p>
                         )}
-
 
                     </article>
 

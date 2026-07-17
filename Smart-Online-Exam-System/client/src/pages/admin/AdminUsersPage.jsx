@@ -12,14 +12,17 @@ import {
     ArrowLeft,
     ChevronLeft,
     ChevronRight,
+    Plus,
     Search,
     ShieldCheck,
     UserCheck,
     Users,
     UserX,
+    X,
 } from "lucide-react";
 
 import {
+    createAdminTeacher,
     getAdminUsers,
     updateAdminUserStatus,
 } from "../../services/adminService";
@@ -64,6 +67,38 @@ const AdminUsersPage = () => {
     const [updatingUserId, setUpdatingUserId] =
         useState("");
 
+    /*
+    |--------------------------------------------------------------------------
+    | Create Teacher State
+    |--------------------------------------------------------------------------
+    */
+
+    const [showTeacherForm, setShowTeacherForm] =
+        useState(false);
+
+    const [teacherForm, setTeacherForm] =
+        useState({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+        });
+
+    const [creatingTeacher, setCreatingTeacher] =
+        useState(false);
+
+    const [teacherError, setTeacherError] =
+        useState("");
+
+    const [teacherSuccess, setTeacherSuccess] =
+        useState("");
+
+    /*
+    |--------------------------------------------------------------------------
+    | Load Users
+    |--------------------------------------------------------------------------
+    */
+
     const loadUsers = useCallback(
         async () => {
             try {
@@ -106,6 +141,12 @@ const AdminUsersPage = () => {
         loadUsers();
     }, [loadUsers]);
 
+    /*
+    |--------------------------------------------------------------------------
+    | Search & Filters
+    |--------------------------------------------------------------------------
+    */
+
     const handleSearch = (event) => {
         event.preventDefault();
 
@@ -137,6 +178,118 @@ const AdminUsersPage = () => {
         setStatus("");
         setPage(1);
     };
+
+    /*
+    |--------------------------------------------------------------------------
+    | Create Teacher
+    |--------------------------------------------------------------------------
+    */
+
+    const handleTeacherInputChange = (
+        event
+    ) => {
+        const {
+            name,
+            value,
+        } = event.target;
+
+        setTeacherForm(
+            (currentForm) => ({
+                ...currentForm,
+                [name]: value,
+            })
+        );
+
+        setTeacherError("");
+        setTeacherSuccess("");
+    };
+
+    const handleCreateTeacher = async (
+        event
+    ) => {
+        event.preventDefault();
+
+        setTeacherError("");
+        setTeacherSuccess("");
+
+        if (
+            !teacherForm.firstName.trim() ||
+            !teacherForm.lastName.trim() ||
+            !teacherForm.email.trim() ||
+            !teacherForm.password
+        ) {
+            setTeacherError(
+                "Please fill in all teacher details."
+            );
+
+            return;
+        }
+
+        try {
+            setCreatingTeacher(true);
+
+            await createAdminTeacher({
+                firstName:
+                    teacherForm.firstName.trim(),
+
+                lastName:
+                    teacherForm.lastName.trim(),
+
+                email:
+                    teacherForm.email.trim(),
+
+                password:
+                    teacherForm.password,
+            });
+
+            setTeacherSuccess(
+                "Teacher account created successfully."
+            );
+
+            setTeacherForm({
+                firstName: "",
+                lastName: "",
+                email: "",
+                password: "",
+            });
+
+            setSearchInput("");
+            setSearch("");
+            setRole("");
+            setStatus("");
+            setPage(1);
+
+            await loadUsers();
+        } catch (requestError) {
+            setTeacherError(
+                requestError.response?.data
+                    ?.message ||
+                "Unable to create teacher account."
+            );
+        } finally {
+            setCreatingTeacher(false);
+        }
+    };
+
+    const handleCloseTeacherForm = () => {
+        setShowTeacherForm(false);
+
+        setTeacherForm({
+            firstName: "",
+            lastName: "",
+            email: "",
+            password: "",
+        });
+
+        setTeacherError("");
+        setTeacherSuccess("");
+    };
+
+    /*
+    |--------------------------------------------------------------------------
+    | Update User Status
+    |--------------------------------------------------------------------------
+    */
 
     const handleStatusUpdate = async (
         user
@@ -181,6 +334,12 @@ const AdminUsersPage = () => {
             setUpdatingUserId("");
         }
     };
+
+    /*
+    |--------------------------------------------------------------------------
+    | Helpers
+    |--------------------------------------------------------------------------
+    */
 
     const formatRole = (
         userRole
@@ -261,7 +420,9 @@ const AdminUsersPage = () => {
                             ADMIN CONTROL CENTER
                         </p>
 
-                        <h1>User Management</h1>
+                        <h1>
+                            User Management
+                        </h1>
 
                         <p
                             className={
@@ -272,6 +433,32 @@ const AdminUsersPage = () => {
                             monitor registered
                             platform users.
                         </p>
+
+                        <button
+                            type="button"
+                            className={
+                                styles.createTeacherButton
+                            }
+                            onClick={() => {
+                                setShowTeacherForm(
+                                    (current) =>
+                                        !current
+                                );
+
+                                setTeacherError("");
+                                setTeacherSuccess("");
+                            }}
+                        >
+                            {showTeacherForm ? (
+                                <X size={18} />
+                            ) : (
+                                <Plus size={18} />
+                            )}
+
+                            {showTeacherForm
+                                ? "Close Form"
+                                : "Create Teacher"}
+                        </button>
                     </div>
 
                     <div
@@ -294,6 +481,201 @@ const AdminUsersPage = () => {
                         </div>
                     </div>
                 </header>
+
+                {showTeacherForm && (
+                    <section
+                        className={
+                            styles.teacherFormCard
+                        }
+                    >
+                        <div
+                            className={
+                                styles.teacherFormHeader
+                            }
+                        >
+                            <div>
+                                <p
+                                    className={
+                                        styles.eyebrow
+                                    }
+                                >
+                                    TEACHER ACCOUNT
+                                </p>
+
+                                <h2>
+                                    Create Teacher
+                                </h2>
+
+                                <p>
+                                    Create a secure
+                                    teacher account.
+                                    The Teacher role
+                                    will be assigned
+                                    automatically.
+                                </p>
+                            </div>
+
+                            <button
+                                type="button"
+                                className={
+                                    styles.closeTeacherButton
+                                }
+                                onClick={
+                                    handleCloseTeacherForm
+                                }
+                                aria-label="Close create teacher form"
+                            >
+                                <X size={20} />
+                            </button>
+                        </div>
+
+                        <form
+                            className={
+                                styles.teacherForm
+                            }
+                            onSubmit={
+                                handleCreateTeacher
+                            }
+                        >
+                            <div
+                                className={
+                                    styles.teacherFormGrid
+                                }
+                            >
+                                <label>
+                                    First Name
+
+                                    <input
+                                        type="text"
+                                        name="firstName"
+                                        value={
+                                            teacherForm.firstName
+                                        }
+                                        onChange={
+                                            handleTeacherInputChange
+                                        }
+                                        placeholder="Enter first name"
+                                        disabled={
+                                            creatingTeacher
+                                        }
+                                    />
+                                </label>
+
+                                <label>
+                                    Last Name
+
+                                    <input
+                                        type="text"
+                                        name="lastName"
+                                        value={
+                                            teacherForm.lastName
+                                        }
+                                        onChange={
+                                            handleTeacherInputChange
+                                        }
+                                        placeholder="Enter last name"
+                                        disabled={
+                                            creatingTeacher
+                                        }
+                                    />
+                                </label>
+
+                                <label>
+                                    Email Address
+
+                                    <input
+                                        type="email"
+                                        name="email"
+                                        value={
+                                            teacherForm.email
+                                        }
+                                        onChange={
+                                            handleTeacherInputChange
+                                        }
+                                        placeholder="teacher@example.com"
+                                        disabled={
+                                            creatingTeacher
+                                        }
+                                    />
+                                </label>
+
+                                <label>
+                                    Password
+
+                                    <input
+                                        type="password"
+                                        name="password"
+                                        value={
+                                            teacherForm.password
+                                        }
+                                        onChange={
+                                            handleTeacherInputChange
+                                        }
+                                        placeholder="Create teacher password"
+                                        disabled={
+                                            creatingTeacher
+                                        }
+                                    />
+                                </label>
+                            </div>
+
+                            {teacherError && (
+                                <div
+                                    className={
+                                        styles.teacherFormError
+                                    }
+                                >
+                                    {teacherError}
+                                </div>
+                            )}
+
+                            {teacherSuccess && (
+                                <div
+                                    className={
+                                        styles.teacherFormSuccess
+                                    }
+                                >
+                                    {teacherSuccess}
+                                </div>
+                            )}
+
+                            <div
+                                className={
+                                    styles.teacherFormActions
+                                }
+                            >
+                                <button
+                                    type="button"
+                                    className={
+                                        styles.cancelTeacherButton
+                                    }
+                                    onClick={
+                                        handleCloseTeacherForm
+                                    }
+                                    disabled={
+                                        creatingTeacher
+                                    }
+                                >
+                                    Cancel
+                                </button>
+
+                                <button
+                                    type="submit"
+                                    className={
+                                        styles.submitTeacherButton
+                                    }
+                                    disabled={
+                                        creatingTeacher
+                                    }
+                                >
+                                    {creatingTeacher
+                                        ? "Creating..."
+                                        : "Create Teacher Account"}
+                                </button>
+                            </div>
+                        </form>
+                    </section>
+                )}
 
                 <section
                     className={
@@ -540,8 +922,7 @@ const AdminUsersPage = () => {
                         >
                             Loading users...
                         </div>
-                    ) : users.length ===
-                        0 ? (
+                    ) : users.length === 0 ? (
                         <div
                             className={
                                 styles.stateMessage
@@ -569,23 +950,17 @@ const AdminUsersPage = () => {
                                 <thead>
                                     <tr>
                                         <th>User</th>
-
                                         <th>Role</th>
-
                                         <th>Status</th>
-
                                         <th>
                                             Last Login
                                         </th>
-
                                         <th>
                                             Joined
                                         </th>
-
                                         <th>
                                             Action
                                         </th>
-
                                     </tr>
                                 </thead>
 
@@ -672,6 +1047,7 @@ const AdminUsersPage = () => {
                                                         user.createdAt
                                                     )}
                                                 </td>
+
                                                 <td>
                                                     {user.role ===
                                                         "SUPER_ADMIN" ? (
@@ -715,15 +1091,7 @@ const AdminUsersPage = () => {
                                 </tbody>
                             </table>
                         </div>
-
-
-
-
-
                     )}
-
-
-
 
                     <footer
                         className={

@@ -30,7 +30,10 @@ const getAllExams = async (req, res, next) => {
 
 const getExamById = async (req, res, next) => {
     try {
-        const exam = await examService.getExamById(req.params.id);
+        const exam = await examService.getExamById(
+            req.params.id,
+            req.user
+        );
 
         return res.status(200).json({
             success: true,
@@ -46,7 +49,8 @@ const updateExam = async (req, res, next) => {
     try {
         const exam = await examService.updateExam(
             req.params.id,
-            req.body
+            req.body,
+            req.user
         );
 
         return res.status(200).json({
@@ -61,7 +65,10 @@ const updateExam = async (req, res, next) => {
 
 const deleteExam = async (req, res, next) => {
     try {
-        const result = await examService.deleteExam(req.params.id);
+        const result = await examService.deleteExam(
+            req.params.id,
+            req.user
+        );
 
         return res.status(200).json({
             success: true,
@@ -75,7 +82,10 @@ const deleteExam = async (req, res, next) => {
 
 const publishExam = async (req, res, next) => {
     try {
-        const exam = await examService.publishExam(req.params.id);
+        const exam = await examService.publishExam(
+            req.params.id,
+            req.user
+        );
 
         return res.status(200).json({
             success: true,
@@ -90,7 +100,10 @@ const publishExam = async (req, res, next) => {
 
 const unpublishExam = async (req, res, next) => {
     try {
-        const exam = await examService.unpublishExam(req.params.id);
+        const exam = await examService.unpublishExam(
+            req.params.id,
+            req.user
+        );
 
         return res.status(200).json({
             success: true,

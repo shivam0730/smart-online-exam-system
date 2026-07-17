@@ -294,9 +294,13 @@ const TeacherDashboard = () => {
                 </p>
               </div>
 
-              <button type="button">
+              <button
+                type="button"
+                onClick={() => navigate("/teacher/exams")}
+              >
                 View All Exams
               </button>
+
             </div>
 
             {recentExams.length === 0 ? (

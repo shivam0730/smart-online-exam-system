@@ -3,9 +3,15 @@ const studentExamService = require("../services/studentExam.service");
 /**
  * Get all available exams for students
  */
+
 const getAvailableExams = async (req, res, next) => {
     try {
-        const exams = await studentExamService.getAvailableExams();
+        const studentId = req.user.id;
+
+        const exams =
+            await studentExamService.getAvailableExams(
+                studentId
+            );
 
         return res.status(200).json({
             success: true,

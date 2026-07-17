@@ -2,59 +2,68 @@ const prisma = require("../lib/prisma");
 
 const ApiError = require("../errors/ApiError");
 const {
-  getAttemptDeadline,
-  isAttemptExpired,
+    getAttemptDeadline,
+    isAttemptExpired,
 } = require("../utils/examTimer");
 
 /**
  * Get all currently available exams for students
  */
-const getAvailableExams = async () => {
-  const currentTime = new Date();
+const getAvailableExams = async (studentId) => {
+    const currentTime = new Date();
 
-  const exams = await prisma.exam.findMany({
-    where: {
-      status: "PUBLISHED",
-      isDeleted: false,
-      startTime: {
-        lte: currentTime,
-      },
-      endTime: {
-        gte: currentTime,
-      },
-    },
+    const exams = await prisma.exam.findMany({
+        where: {
+            status: "PUBLISHED",
+            isDeleted: false,
 
-    select: {
-      id: true,
-      title: true,
-      description: true,
-      instructions: true,
-      duration: true,
-      totalMarks: true,
-      passingMarks: true,
-      startTime: true,
-      endTime: true,
-      status: true,
-
-      _count: {
-        select: {
-          questions: {
-            where: {
-              isActive: true,
+            startTime: {
+                lte: currentTime,
             },
-          },
+
+            endTime: {
+                gte: currentTime,
+            },
+
+            attempts: {
+                none: {
+                    studentId,
+                    isSubmitted: true,
+                },
+            },
         },
-      },
 
-      createdAt: true,
-    },
+        select: {
+            id: true,
+            title: true,
+            description: true,
+            instructions: true,
+            duration: true,
+            totalMarks: true,
+            passingMarks: true,
+            startTime: true,
+            endTime: true,
+            status: true,
 
-    orderBy: {
-      startTime: "asc",
-    },
-  });
+            _count: {
+                select: {
+                    questions: {
+                        where: {
+                            isActive: true,
+                        },
+                    },
+                },
+            },
 
-  return exams;
+            createdAt: true,
+        },
+
+        orderBy: {
+            startTime: "asc",
+        },
+    });
+
+    return exams;
 };
 
 
@@ -92,7 +101,7 @@ const startExam = async (examId, studentId) => {
             404,
             "Exam is not available or has expired."
         );
-    }   
+    }
 
     // Check whether the student already started this exam
     const existingAttempt =

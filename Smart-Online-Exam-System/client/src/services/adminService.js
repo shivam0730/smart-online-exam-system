@@ -45,6 +45,25 @@ export const updateAdminUserStatus = async (
   return response.data;
 };
 
+export const createAdminTeacher = async ({
+  firstName,
+  lastName,
+  email,
+  password,
+}) => {
+  const response = await api.post(
+    "/admin/users/teachers",
+    {
+      firstName,
+      lastName,
+      email,
+      password,
+    }
+  );
+
+  return response.data;
+};
+
 // Get all exams for admin
 export const getAdminExams = async ({
   search = "",

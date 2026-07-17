@@ -251,30 +251,16 @@ const EditExamPage = () => {
       new Date(
         formData.endTime
       ) <=
-        new Date(
-          formData.startTime
-        )
+      new Date(
+        formData.startTime
+      )
     ) {
       newErrors.endTime =
         "End time must be after the start time.";
     }
 
     setErrors(newErrors);
-  if (loading) {
-    return (
-      <main className={styles.page}>
-        <section
-          className={
-            styles.container
-          }
-        >
-          <p>
-            Loading exam details...
-          </p>
-        </section>
-      </main>
-    );
-  }
+
 
     return (
       Object.keys(
@@ -374,6 +360,40 @@ const EditExamPage = () => {
     );
   }
 
+  if (apiError) {
+    return (
+      <main className={styles.page}>
+        <div className={styles.stateContainer}>
+          <div className={styles.errorIcon}>
+            🔒
+          </div>
+
+          <span className={styles.errorEyebrow}>
+            ACCESS RESTRICTED
+          </span>
+
+          <h2>
+            Access Denied
+          </h2>
+
+          <p>
+            {apiError}
+          </p>
+
+          <button
+            type="button"
+            className={styles.backButton}
+            onClick={() =>
+              navigate("/teacher/exams")
+            }
+          >
+            &larr; Back to My Exams
+          </button>
+        </div>
+      </main>
+    );
+  }
+
   return (
     <main className={styles.page}>
       <section
@@ -394,7 +414,7 @@ const EditExamPage = () => {
               )
             }
           >
-          ← Back to My Exams
+            ← Back to My Exams
           </button>
 
           <p>
