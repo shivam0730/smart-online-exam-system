@@ -7,7 +7,12 @@ const morgan = require("morgan");
 
 const registerMiddlewares = (app) => {
   //Cross-Origin Requests
-  app.use(cors());
+  app.use(
+    cors({
+      origin: process.env.CLIENT_URL || "http://localhost:5173",
+      credentials: true,
+    })
+  );
   //Security
   app.use(helmet());
   //Response Compression
