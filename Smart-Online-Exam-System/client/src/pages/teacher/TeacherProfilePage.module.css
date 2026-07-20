@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 32px 20px 60px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.12),
-      transparent 30%
-    ),
+      transparent 30%),
     #f5f7fc;
   color: #12213f;
 }
@@ -21,14 +19,11 @@
   border: 1px solid #dfe5f2;
   border-radius: 30px;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #111d38,
-      #263f78
-    );
+      #263f78);
   box-shadow:
-    0 22px 55px
-    rgba(31, 52, 101, 0.16);
+    0 22px 55px rgba(31, 52, 101, 0.16);
 }
 
 .backButton {
@@ -45,7 +40,7 @@
   color: #ffffff;
 }
 
-.header > p {
+.header>p {
   margin: 35px 0 14px;
   color: #aab4ff;
   font-size: 15px;
@@ -57,15 +52,13 @@
 .header h1 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(
-    40px,
-    6vw,
-    68px
-  );
+  font-size: clamp(40px,
+      6vw,
+      68px);
   line-height: 1.05;
 }
 
-.header > span {
+.header>span {
   display: block;
   max-width: 700px;
   margin-top: 22px;
@@ -77,8 +70,7 @@
 .profileLayout {
   display: grid;
   grid-template-columns:
-    360px
-    minmax(0, 1fr);
+    360px minmax(0, 1fr);
   gap: 25px;
   margin-top: 28px;
 }
@@ -89,8 +81,7 @@
   border-radius: 28px;
   background: #ffffff;
   box-shadow:
-    0 18px 42px
-    rgba(29, 49, 91, 0.08);
+    0 18px 42px rgba(29, 49, 91, 0.08);
 }
 
 .profileCard {
@@ -105,11 +96,9 @@
   border: 8px solid #eef0ff;
   border-radius: 50%;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #7c3aed
-    );
+      #7c3aed);
   color: #ffffff;
   font-size: 40px;
   font-weight: 900;
@@ -117,8 +106,7 @@
   align-items: center;
   justify-content: center;
   box-shadow:
-    0 16px 30px
-    rgba(79, 70, 229, 0.22);
+    0 16px 30px rgba(79, 70, 229, 0.22);
 }
 
 .profileCard h2 {
@@ -127,7 +115,7 @@
   font-size: 27px;
 }
 
-.profileCard > p {
+.profileCard>p {
   margin: 10px 0 0;
   color: #7e899f;
   font-size: 15px;
@@ -208,7 +196,7 @@
   font-size: 29px;
 }
 
-.sectionHeading > span {
+.sectionHeading>span {
   flex-shrink: 0;
   padding: 12px 17px;
   border-radius: 999px;
@@ -225,23 +213,19 @@
   gap: 0;
 }
 
-.detailsGrid > div {
+.detailsGrid>div {
   min-height: 145px;
   padding: 34px 38px;
   border-bottom:
     1px solid #e7eaf1;
 }
 
-.detailsGrid > div:nth-child(
-  odd
-) {
+.detailsGrid>div:nth-child(odd) {
   border-right:
     1px solid #e7eaf1;
 }
 
-.detailsGrid > div:nth-last-child(
-  -n + 2
-) {
+.detailsGrid>div:nth-last-child(-n + 2) {
   border-bottom: none;
 }
 
@@ -272,14 +256,11 @@
   padding: 40px 44px;
   border-radius: 28px;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #312e81
-    );
+      #312e81);
   box-shadow:
-    0 20px 45px
-    rgba(79, 70, 229, 0.2);
+    0 20px 45px rgba(79, 70, 229, 0.2);
 }
 
 .actions p {
@@ -314,8 +295,7 @@
 .actionButtons button {
   min-height: 52px;
   padding: 0 23px;
-  border: 1px solid
-    rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 14px;
   background: #ffffff;
   color: #3730a3;
@@ -330,8 +310,7 @@
 .actionButtons button:hover {
   transform: translateY(-2px);
   box-shadow:
-    0 12px 24px
-    rgba(0, 0, 0, 0.18);
+    0 12px 24px rgba(0, 0, 0, 0.18);
 }
 
 .stateContainer {
@@ -343,8 +322,7 @@
   border-radius: 28px;
   background: #ffffff;
   box-shadow:
-    0 20px 45px
-    rgba(29, 49, 91, 0.09);
+    0 20px 45px rgba(29, 49, 91, 0.09);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -381,8 +359,7 @@
   border-top-color: #4f46e5;
   border-radius: 50%;
   animation:
-    spin 0.8s linear
-    infinite;
+    spin 0.8s linear infinite;
 }
 
 @keyframes spin {
@@ -392,9 +369,7 @@
   }
 }
 
-@media (
-  max-width: 950px
-) {
+@media (max-width: 950px) {
   .profileLayout {
     grid-template-columns:
       1fr;
@@ -407,13 +382,10 @@
   }
 }
 
-@media (
-  max-width: 650px
-) {
+@media (max-width: 650px) {
   .page {
     padding:
-      20px 12px
-      40px;
+      20px 12px 40px;
   }
 
   .header {
@@ -426,7 +398,7 @@
     font-size: 42px;
   }
 
-  .header > span {
+  .header>span {
     font-size: 16px;
   }
 
@@ -442,19 +414,16 @@
       1fr;
   }
 
-  .detailsGrid > div {
+  .detailsGrid>div {
     min-height: 125px;
     padding: 28px 25px;
-    border-right: none
-      !important;
+    border-right: none !important;
     border-bottom:
-      1px solid #e7eaf1
-      !important;
+      1px solid #e7eaf1 !important;
   }
 
-  .detailsGrid > div:last-child {
-    border-bottom: none
-      !important;
+  .detailsGrid>div:last-child {
+    border-bottom: none !important;
   }
 
   .actions {
@@ -474,6 +443,7 @@
     width: 100%;
   }
 }
+
 /* Day 25: Responsive content protection */
 
 .page,
@@ -491,11 +461,11 @@
   min-width: 0;
 }
 
-.header > div,
-.sectionHeader > div,
-.statistics > *,
-.examInformation > *,
-.detailsGrid > * {
+.header>div,
+.sectionHeader>div,
+.statistics>*,
+.examInformation>*,
+.detailsGrid>* {
   min-width: 0;
 }
 
@@ -519,11 +489,9 @@
 
 @media (max-width: 520px) {
   .header h1 {
-    font-size: clamp(
-      1.9rem,
-      10vw,
-      2.4rem
-    );
+    font-size: clamp(1.9rem,
+        10vw,
+        2.4rem);
     overflow-wrap: anywhere;
   }
 
@@ -549,25 +517,20 @@
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.18),
-      transparent 30%
-    ),
+      transparent 30%),
     #0b1120;
 }
 
 :global([data-theme="dark"]) .header {
   border-color: #263449;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #0f172a,
-      #1e3a5f
-    );
+      #1e3a5f);
   box-shadow:
-    0 22px 55px
-    rgba(0, 0, 0, 0.32);
+    0 22px 55px rgba(0, 0, 0, 0.32);
 }
 
 /* Profile and details cards */
@@ -578,15 +541,13 @@
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 44px
-    rgba(0, 0, 0, 0.22);
+    0 18px 44px rgba(0, 0, 0, 0.22);
 }
 
 :global([data-theme="dark"]) .avatar {
   border-color: #29374c;
   box-shadow:
-    0 16px 32px
-    rgba(79, 70, 229, 0.28);
+    0 16px 32px rgba(79, 70, 229, 0.28);
 }
 
 :global([data-theme="dark"]) .profileCard h2,
@@ -596,7 +557,7 @@
   color: #f8fafc;
 }
 
-:global([data-theme="dark"]) .profileCard > p,
+:global([data-theme="dark"]) .profileCard>p,
 :global([data-theme="dark"]) .detailsGrid span,
 :global([data-theme="dark"]) .stateContainer p {
   color: #94a3b8;
@@ -615,13 +576,11 @@
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .accountStatus span {
+:global([data-theme="dark"]) .accountStatus span {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .accountStatus strong {
+:global([data-theme="dark"]) .accountStatus strong {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.3);
@@ -633,25 +592,21 @@
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .sectionHeading p {
+:global([data-theme="dark"]) .sectionHeading p {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-  .sectionHeading > span {
+:global([data-theme="dark"]) .sectionHeading>span {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.3);
 }
 
-:global([data-theme="dark"])
-  .detailsGrid > div {
+:global([data-theme="dark"]) .detailsGrid>div {
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .detailsGrid > div:nth-child(odd) {
+:global([data-theme="dark"]) .detailsGrid>div:nth-child(odd) {
   border-right-color: #29374c;
 }
 
@@ -659,18 +614,14 @@
 
 :global([data-theme="dark"]) .actions {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4338ca,
-      #1e1b4b
-    );
+      #1e1b4b);
   box-shadow:
-    0 20px 46px
-    rgba(0, 0, 0, 0.3);
+    0 20px 46px rgba(0, 0, 0, 0.3);
 }
 
-:global([data-theme="dark"])
-  .actionButtons button {
+:global([data-theme="dark"]) .actionButtons button {
   border-color:
     rgba(148, 163, 184, 0.35);
   color: #e0e7ff;
@@ -678,8 +629,7 @@
     rgba(15, 23, 42, 0.5);
 }
 
-:global([data-theme="dark"])
-  .actionButtons button:hover {
+:global([data-theme="dark"]) .actionButtons button:hover {
   border-color:
     rgba(199, 210, 254, 0.65);
   color: #ffffff;
@@ -694,13 +644,11 @@
   border-top-color: #818cf8;
 }
 
-:global([data-theme="dark"])
-  .stateContainer button {
+:global([data-theme="dark"]) .stateContainer button {
   background: #4f46e5;
 }
 
-:global([data-theme="dark"])
-  .stateContainer button:hover {
+:global([data-theme="dark"]) .stateContainer button:hover {
   background: #6366f1;
 }
 
@@ -711,14 +659,14 @@
 .detailsCard,
 .accountStatus,
 .sectionHeading,
-.detailsGrid > *,
-.actions > *,
-.actionButtons > * {
+.detailsGrid>*,
+.actions>*,
+.actionButtons>* {
   min-width: 0;
 }
 
 .profileCard h2,
-.profileCard > p,
+.profileCard>p,
 .accountStatus span,
 .accountStatus strong,
 .sectionHeading h2,
@@ -734,8 +682,7 @@
 @media (max-width: 650px) {
   .profileCard {
     padding:
-      34px
-      20px;
+      34px 20px;
   }
 
   .avatar {
@@ -745,7 +692,7 @@
     font-size: 34px;
   }
 
-  .sectionHeading > span {
+  .sectionHeading>span {
     flex-shrink: 1;
   }
 
@@ -757,32 +704,27 @@
 @media (max-width: 360px) {
   .header {
     padding:
-      32px
-      18px;
+      32px 18px;
   }
 
   .profileCard {
     padding:
-      30px
-      16px;
+      30px 16px;
   }
 
   .sectionHeading {
     padding:
-      25px
-      18px;
+      25px 18px;
   }
 
-  .detailsGrid > div {
+  .detailsGrid>div {
     padding:
-      25px
-      18px;
+      25px 18px;
   }
 
   .actions {
     padding:
-      30px
-      18px;
+      30px 18px;
   }
 }
 
@@ -813,24 +755,19 @@
   border: none;
   border-radius: 13px;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #6d5dfc
-    );
+      #6d5dfc);
   color: #ffffff;
   font-family: inherit;
   font-size: 14px;
   font-weight: 900;
   cursor: pointer;
   box-shadow:
-    0 10px 24px
-    rgba(
-      79,
+    0 10px 24px rgba(79,
       70,
       229,
-      0.22
-    );
+      0.22);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease,
@@ -841,13 +778,10 @@
   transform:
     translateY(-2px);
   box-shadow:
-    0 14px 29px
-    rgba(
-      79,
+    0 14px 29px rgba(79,
       70,
       229,
-      0.3
-    );
+      0.3);
 }
 
 /* Success and error messages */
@@ -884,13 +818,9 @@
 .formGrid {
   display: grid;
   grid-template-columns:
-    repeat(
-      2,
-      minmax(
-        0,
-        1fr
-      )
-    );
+    repeat(2,
+      minmax(0,
+        1fr));
   gap: 25px;
 }
 
@@ -901,7 +831,7 @@
   gap: 11px;
 }
 
-.formGrid label > span {
+.formGrid label>span {
   color: #69758d;
   font-size: 13px;
   font-weight: 900;
@@ -914,8 +844,7 @@
   min-width: 0;
   min-height: 53px;
   padding: 0 17px;
-  border: 1px solid
-    #d8deea;
+  border: 1px solid #d8deea;
   border-radius: 14px;
   outline: none;
   background: #f9faff;
@@ -941,13 +870,10 @@
   border-color: #6366f1;
   background: #ffffff;
   box-shadow:
-    0 0 0 4px
-    rgba(
-      99,
+    0 0 0 4px rgba(99,
       102,
       241,
-      0.12
-    );
+      0.12);
 }
 
 /* Form action buttons */
@@ -982,8 +908,7 @@
 }
 
 .cancelButton {
-  border: 1px solid
-    #ccd4e2;
+  border: 1px solid #ccd4e2;
   background: #ffffff;
   color: #536078;
 }
@@ -996,33 +921,25 @@
 .saveButton {
   border: none;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #6d5dfc
-    );
+      #6d5dfc);
   color: #ffffff;
   box-shadow:
-    0 11px 25px
-    rgba(
-      79,
+    0 11px 25px rgba(79,
       70,
       229,
-      0.25
-    );
+      0.25);
 }
 
 .saveButton:hover {
   transform:
     translateY(-2px);
   box-shadow:
-    0 15px 31px
-    rgba(
-      79,
+    0 15px 31px rgba(79,
       70,
       229,
-      0.32
-    );
+      0.32);
 }
 
 .cancelButton:disabled,
@@ -1036,95 +953,74 @@
    EDIT PROFILE DARK THEME
 ======================================== */
 
-:global([data-theme="dark"])
-  .successMessage {
+:global([data-theme="dark"]) .successMessage {
   border-color:
-    rgba(
-      34,
+    rgba(34,
       197,
       94,
-      0.35
-    );
+      0.35);
   background:
-    rgba(
-      22,
+    rgba(22,
       101,
       52,
-      0.25
-    );
+      0.25);
   color: #86efac;
 }
 
-:global([data-theme="dark"])
-  .errorMessage {
+:global([data-theme="dark"]) .errorMessage {
   border-color:
-    rgba(
-      239,
+    rgba(239,
       68,
       68,
-      0.35
-    );
+      0.35);
   background:
-    rgba(
-      127,
+    rgba(127,
       29,
       29,
-      0.25
-    );
+      0.25);
   color: #fca5a5;
 }
 
-:global([data-theme="dark"])
-  .formGrid label > span {
+:global([data-theme="dark"]) .formGrid label>span {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .formGrid input {
+:global([data-theme="dark"]) .formGrid input {
   border-color: #334155;
   background: #172033;
   color: #f8fafc;
   color-scheme: dark;
 }
 
-:global([data-theme="dark"])
-  .formGrid input::placeholder {
+:global([data-theme="dark"]) .formGrid input::placeholder {
   color: #64748b;
 }
 
-:global([data-theme="dark"])
-  .formGrid input:hover {
+:global([data-theme="dark"]) .formGrid input:hover {
   border-color: #526176;
 }
 
-:global([data-theme="dark"])
-  .formGrid input:focus {
+:global([data-theme="dark"]) .formGrid input:focus {
   border-color: #818cf8;
   background: #0f172a;
   box-shadow:
-    0 0 0 4px
-    rgba(
-      129,
+    0 0 0 4px rgba(129,
       140,
       248,
-      0.14
-    );
+      0.14);
 }
 
-:global([data-theme="dark"])
-  .formActions {
+:global([data-theme="dark"]) .formActions {
   border-top-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .cancelButton {
+:global([data-theme="dark"]) .cancelButton {
   border-color: #475569;
   background: #172033;
   color: #cbd5e1;
 }
 
-:global([data-theme="dark"])
-  .cancelButton:hover {
+:global([data-theme="dark"]) .cancelButton:hover {
   border-color: #64748b;
   background: #1e293b;
 }
@@ -1140,17 +1036,14 @@
   min-width: 0;
 }
 
-@media (
-  max-width: 650px
-) {
+@media (max-width: 650px) {
   .editButton {
     width: 100%;
   }
 
   .editForm {
     padding:
-      28px
-      24px;
+      28px 24px;
   }
 
   .formGrid {
@@ -1171,19 +1064,15 @@
   }
 }
 
-@media (
-  max-width: 360px
-) {
+@media (max-width: 360px) {
   .editForm {
     padding:
-      25px
-      18px;
+      25px 18px;
   }
 
   .successMessage,
   .errorMessage {
     padding:
-      14px
-      16px;
+      14px 16px;
   }
 }

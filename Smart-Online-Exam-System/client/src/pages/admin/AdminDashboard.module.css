@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 40px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.12),
-      transparent 32%
-    ),
+      transparent 32%),
     #f5f7fb;
   color: #172033;
 }
@@ -23,8 +21,7 @@
   border-radius: 24px;
   background: #ffffff;
   box-shadow:
-    0 18px 45px
-    rgba(31, 41, 55, 0.07);
+    0 18px 45px rgba(31, 41, 55, 0.07);
 }
 
 .dashboardLabel {
@@ -39,11 +36,9 @@
 .header h1 {
   margin: 0;
   color: #111827;
-  font-size: clamp(
-    2rem,
-    4vw,
-    3.2rem
-  );
+  font-size: clamp(2rem,
+      4vw,
+      3.2rem);
   line-height: 1.1;
 }
 
@@ -93,8 +88,7 @@
   border-radius: 20px;
   background: #ffffff;
   box-shadow:
-    0 14px 34px
-    rgba(31, 41, 55, 0.06);
+    0 14px 34px rgba(31, 41, 55, 0.06);
   transition:
     transform 0.2s ease,
     box-shadow 0.2s ease;
@@ -103,8 +97,7 @@
 .statCard:hover {
   transform: translateY(-4px);
   box-shadow:
-    0 20px 42px
-    rgba(31, 41, 55, 0.1);
+    0 20px 42px rgba(31, 41, 55, 0.1);
 }
 
 .statIcon {
@@ -149,8 +142,7 @@
   border-radius: 22px;
   background: #ffffff;
   box-shadow:
-    0 14px 34px
-    rgba(31, 41, 55, 0.06);
+    0 14px 34px rgba(31, 41, 55, 0.06);
 }
 
 .sectionHeader {
@@ -227,8 +219,8 @@
   border-color: #c7ccff;
 }
 
-.listItem > div:first-child,
-.examItem > div:first-child {
+.listItem>div:first-child,
+.examItem>div:first-child {
   min-width: 0;
   display: flex;
   flex-direction: column;
@@ -274,7 +266,7 @@
   gap: 10px;
 }
 
-.examMeta > span:first-child {
+.examMeta>span:first-child {
   color: #687185;
   font-size: 0.8rem;
   font-weight: 600;
@@ -303,8 +295,7 @@
   border-radius: 22px;
   background: #ffffff;
   box-shadow:
-    0 18px 45px
-    rgba(31, 41, 55, 0.08);
+    0 18px 45px rgba(31, 41, 55, 0.08);
   text-align: center;
 }
 
@@ -462,6 +453,7 @@
     width: 100%;
   }
 }
+
 /* Day 25: Responsive UI improvements */
 
 .page,
@@ -478,12 +470,12 @@
   min-width: 0;
 }
 
-.header > div,
+.header>div,
 .headerActions,
-.statCard > div,
-.overviewItems > div,
-.listItem > div,
-.examItem > div {
+.statCard>div,
+.overviewItems>div,
+.listItem>div,
+.examItem>div {
   min-width: 0;
 }
 
@@ -565,8 +557,8 @@
     padding: 15px;
   }
 
-  .listItem > div:first-child,
-  .examItem > div:first-child {
+  .listItem>div:first-child,
+  .examItem>div:first-child {
     width: 100%;
   }
 
@@ -617,11 +609,9 @@
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.2),
-      transparent 32%
-    ),
+      transparent 32%),
     #0b1120;
 }
 
@@ -633,48 +623,40 @@
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.25);
+    0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
 /* Header */
 
-:global([data-theme="dark"])
-  .dashboardLabel {
+:global([data-theme="dark"]) .dashboardLabel {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-  .header h1 {
+:global([data-theme="dark"]) .header h1 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .header p {
+:global([data-theme="dark"]) .header p {
   color: #94a3b8;
 }
 
 /* Dashboard action buttons */
 
-:global([data-theme="dark"])
-  .manageUsersButton {
+:global([data-theme="dark"]) .manageUsersButton {
   background: #6366f1;
 }
 
-:global([data-theme="dark"])
-  .manageUsersButton:hover {
+:global([data-theme="dark"]) .manageUsersButton:hover {
   background: #818cf8;
 }
 
-:global([data-theme="dark"])
-  .logoutButton {
+:global([data-theme="dark"]) .logoutButton {
   border-color:
     rgba(248, 113, 113, 0.65);
   color: #fca5a5;
 }
 
-:global([data-theme="dark"])
-  .logoutButton:hover {
+:global([data-theme="dark"]) .logoutButton:hover {
   border-color: #ef4444;
   color: #ffffff;
   background: #dc2626;
@@ -682,139 +664,112 @@
 
 /* Statistics */
 
-:global([data-theme="dark"])
-  .statIcon {
+:global([data-theme="dark"]) .statIcon {
   background:
     rgba(79, 70, 229, 0.22);
 }
 
-:global([data-theme="dark"])
-  .statCard p {
+:global([data-theme="dark"]) .statCard p {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .statCard h2 {
+:global([data-theme="dark"]) .statCard h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .statCard:hover {
+:global([data-theme="dark"]) .statCard:hover {
   border-color: #475569;
   box-shadow:
-    0 22px 48px
-    rgba(0, 0, 0, 0.34);
+    0 22px 48px rgba(0, 0, 0, 0.34);
 }
 
 /* Panel headings */
 
-:global([data-theme="dark"])
-  .sectionHeader {
+:global([data-theme="dark"]) .sectionHeader {
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .sectionHeader h2 {
+:global([data-theme="dark"]) .sectionHeader h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .sectionHeader p {
+:global([data-theme="dark"]) .sectionHeader p {
   color: #94a3b8;
 }
 
 /* Overview cards */
 
-:global([data-theme="dark"])
-  .overviewItems div {
+:global([data-theme="dark"]) .overviewItems div {
   border-color: #29374c;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .overviewItems span {
+:global([data-theme="dark"]) .overviewItems span {
   color: #cbd5e1;
 }
 
-:global([data-theme="dark"])
-  .overviewItems strong {
+:global([data-theme="dark"]) .overviewItems strong {
   color: #a5b4fc;
 }
 
 /* Recent users and exams */
 
-:global([data-theme="dark"])
-  .listItem,
-:global([data-theme="dark"])
-  .examItem {
+:global([data-theme="dark"]) .listItem,
+:global([data-theme="dark"]) .examItem {
   border-color: #29374c;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .listItem:hover,
-:global([data-theme="dark"])
-  .examItem:hover {
+:global([data-theme="dark"]) .listItem:hover,
+:global([data-theme="dark"]) .examItem:hover {
   border-color: #6366f1;
 }
 
-:global([data-theme="dark"])
-  .listItem strong,
-:global([data-theme="dark"])
-  .examItem strong {
+:global([data-theme="dark"]) .listItem strong,
+:global([data-theme="dark"]) .examItem strong {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .listItem div span,
-:global([data-theme="dark"])
-  .examItem div span {
+:global([data-theme="dark"]) .listItem div span,
+:global([data-theme="dark"]) .examItem div span {
   color: #94a3b8;
 }
 
 /* Badges */
 
-:global([data-theme="dark"])
-  .roleBadge {
+:global([data-theme="dark"]) .roleBadge {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.25);
 }
 
-:global([data-theme="dark"])
-  .statusBadge {
+:global([data-theme="dark"]) .statusBadge {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.32);
 }
 
-:global([data-theme="dark"])
-  .examMeta > span:first-child {
+:global([data-theme="dark"]) .examMeta>span:first-child {
   color: #cbd5e1;
 }
 
 /* Empty, loading and error states */
 
-:global([data-theme="dark"])
-  .emptyMessage {
+:global([data-theme="dark"]) .emptyMessage {
   border-color: #475569;
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .stateContainer p,
-:global([data-theme="dark"])
-  .errorContainer p {
+:global([data-theme="dark"]) .stateContainer p,
+:global([data-theme="dark"]) .errorContainer p {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .errorContainer h2 {
+:global([data-theme="dark"]) .errorContainer h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .loader {
+:global([data-theme="dark"]) .loader {
   border-color: #29374c;
   border-top-color: #818cf8;
 }
@@ -830,7 +785,7 @@
     gap: 12px;
   }
 
-  .examItem > div:first-child {
+  .examItem>div:first-child {
     width: 100%;
   }
 
@@ -843,7 +798,7 @@
     gap: 10px;
   }
 
-  .examMeta > span:first-child {
+  .examMeta>span:first-child {
     flex: 1 1 auto;
     min-width: 0;
   }
@@ -892,8 +847,7 @@
   min-height: 54px;
   padding: 0 24px;
 
-  border: 1px solid
-    rgba(52, 211, 153, 0.7);
+  border: 1px solid rgba(52, 211, 153, 0.7);
 
   border-radius: 14px;
 

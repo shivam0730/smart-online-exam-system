@@ -667,7 +667,7 @@ const AdminResultDetailsPage = () => {
           }
         >
           {answers.length >
-          0 ? (
+            0 ? (
             answers.map(
               (
                 answer,
@@ -729,9 +729,9 @@ const AdminResultDetailsPage = () => {
                         answer
                           .isCorrect
                           ? styles
-                              .correctBadge
+                            .correctBadge
                           : styles
-                              .incorrectBadge
+                            .incorrectBadge
                       }
                     >
                       {answer
@@ -772,11 +772,11 @@ const AdminResultDetailsPage = () => {
                                 option
                                   .isCorrect
                                   ? styles
-                                      .correctOption
+                                    .correctOption
                                   : "",
                                 isSelected
                                   ? styles
-                                      .selectedOption
+                                    .selectedOption
                                   : "",
                               ]
                                 .filter(
@@ -790,7 +790,7 @@ const AdminResultDetailsPage = () => {
                                 {String
                                   .fromCharCode(
                                     65 +
-                                      optionIndex
+                                    optionIndex
                                   )}
                               </span>
 
@@ -803,12 +803,12 @@ const AdminResultDetailsPage = () => {
 
                               {option
                                 .isCorrect && (
-                                <CheckCircle2
-                                  size={
-                                    19
-                                  }
-                                />
-                              )}
+                                  <CheckCircle2
+                                    size={
+                                      19
+                                    }
+                                  />
+                                )}
 
                               {isSelected &&
                                 !option
@@ -848,25 +848,25 @@ const AdminResultDetailsPage = () => {
                   {answer
                     .question
                     ?.explanation && (
-                    <div
-                      className={
-                        styles
-                          .explanation
-                      }
-                    >
-                      <span>
-                        EXPLANATION
-                      </span>
-
-                      <p>
-                        {
-                          answer
-                            .question
+                      <div
+                        className={
+                          styles
                             .explanation
                         }
-                      </p>
-                    </div>
-                  )}
+                      >
+                        <span>
+                          EXPLANATION
+                        </span>
+
+                        <p>
+                          {
+                            answer
+                              .question
+                              .explanation
+                          }
+                        </p>
+                      </div>
+                    )}
                 </article>
               )
             )

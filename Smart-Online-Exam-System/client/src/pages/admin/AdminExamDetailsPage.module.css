@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 42px 24px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.14),
-      transparent 32%
-    ),
+      transparent 32%),
     #f5f7fc;
   color: #111827;
 }
@@ -28,11 +26,10 @@
   background:
     rgba(255, 255, 255, 0.94);
   box-shadow:
-    0 20px 50px
-    rgba(15, 23, 42, 0.07);
+    0 20px 50px rgba(15, 23, 42, 0.07);
 }
 
-.header > div:first-child {
+.header>div:first-child {
   min-width: 0;
 }
 
@@ -72,11 +69,9 @@
 .titleRow h1 {
   margin: 0;
   color: #111827;
-  font-size: clamp(
-    2rem,
-    4vw,
-    3rem
-  );
+  font-size: clamp(2rem,
+      4vw,
+      3rem);
   line-height: 1.12;
   overflow-wrap: anywhere;
 }
@@ -182,8 +177,7 @@
   border-radius: 19px;
   background: #ffffff;
   box-shadow:
-    0 12px 30px
-    rgba(15, 23, 42, 0.05);
+    0 12px 30px rgba(15, 23, 42, 0.05);
 }
 
 .summaryIcon {
@@ -197,7 +191,7 @@
   background: #eef2ff;
 }
 
-.summaryCard > div:last-child {
+.summaryCard>div:last-child {
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -233,8 +227,7 @@
   border-radius: 22px;
   background: #ffffff;
   box-shadow:
-    0 15px 38px
-    rgba(15, 23, 42, 0.05);
+    0 15px 38px rgba(15, 23, 42, 0.05);
 }
 
 .infoCard {
@@ -247,7 +240,7 @@
   gap: 13px;
 }
 
-.cardHeader > svg {
+.cardHeader>svg {
   flex-shrink: 0;
   margin-top: 2px;
   color: #4f46e5;
@@ -278,7 +271,7 @@
   margin-top: 24px;
 }
 
-.infoList > div {
+.infoList>div {
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -322,16 +315,14 @@
   border-radius: 50%;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #7c3aed
-    );
+      #7c3aed);
   font-size: 0.9rem;
   font-weight: 800;
 }
 
-.teacher > div:last-child {
+.teacher>div:last-child {
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -429,16 +420,14 @@
   border-radius: 12px;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #7c3aed
-    );
+      #7c3aed);
   font-size: 0.82rem;
   font-weight: 800;
 }
 
-.questionTop > div {
+.questionTop>div {
   min-width: 0;
 }
 
@@ -476,7 +465,7 @@
   background: #f8fafc;
 }
 
-.option > span {
+.option>span {
   display: grid;
   width: 30px;
   height: 30px;
@@ -563,11 +552,10 @@
   background: #ffffff;
   text-align: center;
   box-shadow:
-    0 18px 45px
-    rgba(15, 23, 42, 0.07);
+    0 18px 45px rgba(15, 23, 42, 0.07);
 }
 
-.stateCard > svg {
+.stateCard>svg {
   margin-bottom: 16px;
   color: #6366f1;
 }
@@ -607,8 +595,7 @@
   cursor: pointer;
 }
 
-.stateActions
-.secondaryButton {
+.stateActions .secondaryButton {
   border-color: #dbe1ea;
   color: #475569;
   background: #ffffff;
@@ -691,11 +678,9 @@
   }
 
   .titleRow h1 {
-    font-size: clamp(
-      1.75rem,
-      10vw,
-      2.25rem
-    );
+    font-size: clamp(1.75rem,
+        10vw,
+        2.25rem);
   }
 
   .examIdentity {
@@ -742,195 +727,143 @@
 
 /* Dark theme */
 
-:global([data-theme="dark"])
-.page {
+:global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.2),
-      transparent 32%
-    ),
+      transparent 32%),
     #0b1120;
 }
 
-:global([data-theme="dark"])
-.header,
-:global([data-theme="dark"])
-.summaryCard,
-:global([data-theme="dark"])
-.infoCard,
-:global([data-theme="dark"])
-.instructionsCard,
-:global([data-theme="dark"])
-.questionsCard,
-:global([data-theme="dark"])
-.stateCard {
+:global([data-theme="dark"]) .header,
+:global([data-theme="dark"]) .summaryCard,
+:global([data-theme="dark"]) .infoCard,
+:global([data-theme="dark"]) .instructionsCard,
+:global([data-theme="dark"]) .questionsCard,
+:global([data-theme="dark"]) .stateCard {
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.25);
+    0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
-:global([data-theme="dark"])
-.backButton,
-:global([data-theme="dark"])
-.eyebrow,
-:global([data-theme="dark"])
-.cardHeader > svg {
+:global([data-theme="dark"]) .backButton,
+:global([data-theme="dark"]) .eyebrow,
+:global([data-theme="dark"]) .cardHeader>svg {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-.titleRow h1,
-:global([data-theme="dark"])
-.summaryCard strong,
-:global([data-theme="dark"])
-.cardHeader h2,
-:global([data-theme="dark"])
-.infoList strong,
-:global([data-theme="dark"])
-.teacher strong,
-:global([data-theme="dark"])
-.questionTop h3,
-:global([data-theme="dark"])
-.emptyQuestions h3,
-:global([data-theme="dark"])
-.stateCard h2 {
+:global([data-theme="dark"]) .titleRow h1,
+:global([data-theme="dark"]) .summaryCard strong,
+:global([data-theme="dark"]) .cardHeader h2,
+:global([data-theme="dark"]) .infoList strong,
+:global([data-theme="dark"]) .teacher strong,
+:global([data-theme="dark"]) .questionTop h3,
+:global([data-theme="dark"]) .emptyQuestions h3,
+:global([data-theme="dark"]) .stateCard h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-.subtitle,
-:global([data-theme="dark"])
-.summaryCard span,
-:global([data-theme="dark"])
-.cardHeader p,
-:global([data-theme="dark"])
-.infoList span,
-:global([data-theme="dark"])
-.teacher span,
-:global([data-theme="dark"])
-.questionTop p,
-:global([data-theme="dark"])
-.emptyQuestions,
-:global([data-theme="dark"])
-.stateCard {
+:global([data-theme="dark"]) .subtitle,
+:global([data-theme="dark"]) .summaryCard span,
+:global([data-theme="dark"]) .cardHeader p,
+:global([data-theme="dark"]) .infoList span,
+:global([data-theme="dark"]) .teacher span,
+:global([data-theme="dark"]) .questionTop p,
+:global([data-theme="dark"]) .emptyQuestions,
+:global([data-theme="dark"]) .stateCard {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-.examIdentity {
+:global([data-theme="dark"]) .examIdentity {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.22);
 }
 
-:global([data-theme="dark"])
-.examIdentity span {
+:global([data-theme="dark"]) .examIdentity span {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-.examIdentity strong {
+:global([data-theme="dark"]) .examIdentity strong {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-.summaryIcon {
+:global([data-theme="dark"]) .summaryIcon {
   color: #a5b4fc;
   background:
     rgba(79, 70, 229, 0.24);
 }
 
-:global([data-theme="dark"])
-.infoList > div,
-:global([data-theme="dark"])
-.teacher,
-:global([data-theme="dark"])
-.instructions,
-:global([data-theme="dark"])
-.option {
+:global([data-theme="dark"]) .infoList>div,
+:global([data-theme="dark"]) .teacher,
+:global([data-theme="dark"]) .instructions,
+:global([data-theme="dark"]) .option {
   background: #172033;
 }
 
-:global([data-theme="dark"])
-.questionsHeader,
-:global([data-theme="dark"])
-.question {
+:global([data-theme="dark"]) .questionsHeader,
+:global([data-theme="dark"]) .question {
   border-color: #29374c;
 }
 
-:global([data-theme="dark"])
-.instructions,
-:global([data-theme="dark"])
-.option p {
+:global([data-theme="dark"]) .instructions,
+:global([data-theme="dark"]) .option p {
   color: #cbd5e1;
 }
 
-:global([data-theme="dark"])
-.option {
+:global([data-theme="dark"]) .option {
   border-color: #334155;
 }
 
-:global([data-theme="dark"])
-.option > span {
+:global([data-theme="dark"]) .option>span {
   color: #c7d2fe;
   background:
     rgba(79, 70, 229, 0.3);
 }
 
-:global([data-theme="dark"])
-.questionCount {
+:global([data-theme="dark"]) .questionCount {
   color: #c7d2fe;
   background:
     rgba(79, 70, 229, 0.25);
 }
 
-:global([data-theme="dark"])
-.explanation {
+:global([data-theme="dark"]) .explanation {
   color: #bbf7d0;
   background:
     rgba(22, 101, 52, 0.25);
 }
 
-:global([data-theme="dark"])
-.explanation strong {
+:global([data-theme="dark"]) .explanation strong {
   color: #86efac;
 }
 
-:global([data-theme="dark"])
-.draftBadge {
+:global([data-theme="dark"]) .draftBadge {
   color: #fdba74;
   background:
     rgba(154, 52, 18, 0.3);
 }
 
-:global([data-theme="dark"])
-.publishedBadge {
+:global([data-theme="dark"]) .publishedBadge {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.3);
 }
 
-:global([data-theme="dark"])
-.completedBadge {
+:global([data-theme="dark"]) .completedBadge {
   color: #93c5fd;
   background:
     rgba(30, 64, 175, 0.3);
 }
 
-:global([data-theme="dark"])
-.archivedBadge {
+:global([data-theme="dark"]) .archivedBadge {
   color: #cbd5e1;
   background:
     rgba(71, 85, 105, 0.4);
 }
 
-:global([data-theme="dark"])
-.stateActions
-.secondaryButton {
+:global([data-theme="dark"]) .stateActions .secondaryButton {
   border-color: #334155;
   color: #cbd5e1;
   background: #172033;

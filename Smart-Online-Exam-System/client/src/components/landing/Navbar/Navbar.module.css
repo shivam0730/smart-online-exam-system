@@ -1,0 +1,315 @@
+/* ===========================
+   Premium Navbar
+=========================== */
+
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.72);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+
+    border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+
+    transition:
+        background .35s ease,
+        box-shadow .35s ease,
+        border-color .35s ease;
+}
+
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.88);
+    box-shadow: 0 10px 35px rgba(0, 0, 0, .08);
+}
+
+.navContainer {
+    width: min(1200px, 92%);
+    margin: auto;
+
+    height: 72px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* ===========================
+   Logo
+=========================== */
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    text-decoration: none;
+
+    font-size: 1.15rem;
+    font-weight: 700;
+
+    color: #111827;
+}
+
+.logoIcon {
+    width: 48px;
+    height: 48px;
+
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+    box-shadow: 0 12px 25px rgba(37, 99, 235, .28);
+}
+
+/* ===========================
+   Navigation
+=========================== */
+
+.navigation {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.navigation a {
+    position: relative;
+    text-decoration: none;
+    color: #374151;
+    font-weight: 500;
+    line-height: 1;
+    transition:
+        color .25s ease,
+        transform .25s ease;
+}
+
+.navigation a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+
+    width: 0;
+    height: 2px;
+
+    border-radius: 999px;
+    background: #2563eb;
+
+    transition: width .3s ease;
+}
+
+.navigation a:hover::after {
+    width: 100%;
+}
+
+.signInLink {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 10px 18px;
+    border-radius: 10px;
+
+    transition: background 0.25s ease, color 0.25s ease;
+}
+
+.signInLink:hover {
+    background: rgba(37, 99, 235, 0.08);
+    color: #2563eb;
+}
+
+.navCta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 11px 20px;
+
+    margin-left: 12px;
+
+    border-radius: 12px;
+
+    color: white !important;
+
+    background: linear-gradient(135deg, #2563eb, #4f46e5);
+
+    box-shadow: 0 12px 28px rgba(37, 99, 235, .30);
+
+    transition:
+        transform .25s ease,
+        box-shadow .25s ease;
+}
+
+.navCta:hover {
+    transform: translateY(-2px);
+
+    box-shadow: 0 18px 35px rgba(37, 99, 235, .40);
+}
+
+/* ===========================
+   Menu Button
+=========================== */
+
+.menuButton {
+    display: none;
+
+    border: none;
+    background: transparent;
+
+    color: #111827;
+
+    cursor: pointer;
+
+    padding: 6px;
+}
+
+/* ===========================
+   Dark Mode
+=========================== */
+
+:global([data-theme="dark"]) .navbar {
+    background: rgba(15, 23, 42, .78);
+    border-color: rgba(255, 255, 255, .06);
+}
+
+:global([data-theme="dark"]) .navbar.scrolled {
+    background: rgba(15, 23, 42, .92);
+}
+
+:global([data-theme="dark"]) .logo {
+    color: white;
+}
+
+:global([data-theme="dark"]) .navigation a {
+    color: #e5e7eb;
+}
+
+:global([data-theme="dark"]) .navigation a:hover {
+    color: #60a5fa;
+}
+
+:global([data-theme="dark"]) .menuButton {
+    color: white;
+}
+
+:global([data-theme="dark"]) .navigation {
+    background: rgba(15, 23, 42, .97);
+}
+
+/* ===========================
+   Mobile
+=========================== */
+
+@media (max-width:900px) {
+
+    .menuButton {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        z-index: 1101;
+    }
+
+    .navigation {
+
+        position: fixed;
+
+        top: 72px;
+        left: 0;
+
+        width: 100%;
+        height: calc(100vh - 72px);
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: flex-start;
+
+        gap: 30px;
+
+        padding: 40px 30px;
+
+        background: rgba(255, 255, 255, .97);
+
+        backdrop-filter: blur(24px);
+        -webkit-backdrop-filter: blur(24px);
+
+        border-top: 1px solid rgba(0, 0, 0, .06);
+
+        opacity: 0;
+        visibility: hidden;
+        pointer-events: none;
+
+        transform: translateY(-18px);
+
+        transition:
+            opacity .28s ease,
+            transform .35s cubic-bezier(.22, 1, .36, 1),
+            visibility .28s;
+
+        overflow-y: auto;
+    }
+
+    .navigationOpen {
+
+        opacity: 1;
+        visibility: visible;
+        pointer-events: auto;
+
+        transform: translateY(0);
+    }
+
+    .navigation a {
+        font-size: 1.08rem;
+    }
+
+    .navCta {
+        width: 100%;
+        justify-content: center;
+        margin-top: 12px;
+        margin-left: 6px;
+    }
+
+    .signInLink {
+        padding: 0;
+        margin-left: 0;
+    }
+
+}
+
+@media (max-width:600px) {
+
+    .navContainer {
+        height: 70px;
+    }
+
+    .logo {
+        font-size: 1rem;
+    }
+
+    .logoIcon {
+        width: 44px;
+        height: 44px;
+    }
+
+    .navigation {
+        top: 70px;
+        height: calc(100vh - 70px);
+        padding: 36px 24px;
+    }
+
+}
+
+.themeToggle {
+    margin-left: 6px;
+    margin-right: 2px;
+}

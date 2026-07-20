@@ -27,12 +27,9 @@
 }
 
 .toggle:focus-visible {
-  outline: 3px solid
-    color-mix(
-      in srgb,
+  outline: 3px solid color-mix(in srgb,
       var(--theme-primary) 25%,
-      transparent
-    );
+      transparent);
   outline-offset: 2px;
 }
 

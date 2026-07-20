@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 32px 20px 60px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.12),
-      transparent 28%
-    ),
+      transparent 28%),
     #f5f7fb;
   color: #111827;
 }
@@ -25,17 +23,14 @@
   text-align: center;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #111b33 0%,
-      #263d73 100%
-    );
+      #263d73 100%);
   box-shadow:
-    0 22px 50px
-    rgba(31, 49, 91, 0.18);
+    0 22px 50px rgba(31, 49, 91, 0.18);
 }
 
-.header > button {
+.header>button {
   padding: 0;
   margin-bottom: 30px;
   border: none;
@@ -50,19 +45,18 @@
     transform 0.2s ease;
 }
 
-.header > button:hover {
+.header>button:hover {
   color: #c7d2fe;
   transform: translateX(-4px);
 }
 
-.header > button:focus-visible {
-  outline: 3px solid
-    rgba(255, 255, 255, 0.5);
+.header>button:focus-visible {
+  outline: 3px solid rgba(255, 255, 255, 0.5);
   outline-offset: 6px;
   border-radius: 6px;
 }
 
-.header > p {
+.header>p {
   margin: 0 0 18px;
   color: #9caeff;
   font-size: 15px;
@@ -74,15 +68,13 @@
 .header h1 {
   margin: 0;
   color: #ffffff;
-  font-size: clamp(
-    34px,
-    5vw,
-    54px
-  );
+  font-size: clamp(34px,
+      5vw,
+      54px);
   line-height: 1.1;
 }
 
-.header > span {
+.header>span {
   display: block;
   max-width: 680px;
   margin: 20px auto 0;
@@ -114,8 +106,7 @@
   border-radius: 28px;
   background: #ffffff;
   box-shadow:
-    0 18px 45px
-    rgba(15, 23, 42, 0.07);
+    0 18px 45px rgba(15, 23, 42, 0.07);
 }
 
 .sectionHeading {
@@ -127,7 +118,7 @@
   border-bottom: 1px solid #e5e7eb;
 }
 
-.sectionHeading > span {
+.sectionHeading>span {
   display: grid;
   flex: 0 0 62px;
   width: 62px;
@@ -173,7 +164,7 @@
   font-weight: 800;
 }
 
-.field label > span {
+.field label>span {
   margin-left: 4px;
   color: #ef4444;
 }
@@ -212,8 +203,7 @@
   border-color: #4f46e5;
   background: #ffffff;
   box-shadow:
-    0 0 0 4px
-    rgba(79, 70, 229, 0.12);
+    0 0 0 4px rgba(79, 70, 229, 0.12);
 }
 
 .field input::placeholder,
@@ -221,7 +211,7 @@
   color: #9ca3af;
 }
 
-.field > em {
+.field>em {
   align-self: flex-end;
   margin-top: 7px;
   color: #8b95aa;
@@ -229,7 +219,7 @@
   font-style: normal;
 }
 
-.field > small {
+.field>small {
   margin-top: 8px;
   color: #dc2626;
   font-size: 13px;
@@ -247,10 +237,7 @@
 .correctOption {
   display: grid;
   grid-template-columns:
-    auto
-    48px
-    minmax(0, 1fr)
-    auto;
+    auto 48px minmax(0, 1fr) auto;
   align-items: center;
   gap: 15px;
   padding: 18px;
@@ -273,12 +260,11 @@
   border-color: #86efac;
   background: #f0fdf4;
   box-shadow:
-    0 12px 30px
-    rgba(34, 197, 94, 0.1);
+    0 12px 30px rgba(34, 197, 94, 0.1);
 }
 
-.option > label,
-.correctOption > label {
+.option>label,
+.correctOption>label {
   display: flex;
   align-items: center;
   gap: 8px;
@@ -288,8 +274,8 @@
   cursor: pointer;
 }
 
-.option > label input,
-.correctOption > label input {
+.option>label input,
+.correctOption>label input {
   width: 18px;
   height: 18px;
   margin: 0;
@@ -297,12 +283,12 @@
   cursor: pointer;
 }
 
-.correctOption > label {
+.correctOption>label {
   color: #15803d;
 }
 
-.option > strong,
-.correctOption > strong {
+.option>strong,
+.correctOption>strong {
   display: grid;
   width: 44px;
   height: 44px;
@@ -313,13 +299,13 @@
   font-size: 17px;
 }
 
-.correctOption > strong {
+.correctOption>strong {
   color: #15803d;
   background: #dcfce7;
 }
 
-.option > input,
-.correctOption > input {
+.option>input,
+.correctOption>input {
   width: 100%;
   min-width: 0;
   padding: 14px 16px;
@@ -335,20 +321,19 @@
     box-shadow 0.2s ease;
 }
 
-.option > input:focus,
-.correctOption > input:focus {
+.option>input:focus,
+.correctOption>input:focus {
   border-color: #4f46e5;
   box-shadow:
-    0 0 0 4px
-    rgba(79, 70, 229, 0.1);
+    0 0 0 4px rgba(79, 70, 229, 0.1);
 }
 
-.correctOption > input {
+.correctOption>input {
   border-color: #86efac;
 }
 
-.option > button,
-.correctOption > button {
+.option>button,
+.correctOption>button {
   padding: 11px 15px;
   border: 1px solid #fecaca;
   border-radius: 11px;
@@ -364,16 +349,15 @@
     border-color 0.2s ease;
 }
 
-.option > button:hover:not(:disabled),
-.correctOption
-  > button:hover:not(:disabled) {
+.option>button:hover:not(:disabled),
+.correctOption>button:hover:not(:disabled) {
   border-color: #ef4444;
   color: #ffffff;
   background: #ef4444;
 }
 
-.option > button:disabled,
-.correctOption > button:disabled {
+.option>button:disabled,
+.correctOption>button:disabled {
   border-color: #e5e7eb;
   color: #9ca3af;
   background: #f3f4f6;
@@ -437,8 +421,7 @@
   border-radius: 24px;
   background: #ffffff;
   box-shadow:
-    0 15px 35px
-    rgba(15, 23, 42, 0.06);
+    0 15px 35px rgba(15, 23, 42, 0.06);
 }
 
 .cancelButton,
@@ -470,21 +453,17 @@
   border: 1px solid #4f46e5;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #5b4df5,
-      #4338ca
-    );
+      #4338ca);
   box-shadow:
-    0 12px 25px
-    rgba(79, 70, 229, 0.22);
+    0 12px 25px rgba(79, 70, 229, 0.22);
 }
 
 .submitButton:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow:
-    0 16px 30px
-    rgba(79, 70, 229, 0.3);
+    0 16px 30px rgba(79, 70, 229, 0.3);
 }
 
 .cancelButton:disabled,
@@ -499,15 +478,12 @@
 @media (max-width: 850px) {
   .page {
     padding:
-      24px
-      16px
-      50px;
+      24px 16px 50px;
   }
 
   .header {
     padding:
-      38px
-      28px;
+      38px 28px;
   }
 
   .formSection {
@@ -517,13 +493,11 @@
   .option,
   .correctOption {
     grid-template-columns:
-      auto
-      44px
-      minmax(0, 1fr);
+      auto 44px minmax(0, 1fr);
   }
 
-  .option > button,
-  .correctOption > button {
+  .option>button,
+  .correctOption>button {
     grid-column:
       1 / -1;
     width: 100%;
@@ -535,23 +509,20 @@
 @media (max-width: 600px) {
   .page {
     padding:
-      20px
-      12px
-      40px;
+      20px 12px 40px;
   }
 
   .header {
     padding:
-      34px
-      20px;
+      34px 20px;
     border-radius: 24px;
   }
 
-  .header > button {
+  .header>button {
     margin-bottom: 25px;
   }
 
-  .header > p {
+  .header>p {
     font-size: 12px;
     letter-spacing: 2px;
   }
@@ -560,7 +531,7 @@
     font-size: 34px;
   }
 
-  .header > span {
+  .header>span {
     font-size: 16px;
   }
 
@@ -570,8 +541,7 @@
 
   .formSection {
     padding:
-      25px
-      20px;
+      25px 20px;
     border-radius: 23px;
   }
 
@@ -580,7 +550,7 @@
     gap: 14px;
   }
 
-  .sectionHeading > span {
+  .sectionHeading>span {
     flex-basis: 52px;
     width: 52px;
     height: 52px;
@@ -599,34 +569,32 @@
   .field input,
   .field textarea {
     padding:
-      15px
-      14px;
+      15px 14px;
   }
 
   .option,
   .correctOption {
     grid-template-columns:
-      44px
-      minmax(0, 1fr);
+      44px minmax(0, 1fr);
     padding: 16px;
   }
 
-  .option > label,
-  .correctOption > label {
+  .option>label,
+  .correctOption>label {
     grid-column:
       1 / -1;
     justify-content:
       flex-start;
   }
 
-  .option > strong,
-  .correctOption > strong {
+  .option>strong,
+  .correctOption>strong {
     width: 42px;
     height: 42px;
   }
 
-  .option > button,
-  .correctOption > button {
+  .option>button,
+  .correctOption>button {
     grid-column:
       1 / -1;
   }
@@ -646,6 +614,7 @@
     order: -1;
   }
 }
+
 /* Day 25: Responsive form protection */
 
 .page,
@@ -658,9 +627,9 @@
   min-width: 0;
 }
 
-.header > div,
-.sectionHeading > div,
-.field > div {
+.header>div,
+.sectionHeading>div,
+.field>div {
   min-width: 0;
 }
 
@@ -698,24 +667,19 @@
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.18),
-      transparent 28%
-    ),
+      transparent 28%),
     #0b1120;
 }
 
 :global([data-theme="dark"]) .header {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #0f172a,
-      #1e3a5f
-    );
+      #1e3a5f);
   box-shadow:
-    0 22px 50px
-    rgba(0, 0, 0, 0.32);
+    0 22px 50px rgba(0, 0, 0, 0.32);
 }
 
 :global([data-theme="dark"]) .formSection,
@@ -723,28 +687,24 @@
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.22);
+    0 18px 45px rgba(0, 0, 0, 0.22);
 }
 
 :global([data-theme="dark"]) .sectionHeading {
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .sectionHeading > span {
+:global([data-theme="dark"]) .sectionHeading>span {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.25);
 }
 
-:global([data-theme="dark"])
-  .sectionHeading h2 {
+:global([data-theme="dark"]) .sectionHeading h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .sectionHeading p {
+:global([data-theme="dark"]) .sectionHeading p {
   color: #94a3b8;
 }
 
@@ -752,8 +712,7 @@
   color: #cbd5e1;
 }
 
-:global([data-theme="dark"])
-  .field label > span {
+:global([data-theme="dark"]) .field label>span {
   color: #f87171;
 }
 
@@ -765,37 +724,30 @@
   color-scheme: dark;
 }
 
-:global([data-theme="dark"])
-  .field input:hover,
-:global([data-theme="dark"])
-  .field textarea:hover {
+:global([data-theme="dark"]) .field input:hover,
+:global([data-theme="dark"]) .field textarea:hover {
   border-color: #64748b;
 }
 
-:global([data-theme="dark"])
-  .field input:focus,
-:global([data-theme="dark"])
-  .field textarea:focus {
+:global([data-theme="dark"]) .field input:focus,
+:global([data-theme="dark"]) .field textarea:focus {
   border-color: #818cf8;
   background: #1e293b;
   box-shadow:
-    0 0 0 4px
-    rgba(129, 140, 248, 0.14);
+    0 0 0 4px rgba(129, 140, 248, 0.14);
 }
 
-:global([data-theme="dark"])
-  .field input::placeholder,
-:global([data-theme="dark"])
-  .field textarea::placeholder {
+:global([data-theme="dark"]) .field input::placeholder,
+:global([data-theme="dark"]) .field textarea::placeholder {
   color: #64748b;
 }
 
-:global([data-theme="dark"]) .field > em,
+:global([data-theme="dark"]) .field>em,
 :global([data-theme="dark"]) .optionCount {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"]) .field > small,
+:global([data-theme="dark"]) .field>small,
 :global([data-theme="dark"]) .optionError {
   color: #fca5a5;
 }
@@ -826,91 +778,71 @@
   background:
     rgba(22, 101, 52, 0.24);
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.2);
+    0 12px 30px rgba(0, 0, 0, 0.2);
 }
 
-:global([data-theme="dark"])
-  .option > label {
+:global([data-theme="dark"]) .option>label {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .correctOption > label {
+:global([data-theme="dark"]) .correctOption>label {
   color: #86efac;
 }
 
-:global([data-theme="dark"])
-  .option > strong {
+:global([data-theme="dark"]) .option>strong {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.25);
 }
 
-:global([data-theme="dark"])
-  .correctOption > strong {
+:global([data-theme="dark"]) .correctOption>strong {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.38);
 }
 
-:global([data-theme="dark"])
-  .option > input,
-:global([data-theme="dark"])
-  .correctOption > input {
+:global([data-theme="dark"]) .option>input,
+:global([data-theme="dark"]) .correctOption>input {
   border-color: #334155;
   color: #e2e8f0;
   background: #111827;
 }
 
-:global([data-theme="dark"])
-  .option > input::placeholder,
-:global([data-theme="dark"])
-  .correctOption > input::placeholder {
+:global([data-theme="dark"]) .option>input::placeholder,
+:global([data-theme="dark"]) .correctOption>input::placeholder {
   color: #64748b;
 }
 
-:global([data-theme="dark"])
-  .option > input:focus,
-:global([data-theme="dark"])
-  .correctOption > input:focus {
+:global([data-theme="dark"]) .option>input:focus,
+:global([data-theme="dark"]) .correctOption>input:focus {
   border-color: #818cf8;
   background: #172033;
   box-shadow:
-    0 0 0 4px
-    rgba(129, 140, 248, 0.14);
+    0 0 0 4px rgba(129, 140, 248, 0.14);
 }
 
-:global([data-theme="dark"])
-  .correctOption > input {
+:global([data-theme="dark"]) .correctOption>input {
   border-color:
     rgba(74, 222, 128, 0.5);
 }
 
-:global([data-theme="dark"])
-  .option > button,
-:global([data-theme="dark"])
-  .correctOption > button {
+:global([data-theme="dark"]) .option>button,
+:global([data-theme="dark"]) .correctOption>button {
   border-color:
     rgba(248, 113, 113, 0.45);
   color: #fca5a5;
   background: #111827;
 }
 
-:global([data-theme="dark"])
-  .option > button:hover:not(:disabled),
-:global([data-theme="dark"])
-  .correctOption
-  > button:hover:not(:disabled) {
+:global([data-theme="dark"]) .option>button:hover:not(:disabled),
+:global([data-theme="dark"]) .correctOption>button:hover:not(:disabled) {
   border-color: #ef4444;
   color: #ffffff;
   background: #dc2626;
 }
 
-:global([data-theme="dark"])
-  .option > button:disabled,
-:global([data-theme="dark"])
-  .correctOption > button:disabled {
+:global([data-theme="dark"]) .option>button:disabled,
+:global([data-theme="dark"]) .correctOption>button:disabled {
   border-color: #334155;
   color: #64748b;
   background: #1e293b;
@@ -918,23 +850,20 @@
 
 /* Add option button */
 
-:global([data-theme="dark"])
-  .addOptionButton {
+:global([data-theme="dark"]) .addOptionButton {
   border-color: #6366f1;
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.16);
 }
 
-:global([data-theme="dark"])
-  .addOptionButton:hover:not(:disabled) {
+:global([data-theme="dark"]) .addOptionButton:hover:not(:disabled) {
   border-color: #818cf8;
   color: #ffffff;
   background: #4f46e5;
 }
 
-:global([data-theme="dark"])
-  .addOptionButton:disabled {
+:global([data-theme="dark"]) .addOptionButton:disabled {
   border-color: #475569;
   color: #64748b;
   background: #172033;
@@ -948,8 +877,7 @@
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .cancelButton:hover:not(:disabled) {
+:global([data-theme="dark"]) .cancelButton:hover:not(:disabled) {
   border-color: #64748b;
   color: #f8fafc;
   background: #1e293b;
@@ -958,46 +886,42 @@
 :global([data-theme="dark"]) .submitButton {
   border-color: #4f46e5;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #6366f1,
-      #4338ca
-    );
+      #4338ca);
 }
 
 /* Additional responsive protection */
 
 .optionList,
-.optionList > *,
-.option > *,
-.correctOption > * {
+.optionList>*,
+.option>*,
+.correctOption>* {
   min-width: 0;
 }
 
-.option > input,
-.correctOption > input,
+.option>input,
+.correctOption>input,
 .addOptionButton {
   max-width: 100%;
   box-sizing: border-box;
 }
 
-.option > label,
-.correctOption > label,
-.option > input,
-.correctOption > input {
+.option>label,
+.correctOption>label,
+.option>input,
+.correctOption>input {
   overflow-wrap: anywhere;
 }
 
 @media (max-width: 600px) {
   .header h1 {
-    font-size: clamp(
-      1.9rem,
-      10vw,
-      2.35rem
-    );
+    font-size: clamp(1.9rem,
+        10vw,
+        2.35rem);
   }
 
-  .header > span {
+  .header>span {
     font-size: 0.95rem;
   }
 
@@ -1011,9 +935,8 @@
     padding: 15px;
   }
 
-  .option > input,
-  .correctOption > input {
+  .option>input,
+  .correctOption>input {
     font-size: 16px;
   }
 }
-

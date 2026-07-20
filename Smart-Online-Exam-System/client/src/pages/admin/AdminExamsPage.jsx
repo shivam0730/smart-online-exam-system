@@ -261,7 +261,7 @@ const AdminExamsPage = () => {
 
     return (
       statusClasses[
-        examStatus
+      examStatus
       ] ||
       styles.draftBadge
     );
@@ -853,29 +853,29 @@ const AdminExamsPage = () => {
 
                             {exam.status !==
                               "ARCHIVED" && (
-                              <button
-                                type="button"
-                                className={
-                                  styles
-                                    .archiveButton
-                                }
-                                disabled={
-                                  processingExamId ===
-                                  exam.id
-                                }
-                                onClick={() =>
-                                  handleArchive(
-                                    exam
-                                  )
-                                }
-                              >
-                                <Archive
-                                  size={17}
-                                />
+                                <button
+                                  type="button"
+                                  className={
+                                    styles
+                                      .archiveButton
+                                  }
+                                  disabled={
+                                    processingExamId ===
+                                    exam.id
+                                  }
+                                  onClick={() =>
+                                    handleArchive(
+                                      exam
+                                    )
+                                  }
+                                >
+                                  <Archive
+                                    size={17}
+                                  />
 
-                                Archive
-                              </button>
-                            )}
+                                  Archive
+                                </button>
+                              )}
 
                             <button
                               type="button"
@@ -898,7 +898,7 @@ const AdminExamsPage = () => {
                               />
 
                               {processingExamId ===
-                              exam.id
+                                exam.id
                                 ? "Processing..."
                                 : "Delete"}
                             </button>

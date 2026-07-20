@@ -69,7 +69,7 @@
   background: #fee2e2;
 }
 
-.resultHero > span {
+.resultHero>span {
   color: #2563eb;
   font-size: 12px;
   font-weight: 800;
@@ -168,7 +168,7 @@
   background: #f8fafc;
 }
 
-.answerCard + .answerCard {
+.answerCard+.answerCard {
   margin-top: 18px;
 }
 
@@ -178,7 +178,7 @@
   justify-content: space-between;
 }
 
-.answerHeader > span {
+.answerHeader>span {
   color: #64748b;
   font-size: 14px;
   font-weight: 700;
@@ -206,7 +206,7 @@
   font-size: 20px;
 }
 
-.answerCard > p {
+.answerCard>p {
   margin: 10px 0;
   color: #475569;
 }
@@ -294,6 +294,7 @@
     padding: 20px;
   }
 }
+
 /* Day 25: Responsive result protection */
 
 .page,
@@ -310,12 +311,12 @@
   min-width: 0;
 }
 
-.header > div,
-.sectionHeading > div,
-.statsGrid > *,
-.performanceGrid > *,
-.resultHero > *,
-.reviewSection > * {
+.header>div,
+.sectionHeading>div,
+.statsGrid>*,
+.performanceGrid>*,
+.resultHero>*,
+.reviewSection>* {
   min-width: 0;
 }
 
@@ -341,13 +342,12 @@
 }
 
 @media (max-width: 520px) {
+
   .header h1,
   .resultHero h1 {
-    font-size: clamp(
-      1.75rem,
-      9vw,
-      2.1rem
-    );
+    font-size: clamp(1.75rem,
+        9vw,
+        2.1rem);
   }
 
   .statePage {
@@ -394,11 +394,10 @@
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.2);
+    0 18px 45px rgba(0, 0, 0, 0.2);
 }
 
-:global([data-theme="dark"]) .resultHero > span,
+:global([data-theme="dark"]) .resultHero>span,
 :global([data-theme="dark"]) .sectionHeading span {
   color: #60a5fa;
 }
@@ -413,7 +412,7 @@
 
 :global([data-theme="dark"]) .resultHero p,
 :global([data-theme="dark"]) .statCard span,
-:global([data-theme="dark"]) .answerHeader > span,
+:global([data-theme="dark"]) .answerHeader>span,
 :global([data-theme="dark"]) .errorCard p {
   color: #94a3b8;
 }
@@ -441,7 +440,7 @@
   background: #172033;
 }
 
-:global([data-theme="dark"]) .answerCard > p {
+:global([data-theme="dark"]) .answerCard>p {
   color: #cbd5e1;
 }
 
@@ -467,8 +466,7 @@
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.25);
+    0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
 :global([data-theme="dark"]) .errorCard svg,

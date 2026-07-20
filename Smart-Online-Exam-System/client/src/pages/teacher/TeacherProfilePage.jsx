@@ -259,8 +259,7 @@ const TeacherProfilePage = () => {
 
   const teacherInitials =
     teacher
-      ? `${teacher.firstName?.[0] || ""}${
-          teacher.lastName?.[0] || ""
+      ? `${teacher.firstName?.[0] || ""}${teacher.lastName?.[0] || ""
         }`.toUpperCase()
       : "";
 
@@ -584,7 +583,7 @@ const TeacherProfilePage = () => {
                         handleInputChange
                       }
                       placeholder=
-                        "Enter phone number"
+                      "Enter phone number"
                     />
                   </label>
 
@@ -605,7 +604,7 @@ const TeacherProfilePage = () => {
                         handleInputChange
                       }
                       placeholder=
-                        "Paste image URL"
+                      "Paste image URL"
                     />
                   </label>
                 </div>

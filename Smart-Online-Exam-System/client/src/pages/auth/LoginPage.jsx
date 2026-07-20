@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +10,29 @@ import {
 } from "../../context/authSlice";
 
 import styles from "./AuthPage.module.css";
+
+const containerVariants = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.12,
+    },
+  },
+};
+
+const itemVariants = {
+  hidden: {
+    opacity: 0,
+    y: 25,
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      duration: 0.5,
+    },
+  },
+};
 
 function LoginPage() {
   const dispatch = useDispatch();
@@ -89,7 +113,15 @@ function LoginPage() {
 
   return (
     <main className={styles.authPage}>
-      <section className={styles.brandPanel}>
+      <motion.section
+        className={styles.brandPanel}
+        initial={{ x: -80, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          ease: "easeOut",
+        }}
+      >
         <div className={styles.brandContent}>
           <div className={styles.logo}>
             <GraduationCap size={34} />
@@ -108,9 +140,18 @@ function LoginPage() {
             platform designed for modern education.
           </p>
         </div>
-      </section>
+      </motion.section>
 
-      <section className={styles.formPanel}>
+      <motion.section
+        className={styles.formPanel}
+        initial={{ x: 20, opacity: 0 }}
+        animate={{ x: 0, opacity: 1 }}
+        transition={{
+          duration: 0.8,
+          delay: 0.15,
+          ease: "easeOut",
+        }}
+      >
         <div className={styles.formContainer}>
           <Link
             className={styles.homeLink}
@@ -130,11 +171,17 @@ function LoginPage() {
             </p>
           </div>
 
-          <form
+          <motion.form
             className={styles.form}
             onSubmit={handleSubmit}
+            variants={containerVariants}
+            initial="hidden"
+            animate="visible"
           >
-            <div className={styles.formGroup}>
+            <motion.div
+              className={styles.formGroup}
+              variants={itemVariants}
+            >
               <label htmlFor="email">
                 Email address
               </label>
@@ -148,12 +195,25 @@ function LoginPage() {
                 placeholder="Enter your email address"
                 autoComplete="email"
               />
-            </div>
+            </motion.div>
 
-            <div className={styles.formGroup}>
-              <label htmlFor="password">
-                Password
-              </label>
+            <motion.div
+              className={styles.formGroup}
+              variants={itemVariants}
+            >
+
+              <div className={styles.passwordLabel}>
+                <label htmlFor="password">
+                  Password
+                </label>
+
+                <Link
+                  to="/forgot-password"
+                  className={styles.forgotPassword}
+                >
+                  Forgot Password?
+                </Link>
+              </div>
 
               <div className={styles.passwordField}>
                 <input
@@ -192,7 +252,7 @@ function LoginPage() {
                   )}
                 </button>
               </div>
-            </div>
+            </motion.div>
 
             {(validationError || error) && (
               <p className={styles.errorMessage}>
@@ -206,10 +266,10 @@ function LoginPage() {
               disabled={isLoading}
             >
               {isLoading
-                ? "Signing in..."
+                ? "⏳ Signing in..."
                 : "Sign in"}
             </button>
-          </form>
+          </motion.form>
 
           <p className={styles.switchText}>
             Don&apos;t have an account?{" "}
@@ -218,7 +278,7 @@ function LoginPage() {
             </Link>
           </p>
         </div>
-      </section>
+      </motion.section>
     </main>
   );
 }

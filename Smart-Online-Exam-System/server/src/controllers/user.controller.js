@@ -97,9 +97,9 @@ const updateProfile = async (
 
     if (
       trimmedFirstName.length >
-        50 ||
+      50 ||
       trimmedLastName.length >
-        50
+      50
     ) {
       return res
         .status(400)

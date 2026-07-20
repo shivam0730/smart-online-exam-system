@@ -23,6 +23,8 @@ const examRoutes = require("../modules/exam/exam.routes");
 
 const aiRoutes = require("../modules/ai/ai.routes");
 
+const publicRoutes = require("../modules/public/public.routes");
+
 const router = express.Router();
 
 router.use("/", healthRoutes);
@@ -37,5 +39,6 @@ router.use("/teacher", questionRoutes);
 router.use("/admin", adminRoutes);
 router.use("/exams", examRoutes);
 router.use("/ai", aiRoutes);
+router.use("/public", publicRoutes);
 
 module.exports = router;

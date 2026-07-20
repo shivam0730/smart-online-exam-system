@@ -1,0 +1,93 @@
+/* ==========================================================
+   Theme Overrides
+   Smart Online Examination System
+   ========================================================== */
+
+/* ==========================================================
+   DARK THEME (Default)
+   ========================================================== */
+
+body.dark {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+body.dark .glass {
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+body.dark .surface {
+  background: var(--bg-surface);
+}
+
+body.dark .card {
+  background: var(--bg-card);
+}
+
+/* ==========================================================
+   LIGHT THEME
+   ========================================================== */
+
+body.light {
+  background: var(--bg-light);
+  color: var(--text-dark);
+}
+
+body.light .glass {
+  background: rgba(255, 255, 255, 0.75);
+  border: 1px solid rgba(15, 23, 42, 0.08);
+}
+
+body.light .surface {
+  background: var(--bg-light-secondary);
+}
+
+body.light .card {
+  background: var(--bg-light-card);
+}
+
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5,
+body.light h6 {
+  color: var(--text-dark);
+}
+
+body.light p {
+  color: var(--text-dark-secondary);
+}
+
+/* ==========================================================
+   Selection
+   ========================================================== */
+
+body.light ::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+body.dark ::selection {
+  background: var(--color-primary);
+  color: white;
+}
+
+body.dark {
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+}
+
+body.light {
+  --color-text-primary: var(--text-dark);
+  --color-text-secondary: var(--text-dark-secondary);
+}
+
+body.dark {
+    --border-color: rgba(255,255,255,.08);
+}
+
+body.light {
+    --border-color: rgba(15,23,42,.08);
+}

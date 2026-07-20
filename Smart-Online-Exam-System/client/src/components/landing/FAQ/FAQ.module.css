@@ -1,0 +1,77 @@
+.section {
+  padding: 120px 0;
+}
+
+.header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 70px;
+}
+
+.badge {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 999px;
+  background: rgba(37, 99, 235, .12);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.header h2 {
+  font-size: clamp(2.3rem, 4vw, 3.5rem);
+  margin-bottom: 20px;
+}
+
+.header p {
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.list {
+  max-width: 850px;
+  margin: auto;
+}
+
+.item {
+  margin-bottom: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--glass-bg);
+  border: 1px solid var(--glass-border);
+  transition: var(--transition);
+}
+
+.item:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+}
+
+.question {
+  width: 100%;
+  padding: 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: transparent;
+  color: var(--color-text-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  border: none;
+  text-align: left;
+}
+
+.answer {
+  padding: 0 24px 24px;
+  color: var(--color-text-secondary);
+  line-height: 1.8;
+}
+
+.rotate {
+  transform: rotate(180deg);
+}
+
+.question svg {
+  transition: transform 0.3s ease;
+}

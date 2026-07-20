@@ -415,8 +415,8 @@ const TeacherExamsPage = () => {
                     <span
                       className={
                         styles[
-                          exam.status
-                            .toLowerCase()
+                        exam.status
+                          .toLowerCase()
                         ]
                       }
                     >
@@ -535,12 +535,12 @@ const TeacherExamsPage = () => {
                       }
                     >
                       {actionLoading ===
-                      exam.id
+                        exam.id
                         ? "Updating..."
                         : exam.status ===
                           "PUBLISHED"
-                        ? "Unpublish"
-                        : "Publish"}
+                          ? "Unpublish"
+                          : "Publish"}
                     </button>
                   </div>
 

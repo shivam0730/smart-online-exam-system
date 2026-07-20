@@ -1,0 +1,253 @@
+/* ==========================================================
+   SOES Animations
+========================================================== */
+
+/* ------------------------------
+   Fade Up
+------------------------------ */
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------
+   Fade Down
+------------------------------ */
+
+@keyframes fadeDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ------------------------------
+   Fade Left
+------------------------------ */
+
+@keyframes fadeLeft {
+  from {
+    opacity: 0;
+    transform: translateX(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ------------------------------
+   Fade Right
+------------------------------ */
+
+@keyframes fadeRight {
+  from {
+    opacity: 0;
+    transform: translateX(-40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* ------------------------------
+   Floating
+------------------------------ */
+
+@keyframes floating {
+
+  0%,
+  100% {
+    transform: translateY(0px);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
+}
+
+/* ------------------------------
+   Glow Pulse
+------------------------------ */
+
+@keyframes glowPulse {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(37, 99, 235, .20);
+  }
+
+  50% {
+    box-shadow: 0 0 45px rgba(37, 99, 235, .45);
+  }
+}
+
+/* ------------------------------
+   Rotate
+------------------------------ */
+
+@keyframes rotate360 {
+
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+/* ------------------------------
+   Scale
+------------------------------ */
+
+@keyframes scaleIn {
+
+  from {
+
+    opacity: 0;
+    transform: scale(.92);
+
+  }
+
+  to {
+
+    opacity: 1;
+    transform: scale(1);
+
+  }
+
+}
+
+/* ------------------------------
+   Gradient Shift
+------------------------------ */
+
+@keyframes gradientMove {
+
+  0% {
+    background-position: left;
+  }
+
+  50% {
+    background-position: right;
+  }
+
+  100% {
+    background-position: left;
+  }
+
+}
+
+/* ------------------------------
+   Blob
+------------------------------ */
+
+@keyframes blob {
+
+  0% {
+    transform: translate(0, 0) scale(1);
+  }
+
+  33% {
+    transform: translate(35px, -45px) scale(1.05);
+  }
+
+  66% {
+    transform: translate(-25px, 25px) scale(.95);
+  }
+
+  100% {
+    transform: translate(0, 0) scale(1);
+  }
+
+}
+
+/* ------------------------------
+   Shimmer
+------------------------------ */
+
+@keyframes shimmer {
+
+  from {
+    background-position: -200%;
+  }
+
+  to {
+    background-position: 200%;
+  }
+
+}
+
+/* ------------------------------
+   Marquee
+------------------------------ */
+
+@keyframes marquee {
+
+  from {
+
+    transform: translateX(0);
+
+  }
+
+  to {
+
+    transform: translateX(-50%);
+
+  }
+
+}
+
+/* ------------------------------
+   Hover Lift
+------------------------------ */
+
+.hover-lift {
+
+  transition: var(--transition);
+
+}
+
+.hover-lift:hover {
+
+  transform: translateY(-8px);
+
+}
+
+/* ------------------------------
+   Floating Class
+------------------------------ */
+
+.floating {
+
+  animation: floating 5s ease-in-out infinite;
+
+}
+
+/* ------------------------------
+   Glow Class
+------------------------------ */
+
+.glow {
+
+  animation: glowPulse 3s infinite;
+
+}

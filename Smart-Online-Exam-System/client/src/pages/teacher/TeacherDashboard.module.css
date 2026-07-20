@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 40px 24px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(99, 102, 241, 0.12),
-      transparent 32%
-    ),
+      transparent 32%),
     #f5f7fb;
   color: #172033;
 }
@@ -25,16 +23,13 @@
   gap: 30px;
   padding: 32px;
   margin-bottom: 28px;
-  background: linear-gradient(
-    135deg,
-    #111827,
-    #273b72
-  );
+  background: linear-gradient(135deg,
+      #111827,
+      #273b72);
   border-radius: 24px;
   color: #ffffff;
   box-shadow:
-    0 18px 45px
-    rgba(15, 23, 42, 0.16);
+    0 18px 45px rgba(15, 23, 42, 0.16);
 }
 
 .role {
@@ -48,11 +43,9 @@
 
 .header h1 {
   margin: 0;
-  font-size: clamp(
-    2rem,
-    4vw,
-    3.2rem
-  );
+  font-size: clamp(2rem,
+      4vw,
+      3.2rem);
   line-height: 1.1;
 }
 
@@ -74,18 +67,14 @@
   gap: 14px;
   min-width: 280px;
   padding: 15px 18px;
-  background: rgba(
-    255,
-    255,
-    255,
-    0.1
-  );
-  border: 1px solid rgba(
-    255,
-    255,
-    255,
-    0.15
-  );
+  background: rgba(255,
+      255,
+      255,
+      0.1);
+  border: 1px solid rgba(255,
+      255,
+      255,
+      0.15);
   border-radius: 18px;
   backdrop-filter: blur(10px);
 }
@@ -140,8 +129,7 @@
   border: 1px solid #e7eaf1;
   border-radius: 20px;
   box-shadow:
-    0 12px 35px
-    rgba(15, 23, 42, 0.06);
+    0 12px 35px rgba(15, 23, 42, 0.06);
   transition:
     transform 0.25s ease,
     box-shadow 0.25s ease;
@@ -153,12 +141,10 @@
   bottom: -45px;
   width: 110px;
   height: 110px;
-  background: rgba(
-    79,
-    70,
-    229,
-    0.06
-  );
+  background: rgba(79,
+      70,
+      229,
+      0.06);
   border-radius: 50%;
   content: "";
 }
@@ -166,8 +152,7 @@
 .statCard:hover {
   transform: translateY(-5px);
   box-shadow:
-    0 18px 40px
-    rgba(15, 23, 42, 0.1);
+    0 18px 40px rgba(15, 23, 42, 0.1);
 }
 
 .statCardTop {
@@ -176,7 +161,7 @@
   justify-content: space-between;
 }
 
-.statCardTop > span {
+.statCardTop>span {
   padding: 5px 9px;
   background: #ecfdf5;
   border-radius: 999px;
@@ -221,8 +206,7 @@
 .contentGrid {
   display: grid;
   grid-template-columns:
-    minmax(0, 2fr)
-    minmax(280px, 0.7fr);
+    minmax(0, 2fr) minmax(280px, 0.7fr);
   gap: 24px;
   align-items: start;
 }
@@ -234,8 +218,7 @@
   border: 1px solid #e7eaf1;
   border-radius: 22px;
   box-shadow:
-    0 12px 35px
-    rgba(15, 23, 42, 0.05);
+    0 12px 35px rgba(15, 23, 42, 0.05);
 }
 
 .sectionHeader {
@@ -259,7 +242,7 @@
   font-size: 0.82rem;
 }
 
-.sectionHeader > button {
+.sectionHeader>button {
   padding: 10px 15px;
   background: #eef2ff;
   border: 0;
@@ -273,7 +256,7 @@
     transform 0.2s ease;
 }
 
-.sectionHeader > button:hover {
+.sectionHeader>button:hover {
   background: #e0e7ff;
   transform: translateY(-1px);
 }
@@ -300,8 +283,7 @@
 .examCard:hover {
   border-color: #c7d2fe;
   box-shadow:
-    0 10px 25px
-    rgba(79, 70, 229, 0.08);
+    0 10px 25px rgba(79, 70, 229, 0.08);
 }
 
 .examMain {
@@ -321,7 +303,7 @@
   font-size: 1.35rem;
 }
 
-.examMain > div:last-child {
+.examMain>div:last-child {
   min-width: 0;
   flex: 1;
 }
@@ -406,15 +388,13 @@
   transform: translateY(-1px);
 }
 
-.examActions
-.secondaryButton {
+.examActions .secondaryButton {
   background: #ffffff;
   border-color: #d8dce6;
   color: #475569;
 }
 
-.examActions
-.secondaryButton:hover {
+.examActions .secondaryButton:hover {
   background: #f4f6fa;
 }
 
@@ -426,12 +406,11 @@
   gap: 12px;
 }
 
-.quickActions
-.sectionHeader {
+.quickActions .sectionHeader {
   margin-bottom: 8px;
 }
 
-.quickActions > button {
+.quickActions>button {
   display: flex;
   align-items: center;
   gap: 13px;
@@ -448,15 +427,13 @@
     background 0.2s ease;
 }
 
-.quickActions > button:hover {
+.quickActions>button:hover {
   background: #f5f7ff;
   border-color: #c7d2fe;
   transform: translateX(3px);
 }
 
-.quickActions
-> button
-> span {
+.quickActions>button>span {
   display: grid;
   place-items: center;
   flex-shrink: 0;
@@ -469,8 +446,7 @@
   font-weight: 900;
 }
 
-.quickActions
-button div {
+.quickActions button div {
   display: flex;
   flex-direction: column;
   gap: 4px;
@@ -493,7 +469,7 @@ button div {
   text-align: center;
 }
 
-.emptyState > div {
+.emptyState>div {
   font-size: 2.5rem;
 }
 
@@ -655,8 +631,7 @@ button div {
 .logoutButton {
   padding: 14px 20px;
 
-  border: 1px solid
-    rgba(255, 255, 255, 0.35);
+  border: 1px solid rgba(255, 255, 255, 0.35);
   border-radius: 14px;
 
   background:
@@ -684,8 +659,7 @@ button div {
 }
 
 .logoutButton:focus-visible {
-  outline: 3px solid
-    rgba(199, 210, 254, 0.65);
+  outline: 3px solid rgba(199, 210, 254, 0.65);
   outline-offset: 3px;
 }
 
@@ -731,7 +705,7 @@ button div {
   box-sizing: border-box;
 }
 
-.profile > div:last-child {
+.profile>div:last-child {
   min-width: 0;
   overflow: hidden;
 }
@@ -756,6 +730,7 @@ button div {
     max-width: 100%;
   }
 }
+
 /* Day 25: Responsive UI improvements */
 
 .page,
@@ -778,12 +753,12 @@ button div {
   min-width: 0;
 }
 
-.header > div,
-.profile > div,
-.statCard > div,
-.sectionHeader > div,
-.examMain > div,
-.quickActions > button > div {
+.header>div,
+.profile>div,
+.statCard>div,
+.sectionHeader>div,
+.examMain>div,
+.quickActions>button>div {
   min-width: 0;
 }
 
@@ -828,11 +803,9 @@ button div {
   }
 
   .header h1 {
-    font-size: clamp(
-      1.75rem,
-      9vw,
-      2.2rem
-    );
+    font-size: clamp(1.75rem,
+        9vw,
+        2.2rem);
     overflow-wrap: anywhere;
   }
 
@@ -882,7 +855,7 @@ button div {
     gap: 14px;
   }
 
-  .sectionHeader > button {
+  .sectionHeader>button {
     width: 100%;
   }
 
@@ -913,7 +886,7 @@ button div {
     overflow-wrap: anywhere;
   }
 
-  .quickActions > button {
+  .quickActions>button {
     min-width: 0;
     padding: 13px;
   }
@@ -940,24 +913,19 @@ button div {
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(99, 102, 241, 0.18),
-      transparent 32%
-    ),
+      transparent 32%),
     #0b1120;
 }
 
 :global([data-theme="dark"]) .header {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #0f172a,
-      #1e3a5f
-    );
+      #1e3a5f);
   box-shadow:
-    0 20px 48px
-    rgba(0, 0, 0, 0.32);
+    0 20px 48px rgba(0, 0, 0, 0.32);
 }
 
 :global([data-theme="dark"]) .profile {
@@ -982,8 +950,7 @@ button div {
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 16px 40px
-    rgba(0, 0, 0, 0.2);
+    0 16px 40px rgba(0, 0, 0, 0.2);
 }
 
 :global([data-theme="dark"]) .statCard::after {
@@ -994,8 +961,7 @@ button div {
 :global([data-theme="dark"]) .statCard:hover {
   border-color: #3b4d68;
   box-shadow:
-    0 20px 46px
-    rgba(0, 0, 0, 0.3);
+    0 20px 46px rgba(0, 0, 0, 0.3);
 }
 
 :global([data-theme="dark"]) .statIcon {
@@ -1003,8 +969,7 @@ button div {
     rgba(79, 70, 229, 0.22);
 }
 
-:global([data-theme="dark"])
-  .statCardTop > span {
+:global([data-theme="dark"]) .statCardTop>span {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.3);
@@ -1034,15 +999,13 @@ button div {
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .sectionHeader > button {
+:global([data-theme="dark"]) .sectionHeader>button {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.22);
 }
 
-:global([data-theme="dark"])
-  .sectionHeader > button:hover {
+:global([data-theme="dark"]) .sectionHeader>button:hover {
   color: #e0e7ff;
   background:
     rgba(79, 70, 229, 0.36);
@@ -1056,8 +1019,7 @@ button div {
 :global([data-theme="dark"]) .examCard:hover {
   border-color: #6366f1;
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.25);
+    0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
 :global([data-theme="dark"]) .examIcon {
@@ -1083,35 +1045,30 @@ button div {
   background: #111827;
 }
 
-:global([data-theme="dark"])
-  .examActions .secondaryButton {
+:global([data-theme="dark"]) .examActions .secondaryButton {
   border-color: #475569;
   color: #cbd5e1;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .examActions .secondaryButton:hover {
+:global([data-theme="dark"]) .examActions .secondaryButton:hover {
   border-color: #64748b;
   color: #f8fafc;
   background: #1e293b;
 }
 
-:global([data-theme="dark"])
-  .quickActions > button {
+:global([data-theme="dark"]) .quickActions>button {
   border-color: #29374c;
   color: #e5e7eb;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .quickActions > button:hover {
+:global([data-theme="dark"]) .quickActions>button:hover {
   border-color: #6366f1;
   background: #1e293b;
 }
 
-:global([data-theme="dark"])
-  .quickActions > button > span {
+:global([data-theme="dark"]) .quickActions>button>span {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.25);
@@ -1122,13 +1079,11 @@ button div {
   border-top-color: #818cf8;
 }
 
-:global([data-theme="dark"])
-  .errorContainer button {
+:global([data-theme="dark"]) .errorContainer button {
   background: #4f46e5;
 }
 
-:global([data-theme="dark"])
-  .errorContainer button:hover {
+:global([data-theme="dark"]) .errorContainer button:hover {
   background: #6366f1;
 }
 
@@ -1142,7 +1097,7 @@ button div {
     align-items: center;
   }
 
-  .header > div:first-child {
+  .header>div:first-child {
     flex: 1;
     min-width: 0;
   }
@@ -1163,4 +1118,3 @@ button div {
     min-height: 74px;
   }
 }
-

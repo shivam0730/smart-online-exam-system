@@ -162,9 +162,9 @@ const CreateExamPage = () => {
       new Date(
         formData.endTime
       ) <=
-        new Date(
-          formData.startTime
-        )
+      new Date(
+        formData.startTime
+      )
     ) {
       newErrors.endTime =
         "End time must be after the start time.";

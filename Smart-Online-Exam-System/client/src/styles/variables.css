@@ -1,0 +1,180 @@
+/* ==========================================================
+   SOES Design System
+   Smart Online Examination System
+   ========================================================== */
+
+:root {
+
+   /* ===========================
+     Brand Colors
+  =========================== */
+
+   --color-primary: #2563eb;
+   --color-primary-dark: #1d4ed8;
+   --color-secondary: #4f46e5;
+   --color-accent: #06b6d4;
+
+   /* ===========================
+     Dark Theme
+  =========================== */
+
+   --bg-primary: #020617;
+   --bg-secondary: #0b1120;
+   --bg-surface: #111827;
+   --bg-card: rgba(15, 23, 42, 0.75);
+
+   /* ===========================
+     Light Theme
+  =========================== */
+
+   --bg-light: #ffffff;
+   --bg-light-secondary: #f8fafc;
+   --bg-light-card: rgba(255, 255, 255, .75);
+
+   /* ===========================
+     Text Colors
+  =========================== */
+
+   --text-primary: #f8fafc;
+   --text-secondary: #cbd5e1;
+   --text-muted: #94a3b8;
+
+   --text-dark: #0f172a;
+   --text-dark-secondary: #334155;
+   --text-dark-muted: #64748b;
+
+   /* ===========================
+     Status Colors
+  =========================== */
+
+   --success: #22c55e;
+   --warning: #f59e0b;
+   --danger: #ef4444;
+   --info: #38bdf8;
+
+   /* ===========================
+     Border
+  =========================== */
+
+   --border-color: rgba(255, 255, 255, .08);
+   --border-light: rgba(15, 23, 42, .08);
+
+   /* ===========================
+     Gradients
+  =========================== */
+
+   --gradient-primary:
+      linear-gradient(135deg,
+         #2563eb 0%,
+         #4f46e5 100%);
+
+   --gradient-secondary:
+      linear-gradient(135deg,
+         #06b6d4,
+         #2563eb);
+
+   --gradient-dark:
+      linear-gradient(180deg,
+         #020617,
+         #0f172a);
+
+   --gradient-glow:
+      radial-gradient(circle,
+         rgba(37, 99, 235, .45),
+         transparent 70%);
+
+   /* ===========================
+     Glass
+  =========================== */
+
+   --glass-bg: rgba(255, 255, 255, .06);
+   --glass-border: rgba(255, 255, 255, .12);
+   --glass-blur: blur(18px);
+
+   /* ===========================
+     Shadows
+  =========================== */
+
+   --shadow-sm:
+      0 4px 12px rgba(0, 0, 0, .08);
+
+   --shadow-md:
+      0 12px 30px rgba(0, 0, 0, .18);
+
+   --shadow-lg:
+      0 24px 60px rgba(0, 0, 0, .30);
+
+   --shadow-glow:
+      0 0 40px rgba(37, 99, 235, .30);
+
+   /* ===========================
+     Border Radius
+  =========================== */
+
+   --radius-xs: 6px;
+   --radius-sm: 10px;
+   --radius-md: 16px;
+   --radius-lg: 24px;
+   --radius-xl: 32px;
+   --radius-full: 999px;
+
+   /* ===========================
+     Container
+  =========================== */
+
+   --container-width: 1280px;
+   --container-padding: 24px;
+
+   /* ===========================
+     Section Spacing
+  =========================== */
+
+   --section-space: 120px;
+   --section-space-mobile: 72px;
+
+   /* ===========================
+     Typography
+  =========================== */
+
+   --font-family:
+      Inter,
+      "Segoe UI",
+      sans-serif;
+
+   --font-display:
+      "Space Grotesk",
+      Inter,
+      sans-serif;
+
+   /* ===========================
+     Font Sizes
+  =========================== */
+
+   --fs-xs: .75rem;
+   --fs-sm: .875rem;
+   --fs-base: 1rem;
+   --fs-lg: 1.125rem;
+   --fs-xl: 1.25rem;
+   --fs-2xl: 1.5rem;
+   --fs-3xl: 2rem;
+   --fs-4xl: 2.75rem;
+   --fs-5xl: 3.75rem;
+   --fs-6xl: 5rem;
+
+   /* ===========================
+     Transition
+  =========================== */
+
+   --transition-fast: .2s ease;
+   --transition: .35s ease;
+   --transition-slow: .6s ease;
+
+   /* ===========================
+     Z Index
+  =========================== */
+
+   --z-navbar: 1000;
+   --z-dropdown: 1010;
+   --z-overlay: 1020;
+   --z-modal: 1050;
+}

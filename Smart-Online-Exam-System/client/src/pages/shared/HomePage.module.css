@@ -107,16 +107,12 @@
   isolation: isolate;
   overflow: hidden;
   background:
-    radial-gradient(
-      circle at 85% 16%,
+    radial-gradient(circle at 85% 16%,
       rgba(99, 102, 241, 0.16),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 8% 76%,
+      transparent 28%),
+    radial-gradient(circle at 8% 76%,
       rgba(37, 99, 235, 0.1),
-      transparent 27%
-    ),
+      transparent 27%),
     linear-gradient(180deg, #f8fbff 0%, #ffffff 100%);
 }
 
@@ -177,7 +173,7 @@
   color: #2563eb;
 }
 
-.heroCopy > p {
+.heroCopy>p {
   max-width: 650px;
   margin: 27px 0 0;
   color: #64748b;
@@ -281,7 +277,7 @@
   gap: 18px;
 }
 
-.cardHeader > div {
+.cardHeader>div {
   display: grid;
   min-width: 0;
   gap: 5px;
@@ -310,7 +306,7 @@
   background: #f0fdf4;
 }
 
-.liveBadge > span {
+.liveBadge>span {
   width: 7px;
   height: 7px;
   border-radius: 50%;
@@ -365,7 +361,7 @@
   gap: 12px;
 }
 
-.statGrid > div {
+.statGrid>div {
   display: grid;
   min-width: 0;
   padding: 17px 12px;
@@ -414,7 +410,7 @@
   background: #2563eb;
 }
 
-.upcomingExam > div:nth-child(2) {
+.upcomingExam>div:nth-child(2) {
   display: grid;
   min-width: 0;
   gap: 3px;
@@ -498,8 +494,8 @@
   text-align: center;
 }
 
-.sectionHeading > span,
-.ctaCard > div:first-child > span {
+.sectionHeading>span,
+.ctaCard>div:first-child>span {
   color: #2563eb;
   font-size: 0.76rem;
   font-weight: 850;
@@ -588,7 +584,7 @@
   background: #ffffff;
 }
 
-.roleCard > div:last-child {
+.roleCard>div:last-child {
   min-width: 0;
 }
 
@@ -612,22 +608,20 @@
   overflow: hidden;
   border-radius: 28px;
   background:
-    radial-gradient(
-      circle at 90% 10%,
+    radial-gradient(circle at 90% 10%,
       rgba(129, 140, 248, 0.35),
-      transparent 28%
-    ),
+      transparent 28%),
     linear-gradient(135deg, #172554, #1d4ed8);
   box-shadow: 0 25px 55px rgba(30, 64, 175, 0.2);
   gap: 45px;
 }
 
-.ctaCard > div:first-child {
+.ctaCard>div:first-child {
   max-width: 690px;
   min-width: 0;
 }
 
-.ctaCard > div:first-child > span {
+.ctaCard>div:first-child>span {
   color: #bfdbfe;
 }
 
@@ -696,7 +690,7 @@
   text-align: center;
 }
 
-.footerContent > span {
+.footerContent>span {
   color: #94a3b8;
   font-size: 0.78rem;
   white-space: nowrap;
@@ -728,6 +722,7 @@
 }
 
 @media (max-width: 900px) {
+
   .navContainer,
   .heroContent,
   .sectionContainer,
@@ -794,7 +789,7 @@
   }
 
   .heroCopy h1,
-  .heroCopy > p {
+  .heroCopy>p {
     margin-inline: auto;
   }
 
@@ -867,7 +862,7 @@
     line-height: 1.06;
   }
 
-  .heroCopy > p {
+  .heroCopy>p {
     margin-top: 21px;
     font-size: 0.96rem;
     line-height: 1.7;
@@ -905,7 +900,7 @@
     gap: 8px;
   }
 
-  .statGrid > div {
+  .statGrid>div {
     padding: 14px 7px;
   }
 
@@ -1019,6 +1014,7 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
+
   .navigation a,
   .primaryButton,
   .secondaryButton,
@@ -1069,21 +1065,15 @@
 
 :global([data-theme="dark"]) .hero {
   background:
-    radial-gradient(
-      circle at 85% 16%,
+    radial-gradient(circle at 85% 16%,
       rgba(99, 102, 241, 0.2),
-      transparent 28%
-    ),
-    radial-gradient(
-      circle at 8% 76%,
+      transparent 28%),
+    radial-gradient(circle at 8% 76%,
       rgba(37, 99, 235, 0.14),
-      transparent 27%
-    ),
-    linear-gradient(
-      180deg,
+      transparent 27%),
+    linear-gradient(180deg,
       #0b1120 0%,
-      #0f172a 100%
-    );
+      #0f172a 100%);
 }
 
 :global([data-theme="dark"]) .hero::before {
@@ -1107,7 +1097,7 @@
   color: #60a5fa;
 }
 
-:global([data-theme="dark"]) .heroCopy > p,
+:global([data-theme="dark"]) .heroCopy>p,
 :global([data-theme="dark"]) .sectionHeading p,
 :global([data-theme="dark"]) .featureCard p,
 :global([data-theme="dark"]) .roleCard p,
@@ -1149,11 +1139,9 @@
 
 :global([data-theme="dark"]) .progressCard {
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       rgba(30, 64, 175, 0.27),
-      rgba(67, 56, 202, 0.22)
-    );
+      rgba(67, 56, 202, 0.22));
 }
 
 :global([data-theme="dark"]) .progressTop span {
@@ -1168,7 +1156,7 @@
   background: #263449;
 }
 
-:global([data-theme="dark"]) .statGrid > div,
+:global([data-theme="dark"]) .statGrid>div,
 :global([data-theme="dark"]) .upcomingExam {
   border-color: #29374c;
   background: #172033;
@@ -1228,7 +1216,7 @@
   color: #94a3b8;
 }
 
-:global([data-theme="dark"]) .footerContent > span {
+:global([data-theme="dark"]) .footerContent>span {
   color: #64748b;
 }
 

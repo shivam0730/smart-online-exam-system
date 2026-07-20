@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 42px 24px;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.14),
-      transparent 32%
-    ),
+      transparent 32%),
     #f5f7fc;
   color: #111827;
 }
@@ -27,8 +25,7 @@
   border-radius: 26px;
   background: rgba(255, 255, 255, 0.94);
   box-shadow:
-    0 20px 50px
-    rgba(15, 23, 42, 0.07);
+    0 20px 50px rgba(15, 23, 42, 0.07);
 }
 
 .backButton {
@@ -60,11 +57,9 @@
 .header h1 {
   margin: 0;
   color: #111827;
-  font-size: clamp(
-    2rem,
-    4vw,
-    3rem
-  );
+  font-size: clamp(2rem,
+      4vw,
+      3rem);
   line-height: 1.1;
 }
 
@@ -124,8 +119,7 @@
   border-radius: 20px;
   background: #ffffff;
   box-shadow:
-    0 12px 32px
-    rgba(15, 23, 42, 0.05);
+    0 12px 32px rgba(15, 23, 42, 0.05);
 }
 
 .summaryIcon {
@@ -139,7 +133,7 @@
   color: #4f46e5;
 }
 
-.summaryCard > div:last-child {
+.summaryCard>div:last-child {
   display: flex;
   min-width: 0;
   flex-direction: column;
@@ -166,8 +160,7 @@
   border-radius: 24px;
   background: #ffffff;
   box-shadow:
-    0 18px 45px
-    rgba(15, 23, 42, 0.06);
+    0 18px 45px rgba(15, 23, 42, 0.06);
 }
 
 .toolbar {
@@ -246,8 +239,7 @@
 .filters select:focus {
   border-color: #6366f1;
   box-shadow:
-    0 0 0 3px
-    rgba(99, 102, 241, 0.12);
+    0 0 0 3px rgba(99, 102, 241, 0.12);
 }
 
 .clearButton {
@@ -457,9 +449,7 @@
   color: #c2410c;
 }
 
-.archiveButton:hover:not(
-  :disabled
-) {
+.archiveButton:hover:not( :disabled) {
   border-color: #fb923c;
   background: #ffedd5;
   transform: translateY(-1px);
@@ -471,9 +461,7 @@
   color: #dc2626;
 }
 
-.deleteButton:hover:not(
-  :disabled
-) {
+.deleteButton:hover:not( :disabled) {
   border-color: #f87171;
   background: #fef2f2;
   transform: translateY(-1px);
@@ -526,7 +514,7 @@
   font-size: 0.9rem;
 }
 
-.pagination > div {
+.pagination>div {
   display: flex;
   align-items: center;
   gap: 12px;
@@ -546,9 +534,7 @@
   cursor: pointer;
 }
 
-.pagination button:hover:not(
-  :disabled
-) {
+.pagination button:hover:not( :disabled) {
   border-color: #a5b4fc;
   color: #4338ca;
 }
@@ -558,7 +544,7 @@
   opacity: 0.45;
 }
 
-.pagination > div > span {
+.pagination>div>span {
   color: #64748b;
   font-size: 0.86rem;
   font-weight: 700;
@@ -579,10 +565,10 @@
   min-width: 0;
 }
 
-.header > div,
+.header>div,
 .totalExams,
-.totalExams > div,
-.pagination > div {
+.totalExams>div,
+.pagination>div {
   min-width: 0;
 }
 
@@ -654,7 +640,7 @@
     padding: 18px;
   }
 
-  .pagination > div {
+  .pagination>div {
     width: 100%;
     justify-content:
       space-between;
@@ -672,11 +658,9 @@
   }
 
   .header h1 {
-    font-size: clamp(
-      1.8rem,
-      10vw,
-      2.3rem
-    );
+    font-size: clamp(1.8rem,
+        10vw,
+        2.3rem);
   }
 
   .backButton {
@@ -747,12 +731,12 @@
     padding: 16px;
   }
 
-  .pagination > div {
+  .pagination>div {
     flex-wrap: wrap;
     gap: 10px;
   }
 
-  .pagination > div > span {
+  .pagination>div>span {
     width: 100%;
     order: -1;
     text-align: center;
@@ -783,168 +767,131 @@
 :global([data-theme="dark"]) .page {
   color: #e5e7eb;
   background:
-    radial-gradient(
-      circle at top right,
+    radial-gradient(circle at top right,
       rgba(79, 70, 229, 0.2),
-      transparent 32%
-    ),
+      transparent 32%),
     #0b1120;
 }
 
-:global([data-theme="dark"])
-  .header {
+:global([data-theme="dark"]) .header {
   border-color: #263449;
   background:
     rgba(17, 24, 39, 0.96);
   box-shadow:
-    0 20px 50px
-    rgba(0, 0, 0, 0.28);
+    0 20px 50px rgba(0, 0, 0, 0.28);
 }
 
-:global([data-theme="dark"])
-  .backButton,
-:global([data-theme="dark"])
-  .eyebrow {
+:global([data-theme="dark"]) .backButton,
+:global([data-theme="dark"]) .eyebrow {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-  .header h1,
-:global([data-theme="dark"])
-  .totalExams strong,
-:global([data-theme="dark"])
-  .summaryCard strong,
-:global([data-theme="dark"])
-  .examCell strong,
-:global([data-theme="dark"])
-  .teacherCell strong,
-:global([data-theme="dark"])
-  .stateMessage h2 {
+:global([data-theme="dark"]) .header h1,
+:global([data-theme="dark"]) .totalExams strong,
+:global([data-theme="dark"]) .summaryCard strong,
+:global([data-theme="dark"]) .examCell strong,
+:global([data-theme="dark"]) .teacherCell strong,
+:global([data-theme="dark"]) .stateMessage h2 {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .subtitle,
-:global([data-theme="dark"])
-  .summaryCard span,
-:global([data-theme="dark"])
-  .examCell span,
-:global([data-theme="dark"])
-  .teacherCell span,
-:global([data-theme="dark"])
-  .detailCell span {
+:global([data-theme="dark"]) .subtitle,
+:global([data-theme="dark"]) .summaryCard span,
+:global([data-theme="dark"]) .examCell span,
+:global([data-theme="dark"]) .teacherCell span,
+:global([data-theme="dark"]) .detailCell span {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .totalExams {
+:global([data-theme="dark"]) .totalExams {
   color: #c4b5fd;
   background:
     rgba(79, 70, 229, 0.22);
 }
 
-:global([data-theme="dark"])
-  .totalExams span {
+:global([data-theme="dark"]) .totalExams span {
   color: #a5b4fc;
 }
 
-:global([data-theme="dark"])
-  .summaryCard,
-:global([data-theme="dark"])
-  .contentCard {
+:global([data-theme="dark"]) .summaryCard,
+:global([data-theme="dark"]) .contentCard {
   border-color: #263449;
   background: #111827;
   box-shadow:
-    0 18px 45px
-    rgba(0, 0, 0, 0.25);
+    0 18px 45px rgba(0, 0, 0, 0.25);
 }
 
-:global([data-theme="dark"])
-  .summaryIcon {
+:global([data-theme="dark"]) .summaryIcon {
   color: #a5b4fc;
   background:
     rgba(79, 70, 229, 0.24);
 }
 
-:global([data-theme="dark"])
-  .toolbar {
+:global([data-theme="dark"]) .toolbar {
   border-bottom-color: #29374c;
 }
 
-:global([data-theme="dark"])
-  .searchForm {
+:global([data-theme="dark"]) .searchForm {
   border-color: #334155;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .searchForm input {
+:global([data-theme="dark"]) .searchForm input {
   color: #f8fafc;
 }
 
-:global([data-theme="dark"])
-  .searchForm button {
+:global([data-theme="dark"]) .searchForm button {
   background: #6366f1;
 }
 
-:global([data-theme="dark"])
-  .filters select,
-:global([data-theme="dark"])
-  .clearButton {
+:global([data-theme="dark"]) .filters select,
+:global([data-theme="dark"]) .clearButton {
   border-color: #334155;
   color: #e2e8f0;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .tableWrapper th {
+:global([data-theme="dark"]) .tableWrapper th {
   border-bottom-color: #334155;
   color: #94a3b8;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .tableWrapper td {
+:global([data-theme="dark"]) .tableWrapper td {
   border-bottom-color: #29374c;
   color: #cbd5e1;
 }
 
-:global([data-theme="dark"])
-  .tableWrapper tbody tr:hover {
+:global([data-theme="dark"]) .tableWrapper tbody tr:hover {
   background:
     rgba(79, 70, 229, 0.1);
 }
 
-:global([data-theme="dark"])
-  .draftBadge {
+:global([data-theme="dark"]) .draftBadge {
   color: #fdba74;
   background:
     rgba(154, 52, 18, 0.3);
 }
 
-:global([data-theme="dark"])
-  .publishedBadge {
+:global([data-theme="dark"]) .publishedBadge {
   color: #86efac;
   background:
     rgba(22, 101, 52, 0.3);
 }
 
-:global([data-theme="dark"])
-  .completedBadge {
+:global([data-theme="dark"]) .completedBadge {
   color: #93c5fd;
   background:
     rgba(30, 64, 175, 0.3);
 }
 
-:global([data-theme="dark"])
-  .archivedBadge {
+:global([data-theme="dark"]) .archivedBadge {
   color: #cbd5e1;
   background:
     rgba(71, 85, 105, 0.4);
 }
 
-:global([data-theme="dark"])
-  .viewButton {
+:global([data-theme="dark"]) .viewButton {
   border-color:
     rgba(129, 140, 248, 0.5);
   color: #c7d2fe;
@@ -952,8 +899,7 @@
     rgba(79, 70, 229, 0.24);
 }
 
-:global([data-theme="dark"])
-  .archiveButton {
+:global([data-theme="dark"]) .archiveButton {
   border-color:
     rgba(251, 146, 60, 0.5);
   color: #fdba74;
@@ -961,8 +907,7 @@
     rgba(154, 52, 18, 0.24);
 }
 
-:global([data-theme="dark"])
-  .deleteButton {
+:global([data-theme="dark"]) .deleteButton {
   border-color:
     rgba(248, 113, 113, 0.5);
   color: #fca5a5;
@@ -970,30 +915,24 @@
     rgba(127, 29, 29, 0.24);
 }
 
-:global([data-theme="dark"])
-  .pagination {
+:global([data-theme="dark"]) .pagination {
   border-top-color: #29374c;
   background: #0f172a;
 }
 
-:global([data-theme="dark"])
-  .pagination p,
-:global([data-theme="dark"])
-  .pagination > div > span,
-:global([data-theme="dark"])
-  .stateMessage {
+:global([data-theme="dark"]) .pagination p,
+:global([data-theme="dark"]) .pagination>div>span,
+:global([data-theme="dark"]) .stateMessage {
   color: #94a3b8;
 }
 
-:global([data-theme="dark"])
-  .pagination button {
+:global([data-theme="dark"]) .pagination button {
   border-color: #334155;
   color: #cbd5e1;
   background: #172033;
 }
 
-:global([data-theme="dark"])
-  .error {
+:global([data-theme="dark"]) .error {
   border-color:
     rgba(248, 113, 113, 0.45);
   color: #fca5a5;
@@ -1001,19 +940,16 @@
     rgba(127, 29, 29, 0.25);
 }
 
-:global([data-theme="dark"])
-  .error button {
+:global([data-theme="dark"]) .error button {
   color: #fca5a5;
 }
 
 @media (max-width: 480px) {
-  :global([data-theme="dark"])
-    .searchForm {
+  :global([data-theme="dark"]) .searchForm {
     background: transparent;
   }
 
-  :global([data-theme="dark"])
-    .searchForm input {
+  :global([data-theme="dark"]) .searchForm input {
     border-color: #334155;
     color: #f8fafc;
     background: #172033;

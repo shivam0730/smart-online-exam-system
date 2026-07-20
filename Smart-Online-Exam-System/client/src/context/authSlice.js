@@ -33,7 +33,7 @@ export const loginUser = createAsyncThunk(
     } catch (error) {
       return rejectWithValue(
         error.response?.data?.message ||
-          "Unable to login. Please try again."
+        "Unable to login. Please try again."
       );
     }
   }

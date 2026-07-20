@@ -1,19 +1,19 @@
 const buildQuestionGenerationPrompt = ({
-    topic,
-    difficulty,
-    questionType,
-    numberOfQuestions,
+  topic,
+  difficulty,
+  questionType,
+  numberOfQuestions,
 }) => {
-    const optionInstructions =
-        questionType === "MCQ"
-            ? `
+  const optionInstructions =
+    questionType === "MCQ"
+      ? `
 - Each question must have exactly four options.
 - Each option must contain:
   - "text": the option text
   - "isCorrect": true or false
 - Exactly one option must have "isCorrect": true.
 `
-            : `
+      : `
 - Each question must have exactly two options:
   - True
   - False
@@ -23,7 +23,7 @@ const buildQuestionGenerationPrompt = ({
 - Exactly one option must have "isCorrect": true.
 `;
 
-    return `
+  return `
 Generate ${numberOfQuestions} unique ${difficulty.toLowerCase()}-difficulty
 ${questionType} questions about "${topic}".
 
@@ -66,5 +66,5 @@ Use this exact JSON structure:
 };
 
 module.exports = {
-    buildQuestionGenerationPrompt,
+  buildQuestionGenerationPrompt,
 };

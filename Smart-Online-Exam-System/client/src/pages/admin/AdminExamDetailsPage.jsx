@@ -782,7 +782,7 @@ const AdminExamDetailsPage = () => {
                           }{" "}
                           {
                             question.marks ===
-                            1
+                              1
                               ? "mark"
                               : "marks"
                           }
@@ -813,7 +813,7 @@ const AdminExamDetailsPage = () => {
                                 {
                                   String.fromCharCode(
                                     65 +
-                                      optionIndex
+                                    optionIndex
                                   )
                                 }
                               </span>

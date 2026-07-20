@@ -2,11 +2,9 @@
   min-height: 100vh;
   padding: 40px 20px;
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #f5f7ff 0%,
-      #eef2ff 100%
-    );
+      #eef2ff 100%);
 }
 
 .container {
@@ -23,15 +21,12 @@
   border-radius: 24px;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #172554,
       #312e81,
-      #6d28d9
-    );
+      #6d28d9);
   box-shadow:
-    0 18px 45px
-    rgba(49, 46, 129, 0.2);
+    0 18px 45px rgba(49, 46, 129, 0.2);
 }
 
 .header::after {
@@ -63,7 +58,7 @@
   color: #ffffff;
 }
 
-.header > p {
+.header>p {
   position: relative;
   z-index: 1;
   margin: 0 0 8px;
@@ -79,15 +74,13 @@
   z-index: 1;
   max-width: 650px;
   margin: 0;
-  font-size: clamp(
-    32px,
-    5vw,
-    50px
-  );
+  font-size: clamp(32px,
+      5vw,
+      50px);
   line-height: 1.1;
 }
 
-.header > span {
+.header>span {
   position: relative;
   z-index: 1;
   display: block;
@@ -105,8 +98,7 @@
   border-radius: 22px;
   background: #ffffff;
   box-shadow:
-    0 14px 35px
-    rgba(15, 23, 42, 0.08);
+    0 14px 35px rgba(15, 23, 42, 0.08);
 }
 
 .cardHeading {
@@ -118,7 +110,7 @@
   border-bottom: 1px solid #e2e8f0;
 }
 
-.cardHeading > span {
+.cardHeading>span {
   display: grid;
   width: 48px;
   height: 48px;
@@ -127,11 +119,9 @@
   border-radius: 14px;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #7c3aed
-    );
+      #7c3aed);
   font-size: 15px;
   font-weight: 900;
 }
@@ -199,8 +189,7 @@
 .formGrid select:focus {
   border-color: #6366f1;
   box-shadow:
-    0 0 0 4px
-    rgba(99, 102, 241, 0.12);
+    0 0 0 4px rgba(99, 102, 241, 0.12);
 }
 
 .generateButton {
@@ -212,14 +201,11 @@
   border-radius: 13px;
   color: #ffffff;
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #4f46e5,
-      #7c3aed
-    );
+      #7c3aed);
   box-shadow:
-    0 10px 22px
-    rgba(79, 70, 229, 0.24);
+    0 10px 22px rgba(79, 70, 229, 0.24);
   font-size: 15px;
   font-weight: 800;
   cursor: pointer;
@@ -231,8 +217,7 @@
 .generateButton:hover:not(:disabled) {
   transform: translateY(-2px);
   box-shadow:
-    0 14px 28px
-    rgba(79, 70, 229, 0.3);
+    0 14px 28px rgba(79, 70, 229, 0.3);
 }
 
 .generateButton:disabled {
@@ -264,7 +249,7 @@
   text-transform: uppercase;
 }
 
-.resultsHeading > span {
+.resultsHeading>span {
   padding: 8px 13px;
   border-radius: 999px;
   color: #4338ca;
@@ -294,13 +279,13 @@
   margin-bottom: 16px;
 }
 
-.questionHeader > span {
+.questionHeader>span {
   color: #4f46e5;
   font-size: 13px;
   font-weight: 850;
 }
 
-.questionHeader > strong {
+.questionHeader>strong {
   padding: 6px 10px;
   border-radius: 999px;
   color: #6d28d9;
@@ -339,8 +324,8 @@
   background: #f0fdf4;
 }
 
-.option > span,
-.correctOption > span {
+.option>span,
+.correctOption>span {
   display: grid;
   width: 30px;
   height: 30px;
@@ -353,7 +338,7 @@
   font-weight: 850;
 }
 
-.correctOption > span {
+.correctOption>span {
   color: #15803d;
   background: #dcfce7;
 }
@@ -367,7 +352,7 @@
   overflow-wrap: anywhere;
 }
 
-.correctOption > strong {
+.correctOption>strong {
   margin-left: auto;
   color: #15803d;
   font-size: 11px;
@@ -475,8 +460,7 @@
   background: #ffffff;
 
   box-shadow:
-    0 10px 30px
-    rgba(15, 23, 42, 0.06);
+    0 10px 30px rgba(15, 23, 42, 0.06);
 }
 
 .examSelection {
@@ -522,8 +506,7 @@
   border-color: #2563eb;
 
   box-shadow:
-    0 0 0 4px
-    rgba(37, 99, 235, 0.12);
+    0 0 0 4px rgba(37, 99, 235, 0.12);
 }
 
 .examSelection select:disabled {
@@ -543,11 +526,9 @@
   border-radius: 12px;
 
   background:
-    linear-gradient(
-      135deg,
+    linear-gradient(135deg,
       #2563eb,
-      #4f46e5
-    );
+      #4f46e5);
 
   color: #ffffff;
 
@@ -559,8 +540,7 @@
   cursor: pointer;
 
   box-shadow:
-    0 10px 22px
-    rgba(37, 99, 235, 0.2);
+    0 10px 22px rgba(37, 99, 235, 0.2);
 
   transition:
     transform 0.2s ease,
@@ -572,8 +552,7 @@
   transform: translateY(-2px);
 
   box-shadow:
-    0 14px 28px
-    rgba(37, 99, 235, 0.28);
+    0 14px 28px rgba(37, 99, 235, 0.28);
 }
 
 .saveButton:disabled {
@@ -645,11 +624,9 @@
 
 :global(html[data-theme="dark"]) .page {
   background:
-    linear-gradient(
-      180deg,
+    linear-gradient(180deg,
       #070d1a 0%,
-      #0b1220 100%
-    );
+      #0b1220 100%);
 }
 
 :global(html[data-theme="dark"]) .generatorCard,
@@ -659,8 +636,7 @@
   background: #111a2b;
 
   box-shadow:
-    0 18px 40px
-    rgba(0, 0, 0, 0.28);
+    0 18px 40px rgba(0, 0, 0, 0.28);
 }
 
 :global(html[data-theme="dark"]) .cardHeading,
@@ -692,24 +668,19 @@
   color-scheme: dark;
 }
 
-:global(html[data-theme="dark"])
-.formGrid input::placeholder {
+:global(html[data-theme="dark"]) .formGrid input::placeholder {
   color: #7f91aa;
 }
 
-:global(html[data-theme="dark"])
-.formGrid input:focus,
-:global(html[data-theme="dark"])
-.formGrid select:focus {
+:global(html[data-theme="dark"]) .formGrid input:focus,
+:global(html[data-theme="dark"]) .formGrid select:focus {
   border-color: #818cf8;
 
   box-shadow:
-    0 0 0 4px
-    rgba(129, 140, 248, 0.15);
+    0 0 0 4px rgba(129, 140, 248, 0.15);
 }
 
-:global(html[data-theme="dark"])
-.resultsHeading > span {
+:global(html[data-theme="dark"]) .resultsHeading>span {
   color: #c7d2fe;
 
   background: #273263;
@@ -721,8 +692,7 @@
   background: #151f32;
 }
 
-:global(html[data-theme="dark"])
-.questionCard h3 {
+:global(html[data-theme="dark"]) .questionCard h3 {
   color: #f8fafc;
 }
 
@@ -732,56 +702,47 @@
   background: #101929;
 }
 
-:global(html[data-theme="dark"])
-.option > span {
+:global(html[data-theme="dark"]) .option>span {
   color: #c7d2fe;
 
   background: #293468;
 }
 
-:global(html[data-theme="dark"])
-.option p {
+:global(html[data-theme="dark"]) .option p {
   color: #cbd5e1;
 }
 
-:global(html[data-theme="dark"])
-.correctOption {
+:global(html[data-theme="dark"]) .correctOption {
   border-color: #25845b;
 
   background: #12372d;
 }
 
-:global(html[data-theme="dark"])
-.correctOption > span {
+:global(html[data-theme="dark"]) .correctOption>span {
   color: #86efac;
 
   background: #14532d;
 }
 
-:global(html[data-theme="dark"])
-.correctOption p {
+:global(html[data-theme="dark"]) .correctOption p {
   color: #dcfce7;
 }
 
-:global(html[data-theme="dark"])
-.correctOption > strong {
+:global(html[data-theme="dark"]) .correctOption>strong {
   color: #86efac;
 }
 
-:global(html[data-theme="dark"])
-.explanation {
+:global(html[data-theme="dark"]) .explanation {
   border-left-color: #8b5cf6;
 
   background: #252044;
 }
 
-:global(html[data-theme="dark"])
-.explanation strong {
+:global(html[data-theme="dark"]) .explanation strong {
   color: #c4b5fd;
 }
 
-:global(html[data-theme="dark"])
-.explanation p {
+:global(html[data-theme="dark"]) .explanation p {
   color: #d8d5ef;
 }
 
@@ -789,24 +750,20 @@
    Dark Mode - Save Questions Panel
 ======================================== */
 
-:global(html[data-theme="dark"])
-.savePanel {
+:global(html[data-theme="dark"]) .savePanel {
   border-color: #2a3950;
 
   background: #151f32;
 
   box-shadow:
-    0 12px 30px
-    rgba(0, 0, 0, 0.24);
+    0 12px 30px rgba(0, 0, 0, 0.24);
 }
 
-:global(html[data-theme="dark"])
-.examSelection label {
+:global(html[data-theme="dark"]) .examSelection label {
   color: #dbeafe;
 }
 
-:global(html[data-theme="dark"])
-.examSelection select {
+:global(html[data-theme="dark"]) .examSelection select {
   border-color: #33445f;
 
   color: #f8fafc;
@@ -816,24 +773,20 @@
   color-scheme: dark;
 }
 
-:global(html[data-theme="dark"])
-.examSelection select:focus {
+:global(html[data-theme="dark"]) .examSelection select:focus {
   border-color: #818cf8;
 
   box-shadow:
-    0 0 0 4px
-    rgba(129, 140, 248, 0.15);
+    0 0 0 4px rgba(129, 140, 248, 0.15);
 }
 
-:global(html[data-theme="dark"])
-.examSelection select:disabled {
+:global(html[data-theme="dark"]) .examSelection select:disabled {
   color: #7f91aa;
 
   background: #1c2739;
 }
 
-:global(html[data-theme="dark"])
-.success {
+:global(html[data-theme="dark"]) .success {
   border-color: #166534;
 
   color: #86efac;
@@ -841,8 +794,7 @@
   background: #12372d;
 }
 
-:global(html[data-theme="dark"])
-.error {
+:global(html[data-theme="dark"]) .error {
   border-color: #7f1d1d;
 
   color: #fca5a5;
